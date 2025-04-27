@@ -1,16 +1,22 @@
-import { Typography } from "@mui/material";
-import { NormalButton } from "@/components/Mui/Button";
-import { useRouter } from "next/router";
+import { Typography, Box } from "@mui/material";
 
 const Pages = () => {
-  const router = useRouter();
   return (
     <div>
       <Typography variant="h1">tutorial</Typography>
       <Typography>
         これはCSS, MUI, React, ReactHookFormのチュートリアルです
+        <br />
+        環境は以下を参考にしてください
       </Typography>
-      <NormalButton onClick={() => router.push("/mui/button")} />
+      <Box
+        component="pre"
+        sx={{
+          backgroundColor: "#f0f0f0",
+        }}
+      >
+        `npx create-next-app@latest --ts`
+      </Box>
     </div>
   );
 };
