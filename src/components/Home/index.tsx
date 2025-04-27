@@ -15,11 +15,15 @@ const Home = () => {
         }}
       >
         <code>
+          TypeScript: 5,
+          <br />
           Next: 15.3.1
           <br />
           React: 19.0.0
           <br />
           ReactDOM: 19.0.0
+          <br />
+          Tailwind: 4
           <br />
           ReactHookForm: 7.56.1
           <br />
