@@ -1,4 +1,4 @@
-import Tailwind from "@/components/Tailwind";
+import Tailwind from "@/components/templates/Tailwind";
 import { BaseTemplate } from "@/features/Template";
 
 const Pages = () => {

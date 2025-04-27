@@ -1,4 +1,4 @@
-import Button from "@/components/Mui/Button";
+import Button from "@/components/templates/Mui/Button";
 import { BaseTemplate } from "@/features/Template";
 
 const Pages = () => {
