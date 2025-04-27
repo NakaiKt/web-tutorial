@@ -1,5 +1,11 @@
 import Home from "@/components/Home";
+import { BaseTemplate } from "@/components/Template";
+
 const Pages = () => {
-  return <Home />;
+  return (
+    <BaseTemplate title="Home">
+      <Home />
+    </BaseTemplate>
+  );
 };
 export default Pages;

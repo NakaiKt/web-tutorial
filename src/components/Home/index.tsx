@@ -3,7 +3,6 @@ import { Typography, Box } from "@mui/material";
 const Home = () => {
   return (
     <div>
-      <Typography variant="h1">tutorial</Typography>
       <Typography>
         これはCSS, MUI, React, ReactHookFormのチュートリアルです
         <br />
