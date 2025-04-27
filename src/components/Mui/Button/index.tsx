@@ -14,7 +14,7 @@ export const NormalButton = ({
   return <Button onClick={onClick}>{text}</Button>;
 };
 
-const pages = () => {
+const Pages = () => {
   return (
     <div className="flex">
       <NormalButton />
@@ -22,4 +22,4 @@ const pages = () => {
   );
 };
 
-export default pages;
+export default Pages;
