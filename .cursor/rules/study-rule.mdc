@@ -6,6 +6,10 @@ alwaysApply: true
 このリポジトリは勉強用のリポジトリです
 特にCSS のスタイル指定や MUI v7, Tailwind v4 の使い方を学ぶために作成しています
 詳細は [package.json](mdc:package.json)や [package-lock.json](mdc:package-lock.json) を参照してください
+またMUIやTailwindについては，公式ドキュメントを参照してください
+- https://mui.com/material-ui/getting-started/
+- https://tailwindcss.com/
+- https://react-hook-form.com/
 
 勉強することが目的であるため，以下の点に注意してください
 
