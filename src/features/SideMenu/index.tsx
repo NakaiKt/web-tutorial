@@ -22,7 +22,10 @@ const SideMenu = () => {
     {
       title: "MUI",
       path: "/mui",
-      children: [{ title: "Button", path: "/button" }],
+      children: [
+        { title: "Button", path: "/button" },
+        { title: "Typography", path: "/typography" },
+      ],
     },
   ];
 
