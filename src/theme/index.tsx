@@ -27,8 +27,7 @@ const theme = createTheme({
     },
     grey: {
       50: "#fafafa",
-      100: "#f5f5f5",
-      // 他のグレースケール
+      100: "#f0f0f0",
     },
   },
 });

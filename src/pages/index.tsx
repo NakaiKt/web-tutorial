@@ -12,10 +12,20 @@ const Pages = () => {
       <Box
         component="pre"
         sx={{
-          backgroundColor: "#f0f0f0",
+          backgroundColor: "grey.100",
         }}
       >
-        `npx create-next-app@latest --ts`
+        <code>
+          Next: 15.3.1
+          <br />
+          React: 19.0.0
+          <br />
+          ReactDOM: 19.0.0
+          <br />
+          ReactHookForm: 7.56.1
+          <br />
+          MUI: 7.0.2
+        </code>
       </Box>
     </div>
   );
