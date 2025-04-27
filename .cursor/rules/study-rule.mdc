@@ -1,0 +1,14 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+このリポジトリは勉強用のリポジトリです
+特にCSS のスタイル指定や MUI v7, Tailwind v4 の使い方を学ぶために作成しています
+詳細は [package.json](mdc:package.json)や [package-lock.json](mdc:package-lock.json) を参照してください
+
+勉強することが目的であるため，以下の点に注意してください
+
+- 詳細に私に説明してください．特に css のスタイル指定や MUI v7, Tailwind v4 の使い方については，具体的なコード例を交えて説明してください
+  - このスタイル指定にはどのような意味があるのか，どのような効果があるのかを詳しく説明してください
+
