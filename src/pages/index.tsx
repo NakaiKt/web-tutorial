@@ -1,5 +1,5 @@
-import Home from "@/components/Home";
-import { BaseTemplate } from "@/components/Template";
+import Home from "@/features/Home";
+import { BaseTemplate } from "@/features/Template";
 
 const Pages = () => {
   return (

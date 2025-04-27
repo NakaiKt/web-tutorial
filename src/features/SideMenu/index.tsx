@@ -11,7 +11,14 @@ const DRAWER_WIDTH = 280;
 
 const SideMenu = () => {
   const menuItems: MenuItems = [
-    { title: "Home", path: "/" },
+    {
+      title: "Tailwind",
+      path: "/tailwind",
+      children: [
+        { title: "Flex", path: "/flex" },
+        { title: "Background", path: "/background" },
+      ],
+    },
     {
       title: "MUI",
       path: "/mui",
@@ -35,7 +42,7 @@ const SideMenu = () => {
         anchor="left"
       >
         <Typography variant="h6" noWrap component="div" sx={{ p: 2 }}>
-          Menu
+          ドキュメント
         </Typography>
         <CssBaseline />
         {menuItems.map((menuItem) => (
