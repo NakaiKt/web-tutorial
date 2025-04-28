@@ -1,5 +1,6 @@
-import { Typography } from "@mui/material";
+import { Typography, Container } from "@mui/material";
 import { ReactNode } from "react";
+import Space from "@/components/parts/Space";
 
 type TemplateProps = {
   title: string;
@@ -8,10 +9,13 @@ type TemplateProps = {
 
 const BaseTemplate = ({ title, children }: TemplateProps) => {
   return (
-    <div>
-      <Typography variant="h1">{title}</Typography>
+    <Container maxWidth="lg">
+      <Typography variant="h3" component="h1">
+        {title}
+      </Typography>
+      <Space />
       <div>{children}</div>
-    </div>
+    </Container>
   );
 };
 export { BaseTemplate };
