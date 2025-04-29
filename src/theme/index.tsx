@@ -37,6 +37,10 @@ const theme = createTheme({
     },
   },
   typography: {
+    h1: {
+      fontWeight: "bold",
+      fontSize: "2.5rem",
+    },
     h2: {
       fontWeight: "bold",
       fontSize: "2rem",
@@ -47,6 +51,11 @@ const theme = createTheme({
       marginBottom: "1rem",
       paddingTop: "0.5rem",
       marginTop: "1rem",
+      color: "rgb(0, 160, 125)",
+    },
+    h3: {
+      fontWeight: "bold",
+      fontSize: "1.8rem",
       color: "rgb(0, 160, 125)",
     },
   },
