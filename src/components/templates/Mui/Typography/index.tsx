@@ -113,6 +113,21 @@ const Pages = () => {
       <Typography>
         デザイン変更時（variant変更）をしても，HTML構造を変えずに見た目だけ変えることが可能
       </Typography>
+      <Typography variant="h3">{TypographyFeatureList[2]}</Typography>
+      <Typography>
+        デフォルトではフォントサイズは固定だが，以下のような設定をすることでウィンドウサイズ（PCのブラウザサイズ，スマホなどなど）によってサイズを変える設定ができる
+      </Typography>
+      <CodeBlock
+        fileName="index.tsx"
+        code={`
+          import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+          let theme = createTheme({ /* ... */ });
+          theme = responsiveFontSizes(theme);
+          `}
+      />
+      <Typography>
+        ただしこれはなめらかに変わるわけではなく，CSSのメディアクエリによる変更なので，ブレークポイントごとに段階的に変わる
+      </Typography>
     </div>
   );
 };
