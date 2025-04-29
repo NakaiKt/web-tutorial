@@ -89,6 +89,30 @@ const Pages = () => {
       `}
       />
       <Typography variant="h3"> {TypographyFeatureList[1]} </Typography>
+      <Typography>
+        Typographyはvariantプロパティでスタイルを，componentプロパティでHTMLの要素を指定できる．
+      </Typography>
+      <CodeBlock
+        fileName="index.tsx"
+        code={`
+        <Typography variant="h1" component="h2">
+          これはh1のスタイルでありながら，h2のHTML要素です．
+        </Typography>
+        `}
+      />
+      <Typography>これにより以下のような利点がある</Typography>
+      <Typography variant="h4">SEO対策になる</Typography>
+      <Typography>
+        ページ内に複数のh1要素があると，SEO的によくないといわれている．
+        <br />
+        しかし，デザイン上では複数個所でh1を使用したい場合がある．
+        <br />
+        そのような場合に，componentプロパティを使用すると，h1のスタイルをそのままに，h2のHTML要素として表示することができる．
+      </Typography>
+      <Typography variant="h4">デザインと構造を分離できる</Typography>
+      <Typography>
+        デザイン変更時（variant変更）をしても，HTML構造を変えずに見た目だけ変えることが可能
+      </Typography>
     </div>
   );
 };
