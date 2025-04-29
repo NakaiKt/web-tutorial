@@ -11,9 +11,7 @@ const BaseTemplate = ({ title, children }: TemplateProps) => {
   return (
     <Container>
       <div className="w-[960px] mx-auto">
-        <Typography variant="h3" component="h1">
-          {title}
-        </Typography>
+        <Typography variant="h1">{title}</Typography>
         <Space />
         <div>{children}</div>
       </div>
