@@ -1,5 +1,5 @@
 // src/theme/index.tsx などのファイルを作成
-import { createTheme } from "@mui/material/styles";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
@@ -85,4 +85,4 @@ const theme = createTheme({
   },
 });
 
-export default theme;
+export default responsiveFontSizes(theme);
