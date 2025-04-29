@@ -1,23 +1,12 @@
-import { Typography, Box, Link as MuiLink } from "@mui/material";
-import Link from "next/link";
+import { Typography, Box } from "@mui/material";
+import Link from "@/components/parts/Link";
 
 const Tailwind = () => {
   return (
     <Box>
       <Typography>
         使用するTailwindのバージョンは
-        <Link href="/" passHref>
-          <MuiLink
-            sx={{
-              mx: 1,
-              color: "primary.main",
-              fontWeight: "medium",
-              textDecoration: "underline",
-            }}
-          >
-            ここ
-          </MuiLink>
-        </Link>
+        <Link text="ここ" url="https://tailwindcss.com/docs/installation" />
         を参照してください
       </Typography>
     </Box>
