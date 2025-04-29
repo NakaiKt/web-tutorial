@@ -9,12 +9,14 @@ type TemplateProps = {
 
 const BaseTemplate = ({ title, children }: TemplateProps) => {
   return (
-    <Container maxWidth="lg">
-      <Typography variant="h3" component="h1">
-        {title}
-      </Typography>
-      <Space />
-      <div>{children}</div>
+    <Container>
+      <div className="w-[960px] mx-auto">
+        <Typography variant="h3" component="h1">
+          {title}
+        </Typography>
+        <Space />
+        <div>{children}</div>
+      </div>
     </Container>
   );
 };

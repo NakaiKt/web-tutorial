@@ -10,14 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       <Box sx={{ display: "flex" }}>
         <SideMenu />
-        <Box
-          component="main"
-          sx={{
-            p: 3,
-          }}
-        >
-          <Component {...pageProps} />
-        </Box>
+        <Component {...pageProps} />
       </Box>
     </ThemeProvider>
   );
