@@ -159,7 +159,7 @@ const Pages = () => {
         これを指定した場合，以下のように長い文章の末が「...」で省略される
       </Typography>
       <Typography noWrap className="bg-gray-200 p-2">
-        長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章
+        長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章
       </Typography>
       <Typography variant="h4">gutterBottom</Typography>
       <Typography>要素の下に余白（マージン）を自動で追加する</Typography>
@@ -216,6 +216,89 @@ const Pages = () => {
       <Typography>
         justifyとleftの違いは，英語を入力するときには顕著だが，日本語を入力するときには気にしなくていい(leftを選んでおけばいい)
       </Typography>
+
+      <Typography variant="h4">color</Typography>
+      <Typography>
+        テーマで定義された色を簡単に使用できる．
+        <br />
+        デフォルトでは&quot;text.primary&quot;（黒の87%不透明度）が使用され，以下のような色が標準で用意されている
+      </Typography>
+      <Typography color="text.primary" className="bg-gray-200">
+        color=&quot;text.primary&quot;のテキスト（デフォルト）
+      </Typography>
+      <Typography color="text.secondary" className="bg-gray-200">
+        color=&quot;text.secondary&quot;のテキスト（より薄い色）
+      </Typography>
+      <Typography color="text.disabled" className="bg-gray-200">
+        color=&quot;text.disabled&quot;のテキスト（無効状態）
+      </Typography>
+      <Typography color="primary" className="bg-gray-200">
+        color=&quot;primary&quot;のテキスト
+      </Typography>
+      <Typography color="secondary" className="bg-gray-200">
+        color=&quot;secondary&quot;のテキスト
+      </Typography>
+      <Typography color="error" className="bg-gray-200">
+        color=&quot;error&quot;のテキスト
+      </Typography>
+      <Typography color="warning" className="bg-gray-200">
+        color=&quot;warning&quot;のテキスト
+      </Typography>
+      <Typography color="info" className="bg-gray-200">
+        color=&quot;info&quot;のテキスト
+      </Typography>
+      <Typography color="success" className="bg-gray-200">
+        color=&quot;success&quot;のテキスト
+      </Typography>
+      <Typography>
+        これらの色はテーマで定義されており，アプリケーション全体で一貫した色を使用できる
+      </Typography>
+      <CodeBlock
+        fileName="index.tsx"
+        code={`
+        <Typography color="primary">
+          プライマリカラーのテキスト
+        </Typography>
+        `}
+      />
+
+      <Typography variant="h4">fontWeight</Typography>
+      <Typography>
+        フォントの太さを指定できる．
+        <br />
+        数値（100〜900）または文字列（&quot;light&quot;, &quot;regular&quot;,
+        &quot;medium&quot;, &quot;bold&quot;）で指定可能
+      </Typography>
+      <Typography fontWeight="light" className="bg-gray-200">
+        fontWeight=&quot;light&quot;のテキスト
+      </Typography>
+      <Typography fontWeight="regular" className="bg-gray-200">
+        fontWeight=&quot;regular&quot;のテキスト
+      </Typography>
+      <Typography fontWeight="medium" className="bg-gray-200">
+        fontWeight=&quot;medium&quot;のテキスト
+      </Typography>
+      <Typography fontWeight="bold" className="bg-gray-200">
+        fontWeight=&quot;bold&quot;のテキスト
+      </Typography>
+      <Typography>数値での指定も可能</Typography>
+      <Typography fontWeight={300} className="bg-gray-200">
+        fontWeight=300のテキスト
+      </Typography>
+      <Typography fontWeight={900} className="bg-gray-200">
+        fontWeight=900のテキスト
+      </Typography>
+      <CodeBlock
+        fileName="index.tsx"
+        code={`
+        <Typography fontWeight="bold">
+          太字のテキスト
+        </Typography>
+        <Typography fontWeight={300}>
+          数値指定の軽めのテキスト
+        </Typography>
+        `}
+      />
     </div>
   );
 };
