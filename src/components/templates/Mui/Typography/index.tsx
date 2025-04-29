@@ -25,7 +25,6 @@ const Pages = () => {
     "variantプロパティとcomponentプロパティの組み合わせで見た目とHTMLの要素を分離できる",
     "画面サイズに応じて自動的にフォントサイズを調整できる機能がある",
     "noWrap, gutterBottom, alignなど追加プロパティがある",
-    "適切なARIAラベルが自動的に付与され，アクセシビリティ対応が容易になる",
   ];
   const TypographyAlignList = [
     "inherit: 左寄せ",
@@ -199,15 +198,21 @@ const Pages = () => {
       <Typography>
         これを指定した場合，以下のようにテキストの配置が変わる
       </Typography>
-      <Typography align="inherit">
+      <Typography align="inherit" className="bg-gray-200">
         align=&quot;inherit&quot;のテキスト
       </Typography>
-      <Typography align="center">align=&quot;center&quot;のテキスト</Typography>
-      <Typography align="justify">
+      <Typography align="center" className="bg-gray-200">
+        align=&quot;center&quot;のテキスト
+      </Typography>
+      <Typography align="justify" className="bg-gray-200">
         align=&quot;justify&quot;のテキスト
       </Typography>
-      <Typography align="left">align=&quot;left&quot;のテキスト</Typography>
-      <Typography align="right">align=&quot;right&quot;のテキスト</Typography>
+      <Typography align="left" className="bg-gray-200">
+        align=&quot;left&quot;のテキスト
+      </Typography>
+      <Typography align="right" className="bg-gray-200">
+        align=&quot;right&quot;のテキスト
+      </Typography>
       <Typography>
         justifyとleftの違いは，英語を入力するときには顕著だが，日本語を入力するときには気にしなくていい(leftを選んでおけばいい)
       </Typography>
