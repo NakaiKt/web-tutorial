@@ -10,7 +10,7 @@ type TemplateProps = {
 const BaseTemplate = ({ title, children }: TemplateProps) => {
   return (
     <Container>
-      <div className="w-[960px] mx-auto">
+      <div className="w-[960px] mx-auto mt-10 mb-10">
         <Typography variant="h1">{title}</Typography>
         <Space />
         <div>{children}</div>
