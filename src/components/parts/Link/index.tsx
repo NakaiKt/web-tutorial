@@ -8,18 +8,20 @@ type LinkProps = {
 
 const Link = ({ text, url }: LinkProps) => {
   return (
-    <NextLink href={url} passHref>
-      <MuiLink
-        sx={{
-          mx: 1,
-          color: "primary.main",
-          fontWeight: "medium",
-          textDecoration: "underline",
-        }}
-      >
-        {text}
-      </MuiLink>
-    </NextLink>
+    <div>
+      <NextLink href={url} passHref>
+        <MuiLink
+          sx={{
+            mx: 1,
+            color: "primary.main",
+            fontWeight: "medium",
+            textDecoration: "underline",
+          }}
+        >
+          {text}
+        </MuiLink>
+      </NextLink>
+    </div>
   );
 };
 
