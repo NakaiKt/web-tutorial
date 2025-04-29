@@ -57,13 +57,13 @@ const theme = createTheme({
       fontWeight: "bold",
       fontSize: "1.8rem",
       marginBottom: "0.5rem",
-      marginTop: "0.5rem",
+      marginTop: "3rem",
       color: "rgb(0, 160, 125)",
     },
     h4: {
       fontWeight: "bold",
       fontSize: "1.6rem",
-      marginTop: "0.5rem",
+      marginTop: "2rem",
     },
   },
   components: {
