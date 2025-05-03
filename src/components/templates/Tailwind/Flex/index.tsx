@@ -107,13 +107,6 @@ const Flex = () => {
         `}
       />
       <Space />
-
-      <Typography variant="h2">まとめ</Typography>
-      <Typography>
-        flexを使いこなすことで、横並び・縦並び・折り返しなどのレイアウトを直感的に作成できます。
-        <br />
-        まずはflexとflex-direction、flex-wrapの基本を押さえましょう。
-      </Typography>
     </div>
   );
 };

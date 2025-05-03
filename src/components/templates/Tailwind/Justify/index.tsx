@@ -122,13 +122,6 @@ const Justify = () => {
         `}
       />
       <Space />
-
-      <Typography variant="h2">まとめ</Typography>
-      <Typography>
-        justify-contentを使うことで、要素の主軸方向の配置を柔軟にコントロールできます。
-        <br />
-        レイアウトの見た目を大きく変える重要なプロパティなので、使い分けをしっかり覚えましょう。
-      </Typography>
     </div>
   );
 };

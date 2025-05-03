@@ -124,13 +124,6 @@ const Gap = () => {
         `}
       />
       <Space />
-
-      <Typography variant="h2">まとめ</Typography>
-      <Typography>
-        gapを使うことで、要素間のスペース調整が非常に簡単になります。
-        <br />
-        横・縦・Gridなど、さまざまな場面で活用しましょう。
-      </Typography>
     </div>
   );
 };
