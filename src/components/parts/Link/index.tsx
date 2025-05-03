@@ -1,28 +1,24 @@
 import NextLink from "next/link";
-import { Link as MuiLink } from "@mui/material";
+import MuiLink from "@mui/material/Link";
 
 type LinkProps = {
   text: string;
   url: string;
 };
 
-const Link = ({ text, url }: LinkProps) => {
-  return (
-    <div>
-      <NextLink href={url} passHref>
-        <MuiLink
-          sx={{
-            mx: 1,
-            color: "primary.main",
-            fontWeight: "medium",
-            textDecoration: "underline",
-          }}
-        >
-          {text}
-        </MuiLink>
-      </NextLink>
-    </div>
-  );
-};
+const Link = ({ text, url }: LinkProps) => (
+  <MuiLink
+    component={NextLink}
+    href={url}
+    sx={{
+      mx: 1,
+      color: "primary.main",
+      textDecoration: "underline",
+      cursor: "pointer",
+    }}
+  >
+    {text}
+  </MuiLink>
+);
 
 export default Link;
