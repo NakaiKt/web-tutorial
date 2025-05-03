@@ -7,18 +7,20 @@ type LinkProps = {
 };
 
 const Link = ({ text, url }: LinkProps) => (
-  <MuiLink
-    component={NextLink}
-    href={url}
-    sx={{
-      mx: 1,
-      color: "primary.main",
-      textDecoration: "underline",
-      cursor: "pointer",
-    }}
-  >
-    {text}
-  </MuiLink>
+  <div>
+    <MuiLink
+      component={NextLink}
+      href={url}
+      sx={{
+        mx: 1,
+        color: "primary.main",
+        textDecoration: "underline",
+        cursor: "pointer",
+      }}
+    >
+      {text}
+    </MuiLink>
+  </div>
 );
 
 export default Link;
