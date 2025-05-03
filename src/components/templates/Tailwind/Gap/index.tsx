@@ -5,7 +5,7 @@ import CodeBlock from "@/components/parts/CodeBlock";
 import Link from "@/components/parts/Link";
 
 const Gap = () => {
-  const usecaseList = [
+  const useCaseList = [
     "要素間のスペースを簡単に調整したい",
     "横方向・縦方向で異なる間隔を指定したい",
     "GridやFlex両方で使いたい",
@@ -24,42 +24,52 @@ const Gap = () => {
       <Typography>を参照してください。</Typography>
 
       <Typography variant="h2">よくあるユースケース</Typography>
-      <BulletPoints items={usecaseList} style="number" />
+      <BulletPoints items={useCaseList} style="number" />
       <Space />
 
       <Typography variant="h2">gap：要素間の間隔を調整</Typography>
       <Typography>
-        <code>gap</code>クラスを使うと、要素間のスペースを簡単に調整できます。
+        <b>gapはFlexコンテナまたはGridコンテナでのみ有効</b>です。
+        <br />
+        親要素に<code>flex</code>や<code>grid</code>
+        クラスがない場合、gapは効きません。
         <br />
         例えば<code>gap-4</code>は16px（1rem）です。
       </Typography>
-      <div className="flex flex-row gap-2 bg-gray-100 p-4">
+      <Typography>
+        <b>Flexで使う場合：</b>{" "}
+        子要素同士の間隔が水平方向・垂直方向に均等に空きます。
+      </Typography>
+      <div className="flex flex-row gap-4 bg-gray-300 p-4">
         <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
-          gap-2
+          A
         </div>
         <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
-          gap-2
+          B
         </div>
         <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
-          gap-2
+          C
         </div>
       </div>
-      <div className="flex flex-row gap-8 bg-gray-100 p-4 mt-2">
-        <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
-          gap-8
+      <Typography>
+        <b>Gridで使う場合：</b> 行・列の両方の間隔が均等に空きます。
+      </Typography>
+      <div className="grid grid-cols-3 gap-4 bg-gray-300 p-4">
+        <div className="h-12 bg-blue-500 text-white flex items-center justify-center">
+          1
         </div>
-        <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
-          gap-8
+        <div className="h-12 bg-green-500 text-white flex items-center justify-center">
+          2
         </div>
-        <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
-          gap-8
+        <div className="h-12 bg-red-500 text-white flex items-center justify-center">
+          3
         </div>
       </div>
       <CodeBlock
         fileName="Gap.tsx"
         code={`
-<div className="flex gap-2">...</div>
-<div className="flex gap-8">...</div>
+<div className="flex gap-4">...</div>
+<div className="grid grid-cols-3 gap-4">...</div>
         `}
       />
       <Space />
@@ -69,7 +79,7 @@ const Gap = () => {
         <code>gap-x-*</code>で横方向、<code>gap-y-*</code>
         で縦方向の間隔を個別に指定できます。
       </Typography>
-      <div className="flex flex-col gap-y-4 bg-gray-100 p-4">
+      <div className="flex flex-col gap-y-4 bg-gray-300 p-4">
         <div className="flex flex-row gap-x-8">
           <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
             A
@@ -97,30 +107,6 @@ const Gap = () => {
         fileName="Gap.tsx"
         code={`
 <div className="flex gap-x-8 gap-y-4">...</div>
-        `}
-      />
-      <Space />
-
-      <Typography variant="h2">Gridでも使える</Typography>
-      <Typography>
-        <code>gap</code>
-        はFlexboxだけでなく、Gridレイアウトでも同じように使えます。
-      </Typography>
-      <div className="grid grid-cols-3 gap-4 bg-gray-100 p-4">
-        <div className="h-12 bg-blue-500 text-white flex items-center justify-center">
-          1
-        </div>
-        <div className="h-12 bg-green-500 text-white flex items-center justify-center">
-          2
-        </div>
-        <div className="h-12 bg-red-500 text-white flex items-center justify-center">
-          3
-        </div>
-      </div>
-      <CodeBlock
-        fileName="Gap.tsx"
-        code={`
-<div className="grid grid-cols-3 gap-4">...</div>
         `}
       />
       <Space />

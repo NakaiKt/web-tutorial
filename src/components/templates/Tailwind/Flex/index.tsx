@@ -5,7 +5,7 @@ import CodeBlock from "@/components/parts/CodeBlock";
 import Link from "@/components/parts/Link";
 
 const Flex = () => {
-  const usecaseList = [
+  const useCaseList = [
     "要素を横並び・縦並びにきれいに並べたい",
     "要素の並び順や配置を柔軟にコントロールしたい",
     "レスポンシブに対応したい",
@@ -24,7 +24,7 @@ const Flex = () => {
       <Typography>を参照してください。</Typography>
 
       <Typography variant="h2">よくあるユースケース</Typography>
-      <BulletPoints items={usecaseList} style="number" />
+      <BulletPoints items={useCaseList} style="number" />
       <Space />
 
       <Typography variant="h2">flex：横並び・縦並びの基本</Typography>
@@ -34,7 +34,7 @@ const Flex = () => {
         <br />
         デフォルトは横並び（row）です。
       </Typography>
-      <div className="flex flex-row gap-4 bg-gray-100 p-4">
+      <div className="flex flex-row gap-4 bg-gray-300 p-4">
         <div className="w-24 h-12 bg-blue-500 text-white flex items-center justify-center">
           A
         </div>
@@ -58,7 +58,7 @@ const Flex = () => {
       <Typography>
         <b>flex-col</b>を指定すると縦並びになります。
       </Typography>
-      <div className="flex flex-col gap-4 bg-gray-100 p-4">
+      <div className="flex flex-col gap-4 bg-gray-300 p-4">
         <div className="w-24 h-12 bg-blue-500 text-white flex items-center justify-center">
           A
         </div>
@@ -87,7 +87,7 @@ const Flex = () => {
         を使うと、子要素が親要素の幅を超えたときに自動で折り返すことができます。
       </Typography>
       <div
-        className="flex flex-wrap gap-2 bg-gray-100 p-4"
+        className="flex flex-wrap gap-2 bg-gray-300 p-4"
         style={{ maxWidth: 300 }}
       >
         <div className="w-32 h-12 bg-blue-500 text-white flex items-center justify-center">
