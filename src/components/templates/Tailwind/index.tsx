@@ -6,7 +6,7 @@ const Tailwind = () => {
     <Box>
       <Typography>
         使用するTailwindのバージョンは
-        <Link text="ここ" url="https://tailwindcss.com/docs/installation" />
+        <Link text="ここ" url="/" />
         を参照してください
       </Typography>
     </Box>

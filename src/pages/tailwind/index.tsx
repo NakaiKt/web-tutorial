@@ -3,7 +3,7 @@ import { BaseTemplate } from "@/features/Template";
 
 const Pages = () => {
   return (
-    <BaseTemplate title="Tailwind">
+    <BaseTemplate title="CSS(Tailwind)">
       <Tailwind />
     </BaseTemplate>
   );

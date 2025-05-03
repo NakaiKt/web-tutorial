@@ -12,7 +12,7 @@ const DRAWER_WIDTH = 280;
 const SideMenu = () => {
   const menuItems: MenuItems = [
     {
-      title: "Tailwind",
+      title: "CSS(Tailwind)",
       path: "/tailwind",
       children: [
         { title: "Flex（横並び・縦並び）", path: "/flex" },
@@ -47,7 +47,7 @@ const SideMenu = () => {
         anchor="left"
       >
         <Typography variant="h6" noWrap component="div" sx={{ p: 2 }}>
-          ドキュメント
+          <Link href="/">ドキュメント</Link>
         </Typography>
         <CssBaseline />
         {menuItems.map((menuItem) => (
