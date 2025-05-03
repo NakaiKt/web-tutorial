@@ -16,8 +16,8 @@ const SideMenu = () => {
       path: "/tailwind",
       children: [
         { title: "Flex（横並び・縦並び）", path: "/flex" },
-        { title: "Gap（要素間の間隔調整）", path: "/flex/gap" },
-        { title: "Justify（主軸方向の配置）", path: "/flex/justify" },
+        { title: "Gap（要素間の間隔調整）", path: "/gap" },
+        { title: "Justify（主軸方向の配置）", path: "/justify" },
         { title: "Background", path: "/background" },
       ],
     },
