@@ -107,6 +107,106 @@ const Flex = () => {
         `}
       />
       <Space />
+
+      <Typography variant="h2">flex-grow / flex-shrink：伸縮の制御</Typography>
+
+      <Typography variant="h3">flex-grow：拡大の制御</Typography>
+      <Typography>
+        <code>flex-grow</code>
+        は、空きスペースがあるときに子要素をどれだけ拡大するかを制御するプロパティ。
+        <br />
+        Tailwindでは<code>flex-1</code>や<code>grow</code>、<code>grow-0</code>
+        などのユーティリティクラスで指定できる。
+        <br />
+        <b>
+          flex-1やgrow-2などの数字は「比率」を表し、複数の要素で比率に応じて空きスペースを分配できる。
+        </b>
+        <br />
+        例：<code>flex-1</code>は
+        <code>flex-grow:1; flex-shrink:1; flex-basis:0%</code>と同じ意味。
+      </Typography>
+      <BulletPoints
+        items={[
+          "growを使うと、空きスペースを自動で埋める要素を作れる（flex-1, grow, grow-2 など）",
+          "複数のflex-1やflex-2を組み合わせると、比率でスペース配分できる",
+          "レイアウトの比率や優先度を柔軟に調整したい場合に便利",
+        ]}
+        style="disc"
+      />
+      <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
+        <div className="w-24 h-12 bg-blue-500 text-white flex items-center justify-center">
+          固定
+        </div>
+        <div className="flex-1 h-12 bg-green-500 text-white flex items-center justify-center">
+          flex-1（空きスペースを埋める）
+        </div>
+        <div className="w-24 h-12 bg-red-500 text-white flex items-center justify-center">
+          固定
+        </div>
+      </div>
+      <CodeBlock
+        fileName="flex-grow例"
+        code={`<div className="flex flex-row gap-4 bg-gray-300 p-4">
+  <div className="w-24 h-12 bg-blue-500">固定</div>
+  <div className="flex-1 h-12 bg-green-500">flex-1</div>
+  <div className="w-24 h-12 bg-red-500">固定</div>
+</div>`}
+      />
+      <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
+        <div className="flex-1 h-12 bg-blue-500 text-white flex items-center justify-center">
+          flex-1
+        </div>
+        <div className="flex-2 h-12 bg-green-500 text-white flex items-center justify-center">
+          flex-2
+        </div>
+      </div>
+      <CodeBlock
+        fileName="flex比率例"
+        code={`<div className="flex flex-row gap-4 bg-gray-300 p-4">
+  <div className="flex-1 h-12 bg-blue-500">flex-1</div>
+  <div className="flex-2 h-12 bg-green-500">flex-2</div>
+</div>`}
+      />
+      <Space />
+
+      <Typography variant="h3">flex-shrink：縮小の制御</Typography>
+      <Typography>
+        <code>flex-shrink</code>
+        は、親要素が小さくなったときに子要素をどれだけ縮小するかを制御するプロパティ。
+        <br />
+        Tailwindでは<code>shrink</code>や<code>shrink-0</code>
+        などのユーティリティクラスで指定できる。
+        <br />
+        <b>
+          shrink-0は縮小しない、shrinkは縮小を許可する。数字を増やすと縮小の比率が大きくなる。
+        </b>
+      </Typography>
+      <BulletPoints
+        items={[
+          "shrinkを使うと、親要素が狭くなったときに要素の縮小を許可・禁止できる（shrink, shrink-0 など）",
+          "shrink-0を使うと、要素の幅を絶対に縮めたくない場合に便利",
+        ]}
+        style="disc"
+      />
+      <div
+        className="flex flex-row gap-4 bg-gray-300 p-4 mb-2"
+        style={{ width: 300 }}
+      >
+        <div className="w-48 shrink-0 h-12 bg-blue-500 text-white flex items-center justify-center">
+          shrink-0（縮まない）
+        </div>
+        <div className="w-48 h-12 bg-green-500 text-white flex items-center justify-center">
+          shrink（縮む）
+        </div>
+      </div>
+      <CodeBlock
+        fileName="flex-shrink例"
+        code={`<div className="flex flex-row gap-4 bg-gray-300 p-4" style={{ width: 300 }}>
+  <div className="w-48 shrink-0 h-12 bg-blue-500">shrink-0</div>
+  <div className="w-48 h-12 bg-green-500">shrink</div>
+</div>`}
+      />
+      <Space />
     </div>
   );
 };
