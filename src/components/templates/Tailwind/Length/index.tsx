@@ -73,9 +73,15 @@ const Length = () => {
         ルート要素（html）のfont-sizeを基準とした相対単位
         <br />
         サイト全体のスケーラビリティを意識した設計や、ユーザーのアクセシビリティ設定に追従したい場合に使う
+        <br />
+        <b>
+          親要素にfont-sizeの指定がなければ、remの基準はhtml要素のfont-size（多くのブラウザで16px。ユーザーが設定で変更している場合もある）
+        </b>
+        <br />
+        例えばMUIのTypographyやdiv直下でfont-size指定がなければ、remは常にhtmlのfont-size基準
       </Typography>
       <Alert severity="warning" sx={{ my: 1 }}>
-        親要素や周囲の要素にfont-sizeを指定しても、remは常にhtml要素のfont-size（多くのブラウザで16px）が基準になる
+        親要素や周囲の要素にfont-sizeを指定しても、remは常にhtml要素のfont-size（多くのブラウザで16px。ユーザーが設定で変更している場合もある）が基準になる
       </Alert>
       <BulletPoints
         items={[
@@ -122,12 +128,13 @@ const Length = () => {
         ネストしたコンポーネントや、ボタン内のアイコンサイズなど、親要素に合わせてサイズを変えたい場合に使う
         <br />
         <b>
-          親要素にfont-sizeの指定がなければ、emもhtml要素のfont-size（通常16px）が基準
+          親要素にfont-sizeの指定がなければ、emもhtml要素のfont-size（多くのブラウザで16px。ユーザーが設定で変更している場合もある）が基準
         </b>
         <br />
         ただし、親要素（例：Typographyやdiv）にfont-sizeを指定すると、その値がemの基準になる
         <br />
-        例：Typography fontSize=&quot;24px&quot; の中で1emは24px、1remは16px
+        例：Typography fontSize=&quot;24px&quot;
+        の中で1emは24px、1remはhtmlのfont-size
       </Typography>
       <Alert severity="warning" sx={{ my: 1 }}>
         emは親要素のfont-sizeに依存するため、入れ子構造が深い場合や、親要素でfont-sizeを変更した場合は意図しないサイズになることがある
@@ -240,11 +247,17 @@ const Length = () => {
         コンテンツのサイズや親要素の制約に応じて自動的にサイズが決まる
         <br />
         テキストや画像など、内容に応じて幅を自動調整したい場合に使う
+        <br />
+        <b>
+          親要素がflexやgridの場合、autoは空きスペースに応じて伸縮する（例：flex-grow,
+          flex-shrinkの影響を受ける）
+        </b>
       </Typography>
       <BulletPoints
         items={[
           "インライン要素や、可変長のラベルなどにw-autoを使う",
           "画像やボタンの幅を内容に合わせて自動調整したい場合",
+          "flexやgridの子要素で、空きスペースに応じて自動で伸縮させたい場合",
         ]}
         style="disc"
       />
@@ -255,11 +268,15 @@ const Length = () => {
         >
           w-auto
         </div>
+        <div className="flex-1 h-12 bg-blue-400 text-white flex items-center justify-center">
+          flex-1（空きスペースを自動で埋める）
+        </div>
       </div>
       <CodeBlock
         fileName="auto例"
         code={`<div className="flex flex-row gap-4 bg-gray-300 p-4">
   <div className="w-auto h-12 bg-gray-400">w-auto</div>
+  <div className="flex-1 h-12 bg-blue-400">flex-1</div>
 </div>`}
       />
       <Space />
@@ -293,6 +310,38 @@ const Length = () => {
         code={`<div className="flex flex-row gap-4 bg-gray-300 p-4">
   <div className="w-full max-w-xs h-12 bg-blue-500">w-full max-w-xs</div>
   <div className="min-w-[120px] h-12 bg-green-500">min-w-[120px]</div>
+</div>`}
+      />
+      <Space />
+
+      {/* カスタム値 */}
+      <Typography variant="h2">カスタム値（任意の長さ指定）</Typography>
+      <Typography>
+        Tailwindでは、<code>w-[72px]</code>や<code>w-[5vw]</code>
+        のように[]記法で任意の長さを指定できる
+        <br />
+        px, rem, em, %, vw, vhなど、CSSで使える単位を自由に組み合わせて指定可能
+      </Typography>
+      <BulletPoints
+        items={[
+          "デザインガイドラインに合わせて細かいサイズを指定したい場合",
+          "ユーティリティクラスにないサイズを使いたい場合",
+        ]}
+        style="disc"
+      />
+      <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
+        <div className="w-[72px] h-12 bg-pink-400 text-white flex items-center justify-center">
+          w-[72px]
+        </div>
+        <div className="w-[5vw] h-12 bg-yellow-400 text-white flex items-center justify-center">
+          w-[5vw]
+        </div>
+      </div>
+      <CodeBlock
+        fileName="カスタム値例"
+        code={`<div className="flex flex-row gap-4 bg-gray-300 p-4">
+  <div className="w-[72px] h-12 bg-pink-400">w-[72px]</div>
+  <div className="w-[5vw] h-12 bg-yellow-400">w-[5vw]</div>
 </div>`}
       />
       <Space />
