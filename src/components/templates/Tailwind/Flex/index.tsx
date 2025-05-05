@@ -3,6 +3,7 @@ import BulletPoints from "@/components/parts/BulletPoints";
 import Space from "@/components/parts/Space";
 import CodeBlock from "@/components/parts/CodeBlock";
 import Link from "@/components/parts/Link";
+import PreviewBlock from "@/components/parts/PreviewBlock";
 
 const Flex = () => {
   const useCaseList = [
@@ -34,7 +35,7 @@ const Flex = () => {
         <br />
         デフォルトは横並び（row）です。
       </Typography>
-      <div className="flex flex-row gap-4 bg-gray-300 p-4">
+      <PreviewBlock className="flex flex-row gap-4">
         <div className="w-24 h-12 bg-blue-500 text-white flex items-center justify-center">
           A
         </div>
@@ -44,7 +45,7 @@ const Flex = () => {
         <div className="w-24 h-12 bg-red-500 text-white flex items-center justify-center">
           C
         </div>
-      </div>
+      </PreviewBlock>
       <CodeBlock
         fileName="Flex.tsx"
         code={`
