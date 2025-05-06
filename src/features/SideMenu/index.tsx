@@ -10,6 +10,7 @@ import {
   SmartButton,
   Rtt,
 } from "@mui/icons-material";
+import { useRouter } from "next/router";
 
 type MenuItems = {
   title: string;
@@ -21,6 +22,7 @@ type MenuItems = {
 const DRAWER_WIDTH = 280;
 
 const SideMenu = () => {
+  const router = useRouter();
   const menuItems: MenuItems = [
     {
       title: "ホーム",
@@ -96,7 +98,36 @@ const SideMenu = () => {
             <Link key={menuItem.path} href={menuItem.path} passHref>
               <Typography
                 variant="body1"
-                sx={{ p: 2, display: "flex", alignItems: "center" }}
+                sx={{
+                  p: 2,
+                  display: "flex",
+                  alignItems: "center",
+                  bgcolor:
+                    router.pathname === menuItem.path ||
+                    (menuItem.children &&
+                      menuItem.children.some(
+                        (child) =>
+                          router.pathname === `${menuItem.path}${child.path}`
+                      ))
+                      ? "primary.main"
+                      : "inherit",
+                  color:
+                    router.pathname === menuItem.path ||
+                    (menuItem.children &&
+                      menuItem.children.some(
+                        (child) =>
+                          router.pathname === `${menuItem.path}${child.path}`
+                      ))
+                      ? "primary.contrastText"
+                      : "inherit",
+                  borderRadius: 1,
+                  cursor: "pointer",
+                  transition: "background 0.2s, color 0.2s",
+                  "&:hover": {
+                    bgcolor: "primary.light",
+                    color: "primary.contrastText",
+                  },
+                }}
               >
                 {menuItem.icon}
                 {menuItem.title}
@@ -111,7 +142,29 @@ const SideMenu = () => {
                     href={`${menuItem.path}${child.path}`}
                     passHref
                   >
-                    <Typography variant="body2" sx={{ p: 1 }}>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        p: 1,
+                        display: "flex",
+                        alignItems: "center",
+                        bgcolor:
+                          router.pathname === `${menuItem.path}${child.path}`
+                            ? "primary.main"
+                            : "inherit",
+                        color:
+                          router.pathname === `${menuItem.path}${child.path}`
+                            ? "primary.contrastText"
+                            : "inherit",
+                        borderRadius: 1,
+                        cursor: "pointer",
+                        transition: "background 0.2s, color 0.2s",
+                        "&:hover": {
+                          bgcolor: "primary.light",
+                          color: "primary.contrastText",
+                        },
+                      }}
+                    >
                       {child.icon}
                       {child.title}
                     </Typography>
