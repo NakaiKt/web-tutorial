@@ -1,8 +1,8 @@
 import { Typography, Alert } from "@mui/material";
 import BulletPoints from "@/components/parts/BulletPoints";
 import Space from "@/components/parts/Space";
-import CodeBlock from "@/components/parts/CodeBlock";
 import Link from "@/components/parts/Link";
+import CodePreview from "@/components/parts/CodePreview";
 
 const Justify = () => {
   const useCaseList = [
@@ -48,132 +48,109 @@ const Justify = () => {
       </Alert>
       <Typography variant="h4">justify-start</Typography>
       <Typography>子要素を主軸の始めに配置</Typography>
-      <div className="flex flex-row justify-start bg-gray-300 p-4">
-        <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
-          A
-        </div>
-        <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
-          B
-        </div>
-        <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
-          C
-        </div>
-      </div>
-      <Space />
-      <CodeBlock
-        fileName="Justify.tsx"
+      <CodePreview
         code={`
-<div className="flex justify-start">...</div>
-        `}
+  <div className="flex flex-row justify-start">
+    <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
+      A
+    </div>
+    <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
+      B
+    </div>
+    <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
+      C
+    </div>
+  </div>
+      `}
       />
-      <Space />
       <Typography variant="h4">justify-center</Typography>
       <Typography>子要素を主軸の中央に配置</Typography>
-      <div className="flex flex-row justify-center bg-gray-300 p-4">
-        <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
-          A
-        </div>
-        <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
-          B
-        </div>
-        <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
-          C
-        </div>
-      </div>
-      <Space />
-      <CodeBlock
-        fileName="Justify.tsx"
+      <CodePreview
         code={`
-<div className="flex justify-center">...</div>
-        `}
+  <div className="flex flex-row justify-center">
+    <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
+      A
+    </div>
+    <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
+      B
+    </div>
+    <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
+      C
+    </div>
+  </div>
+      `}
       />
-      <Space />
       <Typography variant="h4">justify-end</Typography>
       <Typography>子要素を主軸の終わりに配置</Typography>
-      <div className="flex flex-row justify-end bg-gray-300 p-4">
-        <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
-          A
-        </div>
-        <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
-          B
-        </div>
-        <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
-          C
-        </div>
-      </div>
-      <Space />
-      <CodeBlock
-        fileName="Justify.tsx"
+      <CodePreview
         code={`
-<div className="flex justify-end">...</div>
-        `}
+  <div className="flex flex-row justify-end">
+    <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
+      A
+    </div>
+    <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
+      B
+    </div>
+    <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
+      C
+    </div>
+  </div>
+      `}
       />
-      <Space />
       <Typography variant="h4">justify-between</Typography>
       <Typography>
         子要素を主軸の右端と左端に配置し，その間で均等に配置
       </Typography>
-      <div className="flex flex-row justify-between bg-gray-300 p-4">
-        <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
-          A
-        </div>
-        <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
-          B
-        </div>
-        <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
-          C
-        </div>
-      </div>
-      <Space />
-      <CodeBlock
-        fileName="Justify.tsx"
+      <CodePreview
         code={`
-<div className="flex justify-between">...</div>
-        `}
+  <div className="flex flex-row justify-between">
+    <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
+      A
+    </div>
+    <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
+      B
+    </div>
+    <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
+      C
+    </div>
+  </div>
+      `}
       />
-      <Space />
       <Typography variant="h4">justify-around</Typography>
       <Typography>
         子要素の数だけ均等なコンテナを用意し，それの中でそれぞれ中央配置
       </Typography>
-      <div className="flex flex-row justify-around bg-gray-300 p-4">
-        <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
-          A
-        </div>
-        <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
-          B
-        </div>
-        <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
-          C
-        </div>
-      </div>
-      <Space />
-      <CodeBlock
-        fileName="Justify.tsx"
+      <CodePreview
         code={`
-<div className="flex justify-around">...</div>
-        `}
+  <div className="flex flex-row justify-around">
+    <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
+      A
+    </div>
+    <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
+      B
+    </div>
+    <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
+      C
+    </div>
+  </div>
+      `}
       />
-      <Space />
       <Typography variant="h4">justify-evenly</Typography>
       <Typography>両端と子要素同士の間隔を均等に配置</Typography>
-      <div className="flex flex-row justify-evenly bg-gray-300 p-4">
-        <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
-          A
-        </div>
-        <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
-          B
-        </div>
-        <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
-          C
-        </div>
-      </div>
-      <Space />
-      <CodeBlock
-        fileName="Justify.tsx"
+      <CodePreview
         code={`
-<div className="flex justify-evenly">...</div>
-        `}
+  <div className="flex flex-row justify-evenly">
+    <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
+      A
+    </div>
+    <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
+      B
+    </div>
+    <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
+      C
+    </div>
+  </div>  
+      `}
       />
 
       <Typography variant="h3">垂直方向</Typography>
@@ -183,69 +160,62 @@ const Justify = () => {
       </Alert>
       <Typography variant="h4">justify-start</Typography>
       <Typography>子要素を主軸の始めに配置</Typography>
-      <div className="flex flex-col h-72 justify-start bg-gray-300 p-4">
-        <div className="h-12 w-16 bg-blue-500 text-white flex items-center justify-center">
-          A
-        </div>
-        <div className="h-12 w-16 bg-green-500 text-white flex items-center justify-center">
-          B
-        </div>
-        <div className="h-12 w-16 bg-red-500 text-white flex items-center justify-center">
-          C
-        </div>
-      </div>
-      <Space />
-      <CodeBlock
-        fileName="Justify.tsx"
+      <CodePreview
         code={`
-<div className="flex justify-start">...</div>
-        `}
+  <div className="flex flex-col h-72 justify-start">
+    <div className="h-12 w-16 bg-blue-500 text-white flex items-center justify-center">
+      A
+    </div>
+    <div className="h-12 w-16 bg-green-500 text-white flex items-center justify-center">
+      B
+    </div>
+    <div className="h-12 w-16 bg-red-500 text-white flex items-center justify-center">
+      C
+    </div>
+  </div>
+      `}
       />
+
+      <Typography variant="h4">justify-between</Typography>
 
       <Typography variant="h4">justify-between</Typography>
       <Typography>
         子要素を主軸の始めと終わりに配置し，その間で均等に配置
       </Typography>
-      <div className="flex flex-col h-72 justify-between bg-gray-300 p-4">
-        <div className="h-12 w-16 bg-blue-500 text-white flex items-center justify-center">
-          A
-        </div>
-        <div className="h-12 w-16 bg-green-500 text-white flex items-center justify-center">
-          B
-        </div>
-        <div className="h-12 w-16 bg-red-500 text-white flex items-center justify-center">
-          C
-        </div>
-      </div>
-      <Space />
-      <CodeBlock
-        fileName="Justify.tsx"
+      <CodePreview
         code={`
-<div className="flex justify-between">...</div>
-        `}
+  <div className="flex flex-col h-72 justify-between">
+    <div className="h-12 w-16 bg-blue-500 text-white flex items-center justify-center">
+      A
+    </div>
+    <div className="h-12 w-16 bg-green-500 text-white flex items-center justify-center">
+      B
+    </div>
+    <div className="h-12 w-16 bg-red-500 text-white flex items-center justify-center">
+      C
+    </div>
+  </div>
+      `}
       />
 
       <Typography variant="h2">Gridで使う場合</Typography>
       <Typography>
         <b>Gridで使う場合：</b> Grid全体の子要素の配置を制御します。
       </Typography>
-      <div className="grid grid-cols-3 justify-center bg-gray-300 p-4">
-        <div className="h-12 bg-blue-500 text-white flex items-center justify-center">
-          1
-        </div>
-        <div className="h-12 bg-green-500 text-white flex items-center justify-center">
-          2
-        </div>
-        <div className="h-12 bg-red-500 text-white flex items-center justify-center">
-          3
-        </div>
-      </div>
-      <CodeBlock
-        fileName="Justify.tsx"
+      <CodePreview
         code={`
-<div className="flex justify-between">...</div>
-<div className="grid grid-cols-3 justify-center">...</div>
-        `}
+  <div className="grid grid-cols-3 justify-center">
+    <div className="h-12 bg-blue-500 text-white flex items-center justify-center">
+      1
+    </div>
+    <div className="h-12 bg-green-500 text-white flex items-center justify-center">
+      2
+    </div>
+    <div className="h-12 bg-red-500 text-white flex items-center justify-center">
+      3
+    </div>
+  </div>
+      `}
       />
       <Space />
     </div>

@@ -1,9 +1,8 @@
 import { Typography } from "@mui/material";
 import BulletPoints from "@/components/parts/BulletPoints";
 import Space from "@/components/parts/Space";
-import CodeBlock from "@/components/parts/CodeBlock";
 import Link from "@/components/parts/Link";
-import PreviewBlock from "@/components/parts/PreviewBlock";
+import CodePreview from "@/components/parts/CodePreview";
 
 const Flex = () => {
   const useCaseList = [
@@ -35,51 +34,40 @@ const Flex = () => {
         <br />
         デフォルトは横並び（row）です。
       </Typography>
-      <PreviewBlock className="flex flex-row gap-4">
-        <div className="w-24 h-12 bg-blue-500 text-white flex items-center justify-center">
-          A
-        </div>
-        <div className="w-24 h-12 bg-green-500 text-white flex items-center justify-center">
-          B
-        </div>
-        <div className="w-24 h-12 bg-red-500 text-white flex items-center justify-center">
-          C
-        </div>
-      </PreviewBlock>
-      <CodeBlock
-        fileName="Flex.tsx"
+      <CodePreview
         code={`
-<div className="flex">
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
-</div>
+  <div className="flex flex-row gap-4">
+    <div className="w-24 h-12 bg-blue-500 text-white flex items-center justify-center">
+      A
+    </div>
+    <div className="w-24 h-12 bg-green-500 text-white flex items-center justify-center">
+      B
+    </div>
+    <div className="w-24 h-12 bg-red-500 text-white flex items-center justify-center">
+      C
+    </div>
+  </div>
         `}
       />
       <Typography>
         <b>flex-col</b>を指定すると縦並びになります。
       </Typography>
-      <div className="flex flex-col gap-4 bg-gray-300 p-4">
-        <div className="w-24 h-12 bg-blue-500 text-white flex items-center justify-center">
-          A
-        </div>
-        <div className="w-24 h-12 bg-green-500 text-white flex items-center justify-center">
-          B
-        </div>
-        <div className="w-24 h-12 bg-red-500 text-white flex items-center justify-center">
-          C
-        </div>
-      </div>
-      <CodeBlock
-        fileName="Flex.tsx"
+      <CodePreview
         code={`
-<div className="flex flex-col">
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
-</div>
+  <div className="flex flex-col gap-4">
+    <div className="w-24 h-12 bg-blue-500 text-white flex items-center justify-center">
+      A
+    </div>
+    <div className="w-24 h-12 bg-green-500 text-white flex items-center justify-center">
+      B
+    </div>
+    <div className="w-24 h-12 bg-red-500 text-white flex items-center justify-center">
+      C
+    </div>
+  </div>
         `}
       />
+
       <Space />
 
       <Typography variant="h2">flex-wrap：折り返し</Typography>
@@ -87,26 +75,25 @@ const Flex = () => {
         <code>flex-wrap</code>
         を使うと、子要素が親要素の幅を超えたときに自動で折り返すことができます。
       </Typography>
-      <div
-        className="flex flex-wrap gap-2 bg-gray-300 p-4"
-        style={{ maxWidth: 300 }}
-      >
-        <div className="w-32 h-12 bg-blue-500 text-white flex items-center justify-center">
-          1
-        </div>
-        <div className="w-32 h-12 bg-green-500 text-white flex items-center justify-center">
-          2
-        </div>
-        <div className="w-32 h-12 bg-red-500 text-white flex items-center justify-center">
-          3
-        </div>
-      </div>
-      <CodeBlock
-        fileName="Flex.tsx"
+      <CodePreview
         code={`
-<div className="flex flex-wrap">...</div>
+  <div
+    className="flex flex-wrap gap-2"
+    style={{ maxWidth: 300 }}
+  >
+    <div className="w-32 h-12 bg-blue-500 text-white flex items-center justify-center">
+      1
+    </div>
+    <div className="w-32 h-12 bg-green-500 text-white flex items-center justify-center">
+      2
+    </div>
+    <div className="w-32 h-12 bg-red-500 text-white flex items-center justify-center">
+      3
+    </div>
+  </div>
         `}
       />
+
       <Space />
 
       <Typography variant="h2">flex-grow / flex-shrink：伸縮の制御</Typography>
@@ -134,39 +121,20 @@ const Flex = () => {
         ]}
         style="disc"
       />
-      <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
-        <div className="w-24 h-12 bg-blue-500 text-white flex items-center justify-center">
-          固定
-        </div>
-        <div className="flex-1 h-12 bg-green-500 text-white flex items-center justify-center">
-          flex-1（空きスペースを埋める）
-        </div>
-        <div className="w-24 h-12 bg-red-500 text-white flex items-center justify-center">
-          固定
-        </div>
-      </div>
-      <CodeBlock
-        fileName="flex-grow例"
-        code={`<div className="flex flex-row gap-4 bg-gray-300 p-4">
-  <div className="w-24 h-12 bg-blue-500">固定</div>
-  <div className="flex-1 h-12 bg-green-500">flex-1</div>
-  <div className="w-24 h-12 bg-red-500">固定</div>
-</div>`}
-      />
-      <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
-        <div className="flex-1 h-12 bg-blue-500 text-white flex items-center justify-center">
-          flex-1
-        </div>
-        <div className="flex-2 h-12 bg-green-500 text-white flex items-center justify-center">
-          flex-2
-        </div>
-      </div>
-      <CodeBlock
-        fileName="flex比率例"
-        code={`<div className="flex flex-row gap-4 bg-gray-300 p-4">
-  <div className="flex-1 h-12 bg-blue-500">flex-1</div>
-  <div className="flex-2 h-12 bg-green-500">flex-2</div>
-</div>`}
+      <CodePreview
+        code={`
+  <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
+    <div className="w-24 h-12 bg-blue-500 text-white flex items-center justify-center">
+      固定
+    </div>
+    <div className="flex-1 h-12 bg-green-500 text-white flex items-center justify-center">
+      flex-1（空きスペースを埋める）
+    </div>
+    <div className="w-24 h-12 bg-red-500 text-white flex items-center justify-center">
+      固定
+    </div>
+  </div>
+        `}
       />
       <Space />
 
@@ -189,24 +157,22 @@ const Flex = () => {
         ]}
         style="disc"
       />
-      <div
-        className="flex flex-row gap-4 bg-gray-300 p-4 mb-2"
-        style={{ width: 300 }}
-      >
-        <div className="w-48 shrink-0 h-12 bg-blue-500 text-white flex items-center justify-center">
-          shrink-0（縮まない）
-        </div>
-        <div className="w-48 h-12 bg-green-500 text-white flex items-center justify-center">
-          shrink（縮む）
-        </div>
-      </div>
-      <CodeBlock
-        fileName="flex-shrink例"
-        code={`<div className="flex flex-row gap-4 bg-gray-300 p-4" style={{ width: 300 }}>
-  <div className="w-48 shrink-0 h-12 bg-blue-500">shrink-0</div>
-  <div className="w-48 h-12 bg-green-500">shrink</div>
-</div>`}
+      <CodePreview
+        code={`
+  <div
+    className="flex flex-row gap-4 bg-gray-300 p-4 mb-2"
+    style={{ width: 300 }}
+  >
+    <div className="w-48 shrink-0 h-12 bg-blue-500 text-white flex items-center justify-center">
+      shrink-0（縮まない）
+    </div>
+    <div className="w-48 h-12 bg-green-500 text-white flex items-center justify-center">
+      shrink（縮む）
+    </div>
+  </div>
+        `}
       />
+
       <Space />
     </div>
   );

@@ -3,6 +3,7 @@ import BulletPoints from "@/components/parts/BulletPoints";
 import Space from "@/components/parts/Space";
 import CodeBlock from "@/components/parts/CodeBlock";
 import Link from "@/components/parts/Link";
+import CodePreview from "@/components/parts/CodePreview";
 
 const Pages = () => {
   const TypographyStyleList = [
@@ -146,38 +147,36 @@ const Pages = () => {
       <Typography variant="h4">noWrap</Typography>
       <Typography>
         テキストがはみ出した場合に，テキストを折り返すかどうかを指定する
-      </Typography>
-      <CodeBlock
-        fileName="index.tsx"
-        code={`
-        <Typography noWrap>
-          テキストがはみ出した場合に，テキストを折り返す
-        </Typography>
-        `}
-      />
-      <Typography>
+        <br />
         これを指定した場合，以下のように長い文章の末が「...」で省略される
       </Typography>
-      <Typography noWrap className="bg-gray-200 p-2">
-        長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章長い文章
-      </Typography>
-      <Typography variant="h4">gutterBottom</Typography>
-      <Typography>要素の下に余白（マージン）を自動で追加する</Typography>
-      <CodeBlock
-        fileName="index.tsx"
+      <CodePreview
         code={`
-        <Typography gutterBottom>
-          要素の下に余白（マージン）を自動で追加する
-        </Typography>
+  <Typography noWrap >
+    長い文章長い文章長い文章長い文章長い文章長い文章長い文章
+    長い文章長い文章長い文章長い文章長い文章長い文章長い文章
+    長い文章長い文章長い文章長い文章長い文章長い文章長い文章
+  </Typography>
+      `}
+      />
+      <Typography variant="h4">gutterBottom</Typography>
+      <Typography>
+        要素の下に余白（マージン）を自動で追加する
+        <br />
+        追加されるマージンはデフォルトで<code>0.35em</code>
+        （その要素のフォントサイズの0.35倍）であり、テーマで上書きしない限りこの値が使われる
+      </Typography>
+      <CodePreview
+        code={`
+  <Typography gutterBottom>
+    要素の下に余白（マージン）を自動で追加する
+  </Typography>
+  <Typography>下との差はこれくらい</Typography>
+  <Typography>
+    指定しなかった場合はこれくらい
+  </Typography>
         `}
       />
-      <Typography>
-        これを指定した場合，以下のように要素の下に余白が追加される
-      </Typography>
-      <Typography gutterBottom className="bg-gray-200">
-        要素の下に余白（マージン）を自動で追加する
-      </Typography>
-      <Typography className="bg-gray-200">下との差はこれくらい</Typography>
 
       <Typography variant="h4">align</Typography>
       <Typography>
@@ -186,33 +185,28 @@ const Pages = () => {
         デフォルトではinheritであり，以下のような選択肢がある
       </Typography>
       <BulletPoints items={TypographyAlignList} />
-      <Typography>指定方法は以下</Typography>
-      <CodeBlock
-        fileName="index.tsx"
-        code={`
-        <Typography align="center">
-          テキストの配置を指定する
-        </Typography>
-        `}
-      />
       <Typography>
         これを指定した場合，以下のようにテキストの配置が変わる
       </Typography>
-      <Typography align="inherit" className="bg-gray-200">
-        align=&quot;inherit&quot;のテキスト
-      </Typography>
-      <Typography align="center" className="bg-gray-200">
-        align=&quot;center&quot;のテキスト
-      </Typography>
-      <Typography align="justify" className="bg-gray-200">
-        align=&quot;justify&quot;のテキスト
-      </Typography>
-      <Typography align="left" className="bg-gray-200">
-        align=&quot;left&quot;のテキスト
-      </Typography>
-      <Typography align="right" className="bg-gray-200">
-        align=&quot;right&quot;のテキスト
-      </Typography>
+      <CodePreview
+        code={`
+  <Typography align="inherit" >
+    align=&quot;inherit&quot;のテキスト
+  </Typography>
+  <Typography align="center">
+    align=&quot;center&quot;のテキスト
+  </Typography>
+  <Typography align="justify">
+    align=&quot;justify&quot;のテキスト
+  </Typography>
+  <Typography align="left">
+    align=&quot;left&quot;のテキスト
+  </Typography>
+  <Typography align="right">
+    align=&quot;right&quot;のテキスト
+  </Typography>
+      `}
+      />
       <Typography>
         justifyとleftの違いは，英語を入力するときには顕著だが，日本語を入力するときには気にしなくていい(leftを選んでおけばいい)
       </Typography>
@@ -221,45 +215,40 @@ const Pages = () => {
       <Typography>
         テーマで定義された色を簡単に使用できる．
         <br />
+        これらの色はテーマで定義されており，アプリケーション全体で一貫した色を使用できる
+        <br />
         デフォルトでは&quot;text.primary&quot;（黒の87%不透明度）が使用され，以下のような色が標準で用意されている
       </Typography>
-      <Typography color="text.primary" className="bg-gray-200">
-        color=&quot;text.primary&quot;のテキスト（デフォルト）
-      </Typography>
-      <Typography color="text.secondary" className="bg-gray-200">
-        color=&quot;text.secondary&quot;のテキスト（より薄い色）
-      </Typography>
-      <Typography color="text.disabled" className="bg-gray-200">
-        color=&quot;text.disabled&quot;のテキスト（無効状態）
-      </Typography>
-      <Typography color="primary" className="bg-gray-200">
-        color=&quot;primary&quot;のテキスト
-      </Typography>
-      <Typography color="secondary" className="bg-gray-200">
-        color=&quot;secondary&quot;のテキスト
-      </Typography>
-      <Typography color="error" className="bg-gray-200">
-        color=&quot;error&quot;のテキスト
-      </Typography>
-      <Typography color="warning" className="bg-gray-200">
-        color=&quot;warning&quot;のテキスト
-      </Typography>
-      <Typography color="info" className="bg-gray-200">
-        color=&quot;info&quot;のテキスト
-      </Typography>
-      <Typography color="success" className="bg-gray-200">
-        color=&quot;success&quot;のテキスト
-      </Typography>
-      <Typography>
-        これらの色はテーマで定義されており，アプリケーション全体で一貫した色を使用できる
-      </Typography>
-      <CodeBlock
-        fileName="index.tsx"
+      <CodePreview
         code={`
-        <Typography color="primary">
-          プライマリカラーのテキスト
-        </Typography>
-        `}
+  <Typography color="text.primary">
+    color=&quot;text.primary&quot;のテキスト（デフォルト）
+  </Typography>
+  <Typography color="text.secondary">
+    color=&quot;text.secondary&quot;のテキスト（より薄い色）
+  </Typography>
+  <Typography color="text.disabled">
+    color=&quot;text.disabled&quot;のテキスト（無効状態）
+  </Typography>
+  <Typography color="primary">
+    color=&quot;primary&quot;のテキスト
+  </Typography>
+  <Typography color="secondary">
+    color=&quot;secondary&quot;のテキスト
+  </Typography>
+  <Typography color="error">
+    color=&quot;error&quot;のテキスト
+  </Typography>
+  <Typography color="warning">
+    color=&quot;warning&quot;のテキスト
+  </Typography>
+  <Typography color="info">
+    color=&quot;info&quot;のテキスト
+  </Typography>
+  <Typography color="success">
+    color=&quot;success&quot;のテキスト
+  </Typography>
+      `}
       />
 
       <Typography variant="h4">fontWeight</Typography>
@@ -269,35 +258,32 @@ const Pages = () => {
         数値（100〜900）または文字列（&quot;light&quot;, &quot;regular&quot;,
         &quot;medium&quot;, &quot;bold&quot;）で指定可能
       </Typography>
-      <Typography fontWeight="light" className="bg-gray-200">
-        fontWeight=&quot;light&quot;のテキスト
-      </Typography>
-      <Typography fontWeight="regular" className="bg-gray-200">
-        fontWeight=&quot;regular&quot;のテキスト
-      </Typography>
-      <Typography fontWeight="medium" className="bg-gray-200">
-        fontWeight=&quot;medium&quot;のテキスト
-      </Typography>
-      <Typography fontWeight="bold" className="bg-gray-200">
-        fontWeight=&quot;bold&quot;のテキスト
-      </Typography>
-      <Typography>数値での指定も可能</Typography>
-      <Typography fontWeight={300} className="bg-gray-200">
-        fontWeight=300のテキスト
-      </Typography>
-      <Typography fontWeight={900} className="bg-gray-200">
-        fontWeight=900のテキスト
-      </Typography>
-      <CodeBlock
-        fileName="index.tsx"
+      <CodePreview
         code={`
-        <Typography fontWeight="bold">
-          太字のテキスト
-        </Typography>
-        <Typography fontWeight={300}>
-          数値指定の軽めのテキスト
-        </Typography>
-        `}
+  <Typography fontWeight="light" >
+    fontWeight=&quot;light&quot;のテキスト
+  </Typography>
+  <Typography fontWeight="regular" >
+    fontWeight=&quot;regular&quot;のテキスト
+  </Typography>
+  <Typography fontWeight="medium" >
+    fontWeight=&quot;medium&quot;のテキスト
+  </Typography>
+  <Typography fontWeight="bold" >
+    fontWeight=&quot;bold&quot;のテキスト
+  </Typography>
+      `}
+      />
+      <Typography>数値での指定も可能</Typography>
+      <CodePreview
+        code={`
+  <Typography fontWeight={300} >
+    fontWeight=300のテキスト
+  </Typography>
+  <Typography fontWeight={900} >
+    fontWeight=900のテキスト
+  </Typography>
+      `}
       />
     </div>
   );

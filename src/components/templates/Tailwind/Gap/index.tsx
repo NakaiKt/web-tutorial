@@ -1,8 +1,8 @@
 import { Typography } from "@mui/material";
 import BulletPoints from "@/components/parts/BulletPoints";
 import Space from "@/components/parts/Space";
-import CodeBlock from "@/components/parts/CodeBlock";
 import Link from "@/components/parts/Link";
+import CodePreview from "@/components/parts/CodePreview";
 
 const Gap = () => {
   const useCaseList = [
@@ -40,37 +40,38 @@ const Gap = () => {
         <b>Flexで使う場合：</b>{" "}
         子要素同士の間隔が水平方向・垂直方向に均等に空きます。
       </Typography>
-      <div className="flex flex-row gap-4 bg-gray-300 p-4">
-        <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
-          A
-        </div>
-        <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
-          B
-        </div>
-        <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
-          C
-        </div>
-      </div>
+      <CodePreview
+        code={`
+  <div className="flex flex-row gap-4">
+    <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
+      A
+    </div>
+    <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
+      B
+    </div>
+    <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
+      C
+    </div>
+  </div>
+        `}
+      />
       <Typography>
         <b>Gridで使う場合：</b> 行・列の両方の間隔が均等に空きます。
       </Typography>
-      <div className="grid grid-cols-3 gap-4 bg-gray-300 p-4">
-        <div className="h-12 bg-blue-500 text-white flex items-center justify-center">
-          1
-        </div>
-        <div className="h-12 bg-green-500 text-white flex items-center justify-center">
-          2
-        </div>
-        <div className="h-12 bg-red-500 text-white flex items-center justify-center">
-          3
-        </div>
-      </div>
-      <CodeBlock
-        fileName="Gap.tsx"
+      <CodePreview
         code={`
-<div className="flex gap-4">...</div>
-<div className="grid grid-cols-3 gap-4">...</div>
-        `}
+  <div className="grid grid-cols-3 gap-4 ">
+    <div className="h-12 bg-blue-500 text-white flex items-center justify-center">
+      1
+    </div>
+    <div className="h-12 bg-green-500 text-white flex items-center justify-center">
+      2
+    </div>
+    <div className="h-12 bg-red-500 text-white flex items-center justify-center">
+      3
+    </div>
+  </div>
+      `}
       />
       <Space />
 
@@ -79,34 +80,32 @@ const Gap = () => {
         <code>gap-x-*</code>で横方向、<code>gap-y-*</code>
         で縦方向の間隔を個別に指定できます。
       </Typography>
-      <div className="flex flex-col gap-y-4 bg-gray-300 p-4">
-        <div className="flex flex-row gap-x-8">
-          <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
-            A
-          </div>
-          <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
-            B
-          </div>
-          <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
-            C
-          </div>
-        </div>
-        <div className="flex flex-row gap-x-2">
-          <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
-            A
-          </div>
-          <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
-            B
-          </div>
-          <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
-            C
-          </div>
-        </div>
-      </div>
-      <CodeBlock
-        fileName="Gap.tsx"
+      <CodePreview
         code={`
-<div className="flex gap-x-8 gap-y-4">...</div>
+  <div className="flex flex-col gap-y-4">
+    <div className="flex flex-row gap-x-8">
+      <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
+        A
+      </div>
+      <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
+        B
+      </div>
+      <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
+        C
+      </div>
+    </div>
+    <div className="flex flex-row gap-x-2">
+      <div className="w-16 h-12 bg-blue-500 text-white flex items-center justify-center">
+        A
+      </div>
+      <div className="w-16 h-12 bg-green-500 text-white flex items-center justify-center">
+        B
+      </div>
+      <div className="w-16 h-12 bg-red-500 text-white flex items-center justify-center">
+        C
+      </div>
+    </div>
+  </div>
         `}
       />
       <Space />

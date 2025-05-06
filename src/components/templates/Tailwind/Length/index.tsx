@@ -1,7 +1,7 @@
 import { Typography, Alert } from "@mui/material";
 import Space from "@/components/parts/Space";
-import CodeBlock from "@/components/parts/CodeBlock";
 import BulletPoints from "@/components/parts/BulletPoints";
+import CodePreview from "@/components/parts/CodePreview";
 
 const Length = () => {
   return (
@@ -48,18 +48,18 @@ const Length = () => {
         ]}
         style="disc"
       />
-      <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
-        <div className="w-16 h-12 bg-blue-400 text-white flex items-center justify-center">
-          w-16（64px）
-        </div>
-      </div>
-      <CodeBlock
-        fileName="px例"
-        code={`<div className="flex flex-row gap-4 bg-gray-300 p-4">
-  <div className="w-16 h-12 bg-blue-400">w-16</div>
-</div>`}
+      <CodePreview
+        code={`
+  <div className="flex flex-row gap-4">
+    <div className="w-16 h-12 bg-blue-400 text-white flex items-center justify-center">
+      w-16（64px）
+    </div>
+    <div className="w-32 h-12 bg-green-400 text-white flex items-center justify-center">
+      w-32（128px）
+    </div>
+  </div>
+      `}
       />
-      <Space />
 
       <Typography variant="h2">相対単位</Typography>
       <Typography>
@@ -90,35 +90,19 @@ const Length = () => {
         ]}
         style="disc"
       />
-      <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
-        <div className="w-[10rem] h-12 bg-red-400 text-white flex items-center justify-center">
-          w-[10rem]（10rem）
-        </div>
-      </div>
-      <CodeBlock
-        fileName="rem例"
-        code={`<div className="flex flex-row gap-4 bg-gray-300 p-4">
-  <div className="w-[10rem] h-12 bg-red-400">w-[10rem]</div>
-</div>`}
+
+      <CodePreview
+        code={`
+  <div className="flex flex-row gap-4">
+    <div className="w-[10rem] h-12 bg-red-400 text-white flex items-center justify-center">
+      w-[10rem]（10rem）
+    </div>
+    <div className="w-[15rem] h-12 bg-red-400 text-white flex items-center justify-center">
+      w-[15rem]（15rem）
+    </div>
+  </div>
+  `}
       />
-      <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
-        <div className="flex flex-col items-center">
-          <div className="text-[1em] bg-green-200 text-green-900 px-4 py-2 mb-1">
-            em: 1em
-          </div>
-          <div className="text-[1.5em] bg-green-400 text-white px-4 py-2">
-            em: 1.5em
-          </div>
-        </div>
-      </div>
-      <CodeBlock
-        fileName="remの基準例"
-        code={`<div>
-  <span style={{ fontSize: &quot;1rem&quot; }}>remは16px</span>
-  <span style={{ fontSize: &quot;1.5rem&quot; }}>remは24px</span>
-</div>`}
-      />
-      <Space />
 
       {/* em */}
       <Typography variant="h3">em（親要素相対）</Typography>
@@ -130,11 +114,6 @@ const Length = () => {
         <b>
           親要素にfont-sizeの指定がなければ、emもhtml要素のfont-size（多くのブラウザで16px。ユーザーが設定で変更している場合もある）が基準
         </b>
-        <br />
-        ただし、親要素（例：Typographyやdiv）にfont-sizeを指定すると、その値がemの基準になる
-        <br />
-        例：Typography fontSize=&quot;24px&quot;
-        の中で1emは24px、1remはhtmlのfont-size
       </Typography>
       <Alert severity="warning" sx={{ my: 1 }}>
         emは親要素のfont-sizeに依存するため、入れ子構造が深い場合や、親要素でfont-sizeを変更した場合は意図しないサイズになることがある
@@ -146,51 +125,45 @@ const Length = () => {
         ]}
         style="disc"
       />
-      <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
-        <div className="w-[8em] h-12 bg-green-400 text-white flex items-center justify-center">
-          w-[8em]（8em）
-        </div>
-      </div>
-      <CodeBlock
-        fileName="em例"
-        code={`<div className="flex flex-row gap-4 bg-gray-300 p-4">
-  <div className="w-[8em] h-12 bg-green-400">w-[8em]</div>
-</div>`}
-      />
-      {/* em/remの親要素font-size指定時の見た目比較ビュー */}
-      <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
-        <div className="flex flex-col items-center" style={{ fontSize: 24 }}>
-          <div className="text-[1em] bg-green-200 text-green-900 px-4 py-2 mb-1">
-            フォントサイズ24の1em
-          </div>
-        </div>
-        <div className="flex flex-col items-center" style={{ fontSize: 12 }}>
-          <div className="text-[1em] bg-green-200 text-green-900 px-4 py-2 mb-1">
-            フォントサイズ12の1em
-          </div>
-        </div>
-      </div>
-      <CodeBlock
-        fileName="emとremの基準の違い例（親要素にfont-size指定あり）"
+      <CodePreview
         code={`
-<div style={{ fontsize: 24}} >
-    <div className="text-[1em] bg-green-200 text-green-900 px-4 py-2 mb-1">
-        フォントサイズ24の1em
+  <div className="flex flex-row gap-4">
+    <div className="w-[10em] h-12 bg-green-200 flex items-center justify-center">
+      10em
     </div>
-</div>
-<div style={{ fontsize: 12}} >
-    <div className="text-[1em] bg-green-200 text-green-900 px-4 py-2 mb-1">
-        フォントサイズ12の1em
+    <div className="w-[15em] h-12 bg-green-400 flex items-center justify-center">
+      15em
     </div>
-</div>
-`}
+  </div>
+  `}
       />
-      <Space />
+      <Typography>
+        ただし、親要素（例：Typographyやdiv）にfont-sizeを指定すると、その値がemの基準になる
+        <br />
+        例：Typography fontSize=&quot;24px&quot;
+        の中で1emは24px、1remはhtmlのfont-size
+      </Typography>
+      <CodePreview
+        code={`
+  <div className="flex flex-row gap-4 ">
+    <div className="flex flex-col items-center" style={{ fontSize: 24 }}>
+      <div className="text-[1em] bg-green-200 text-green-900 px-4 py-2 mb-1">
+        フォントサイズ24の1em
+      </div>
+    </div>
+    <div className="flex flex-col items-center" style={{ fontSize: 12 }}>
+      <div className="text-[1em] bg-green-200 text-green-900 px-4 py-2 mb-1">
+        フォントサイズ12の1em
+      </div>
+    </div>
+  </div>
+      `}
+      />
 
       {/* % */}
       <Typography variant="h3">%（パーセンテージ）</Typography>
       <Typography>
-        親要素のサイズに対する割合で指定
+        直近の親要素のサイズに対する割合で指定
         <br />
         レスポンシブなグリッドレイアウトや、親要素に合わせて幅を可変にしたい場合に使う
       </Typography>
@@ -201,25 +174,53 @@ const Length = () => {
         ]}
         style="disc"
       />
-      <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
-        <div className="w-1/2 h-12 bg-yellow-400 text-white flex items-center justify-center">
-          w-1/2（50%）
-        </div>
+      <CodePreview
+        code={`
+  <div>
+    <div className="h-64 flex flex-col gap-4">
+      <div className="h-[50%] bg-yellow-200 flex items-center justify-center">
+        h-[50%]（1/2）
       </div>
-      <CodeBlock
-        fileName="%例"
-        code={`<div className="flex flex-row gap-4 bg-gray-300 p-4">
-  <div className="w-1/2 h-12 bg-yellow-400">w-1/2</div>
-</div>`}
+      <div className="h-1/3 bg-yellow-400 flex items-center justify-center">
+        h-1/3（33.33%）
+      </div>
+    </div>
+    <div className="h-32 flex flex-col gap-4">
+      <div className="h-[50%] bg-green-200 flex items-center justify-center">
+        h-[50%]（1/2）
+      </div>
+    </div>
+  </div>
+      `}
       />
-      <Space />
+      <Typography variant="h4">割合が100%を超える場合</Typography>
+      <Typography>
+        割合が100%を超える場合，親の設定によって動作が変わる．基本的には，親の設定に従う．
+      </Typography>
+      <BulletPoints
+        items={[
+          "親の領域を超えて表示される",
+          "親のサイズに圧縮される",
+          "親のサイズを広げて表示される",
+        ]}
+        style="disc"
+      />
+      <CodePreview
+        code={`
+  <div className="h-64 flex flex-col gap-4">
+    <div className="h-[150%] bg-red-200 flex items-center justify-center">
+      h-[150%]
+    </div>
+  </div>
+          `}
+      />
 
       {/* vw/vh */}
       <Typography variant="h3">vw / vh（ビューポート単位）</Typography>
       <Typography>
         ビューポート（画面全体）の幅・高さに対する割合で指定
         <br />
-        画面いっぱいに広げたいバナーや、全画面モーダルなどに使う
+        親要素のサイズに関係なく，画面いっぱいに広げたいバナーや全画面モーダルなどに使う
       </Typography>
       <BulletPoints
         items={[
@@ -228,18 +229,43 @@ const Length = () => {
         ]}
         style="disc"
       />
-      <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
-        <div className="w-screen h-12 bg-purple-400 text-white flex items-center justify-center">
-          w-screen（100vw）
-        </div>
-      </div>
-      <CodeBlock
-        fileName="vw例"
-        code={`<div className="flex flex-row gap-4 bg-gray-300 p-4">
-  <div className="w-screen h-12 bg-purple-400">w-screen</div>
-</div>`}
+      <CodePreview
+        code={`
+  <div className="flex flex-col gap-4 bg-gray-300 p-4 mb-2">
+    <div className="w-[50vw] h-12 bg-purple-400 text-white flex items-center justify-center">
+      w-[50vw]
+    </div>
+    <div className="w-[25vw] h-12 bg-purple-400 text-white flex items-center justify-center">
+      w-[25vw]
+    </div>
+  </div>
+      `}
       />
-      <Space />
+
+      <Typography variant="h4">%とvw/vhの違い</Typography>
+      <Typography>
+        %は親要素のサイズに対する割合で指定
+        <br />
+        例えば以下の例だと，直近の親要素の高さが32pxで，その50%である16pxが高さになる
+        <br />
+        vw/vhはウィンドウ（ビューボード・画面全体）の表示領域の幅・高さに対する割合で指定
+        <br />
+        ウィンドウを縮小したら，vw/vhの割合に対する値が変わる
+      </Typography>
+      <CodePreview
+        code={`
+  <div className="h-128">
+    <div className="h-32 bg-gray-200">
+      <div className="h-1/2 bg-green-200 mb-2 flex items-center justify-center">
+        高さ: 親の50%（16px）
+      </div>
+      <div className="h-[50vh] bg-blue-200 flex items-center justify-center">
+        高さ: 画面の50%
+      </div>
+    </div>
+  </div>
+      `}
+      />
 
       {/* auto */}
       <Typography variant="h3">auto（自動）</Typography>
@@ -261,30 +287,30 @@ const Length = () => {
         ]}
         style="disc"
       />
-      <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
-        <div
-          className="w-auto h-12 bg-gray-400 text-white flex items-center justify-center"
-          style={{ minWidth: 80 }}
-        >
-          w-auto
-        </div>
-        <div className="flex-1 h-12 bg-blue-400 text-white flex items-center justify-center">
-          flex-1（空きスペースを自動で埋める）
-        </div>
-      </div>
-      <CodeBlock
-        fileName="auto例"
-        code={`<div className="flex flex-row gap-4 bg-gray-300 p-4">
-  <div className="w-auto h-12 bg-gray-400">w-auto</div>
-  <div className="flex-1 h-12 bg-blue-400">flex-1</div>
-</div>`}
+      <CodePreview
+        code={`
+  <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
+    <div
+      className="w-auto h-12 bg-gray-400 text-white flex items-center justify-center"
+    >
+      w-auto
+    </div>
+    <div
+      className="w-auto h-12 bg-gray-500 text-white flex items-center justify-center"
+    >
+      w-auto!!!!!!!!!!!!!!!!
+    </div>
+    <div className="flex-1 h-12 bg-blue-400 text-white flex items-center justify-center">
+      flex-1（空きスペースを自動で埋める）
+    </div>
+  </div>
+      `}
       />
-      <Space />
 
       {/* w-full, max-w, min-w */}
       <Typography variant="h2">Tailwind独自の便利な幅指定</Typography>
       <Typography>
-        <code>w-full</code>は親要素の幅いっぱいに広げる
+        <code>w-full</code>は親要素の幅いっぱいに広げる．w-[100%]と同じ．
         <br />
         <code>max-w-*</code>や<code>min-w-*</code>
         は最大幅・最小幅を制限し、レスポンシブなデザインや可読性の確保に役立つ
@@ -297,22 +323,18 @@ const Length = () => {
         ]}
         style="disc"
       />
-      <div className="flex flex-row gap-4 bg-gray-300 p-4">
-        <div className="w-full max-w-xs h-12 bg-blue-500 text-white flex items-center justify-center">
-          w-full max-w-xs
-        </div>
-        <div className="min-w-[120px] h-12 bg-green-500 text-white flex items-center justify-center">
-          min-w-[120px]
-        </div>
-      </div>
-      <CodeBlock
-        fileName="w-full, max-w, min-w例"
-        code={`<div className="flex flex-row gap-4 bg-gray-300 p-4">
-  <div className="w-full max-w-xs h-12 bg-blue-500">w-full max-w-xs</div>
-  <div className="min-w-[120px] h-12 bg-green-500">min-w-[120px]</div>
-</div>`}
+      <CodePreview
+        code={`
+  <div className="flex flex-row gap-4 bg-gray-300 p-4">
+    <div className="w-full max-w-xs h-12 bg-blue-500 text-white flex items-center justify-center">
+      w-full max-w-xs
+    </div>
+    <div className="min-w-[120px] h-12 bg-green-500 text-white flex items-center justify-center">
+      min-w-[120px]
+    </div>
+  </div>
+      `}
       />
-      <Space />
 
       {/* カスタム値 */}
       <Typography variant="h2">カスタム値（任意の長さ指定）</Typography>
@@ -329,6 +351,8 @@ const Length = () => {
         ]}
         style="disc"
       />
+      <CodePreview
+        code={`
       <div className="flex flex-row gap-4 bg-gray-300 p-4 mb-2">
         <div className="w-[72px] h-12 bg-pink-400 text-white flex items-center justify-center">
           w-[72px]
@@ -337,14 +361,8 @@ const Length = () => {
           w-[5vw]
         </div>
       </div>
-      <CodeBlock
-        fileName="カスタム値例"
-        code={`<div className="flex flex-row gap-4 bg-gray-300 p-4">
-  <div className="w-[72px] h-12 bg-pink-400">w-[72px]</div>
-  <div className="w-[5vw] h-12 bg-yellow-400">w-[5vw]</div>
-</div>`}
+      `}
       />
-      <Space />
     </div>
   );
 };
