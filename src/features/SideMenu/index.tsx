@@ -148,9 +148,9 @@ const SideMenu = () => {
                         p: 1,
                         display: "flex",
                         alignItems: "center",
-                        borderLeft:
+                        borderBottom:
                           router.pathname === `${menuItem.path}${child.path}`
-                            ? "5px solid"
+                            ? "2px solid"
                             : "none",
                         borderColor: "primary.main",
                         cursor: "pointer",
