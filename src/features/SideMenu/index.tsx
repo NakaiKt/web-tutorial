@@ -1,10 +1,21 @@
-import { Box, Drawer, Typography, CssBaseline } from "@mui/material";
+import { Box, Drawer, Typography } from "@mui/material";
 import Link from "next/link";
+import {
+  Home,
+  Straighten,
+  AutoAwesomeMosaic,
+  SpaceBar,
+  FormatAlignJustify,
+  Yard,
+  SmartButton,
+  Rtt,
+} from "@mui/icons-material";
 
 type MenuItems = {
   title: string;
   path: string;
   children?: MenuItems;
+  icon?: React.ReactNode;
 }[];
 
 const DRAWER_WIDTH = 280;
@@ -12,22 +23,55 @@ const DRAWER_WIDTH = 280;
 const SideMenu = () => {
   const menuItems: MenuItems = [
     {
+      title: "ホーム",
+      path: "/",
+      icon: <Home />,
+    },
+    {
       title: "CSS(Tailwind)",
       path: "/tailwind",
       children: [
-        { title: "長さの単位", path: "/length" },
-        { title: "Flex（横並び・縦並び）", path: "/flex" },
-        { title: "Gap（要素間の間隔調整）", path: "/gap" },
-        { title: "Justify（主軸方向の配置）", path: "/justify" },
-        { title: "Background", path: "/background" },
+        {
+          title: "長さの単位",
+          path: "/length",
+          icon: <Straighten fontSize="small" />,
+        },
+        {
+          title: "Flex（横並び・縦並び）",
+          path: "/flex",
+          icon: <AutoAwesomeMosaic fontSize="small" />,
+        },
+        {
+          title: "Gap（要素間の間隔調整）",
+          path: "/gap",
+          icon: <SpaceBar fontSize="small" />,
+        },
+        {
+          title: "Justify（主軸方向の配置）",
+          path: "/justify",
+          icon: <FormatAlignJustify fontSize="small" />,
+        },
+        {
+          title: "Background",
+          path: "/background",
+          icon: <Yard fontSize="small" />,
+        },
       ],
     },
     {
       title: "MUI",
       path: "/mui",
       children: [
-        { title: "Button", path: "/button" },
-        { title: "Typography", path: "/typography" },
+        {
+          title: "Button",
+          path: "/button",
+          icon: <SmartButton fontSize="small" />,
+        },
+        {
+          title: "Typography",
+          path: "/typography",
+          icon: <Rtt fontSize="small" />,
+        },
       ],
     },
   ];
@@ -47,14 +91,14 @@ const SideMenu = () => {
         variant="permanent"
         anchor="left"
       >
-        <Typography variant="h6" noWrap component="div" sx={{ p: 2 }}>
-          <Link href="/">ドキュメント</Link>
-        </Typography>
-        <CssBaseline />
         {menuItems.map((menuItem) => (
           <>
             <Link key={menuItem.path} href={menuItem.path} passHref>
-              <Typography variant="body1" sx={{ p: 2 }}>
+              <Typography
+                variant="body1"
+                sx={{ p: 2, display: "flex", alignItems: "center" }}
+              >
+                {menuItem.icon}
                 {menuItem.title}
               </Typography>
             </Link>
@@ -68,6 +112,7 @@ const SideMenu = () => {
                     passHref
                   >
                     <Typography variant="body2" sx={{ p: 1 }}>
+                      {child.icon}
                       {child.title}
                     </Typography>
                   </Link>

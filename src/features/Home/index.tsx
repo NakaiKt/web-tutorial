@@ -1,10 +1,14 @@
 import { Typography, Box } from "@mui/material";
+import Link from "@/components/parts/Link";
 
 const Home = () => {
   return (
     <div>
       <Typography>
         これはCSS, MUI, React, ReactHookFormのチュートリアルです
+        <br />
+        実装は
+        <Link text="github" url="https://github.com/NakaiKt/web-tutorial" />
         <br />
         環境は以下を参考にしてください
       </Typography>
