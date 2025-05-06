@@ -120,12 +120,12 @@ const SideMenu = () => {
                       ))
                       ? "primary.contrastText"
                       : "inherit",
-                  borderRadius: 1,
+                  borderRadius: 3,
                   cursor: "pointer",
                   transition: "background 0.2s, color 0.2s",
                   "&:hover": {
                     bgcolor: "primary.light",
-                    color: "primary.contrastText",
+                    color: "text.primary",
                   },
                 }}
               >
@@ -148,20 +148,16 @@ const SideMenu = () => {
                         p: 1,
                         display: "flex",
                         alignItems: "center",
-                        bgcolor:
+                        borderLeft:
                           router.pathname === `${menuItem.path}${child.path}`
-                            ? "primary.main"
-                            : "inherit",
-                        color:
-                          router.pathname === `${menuItem.path}${child.path}`
-                            ? "primary.contrastText"
-                            : "inherit",
-                        borderRadius: 1,
+                            ? "5px solid"
+                            : "none",
+                        borderColor: "primary.main",
                         cursor: "pointer",
                         transition: "background 0.2s, color 0.2s",
                         "&:hover": {
                           bgcolor: "primary.light",
-                          color: "primary.contrastText",
+                          borderRadius: 3,
                         },
                       }}
                     >
