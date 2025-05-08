@@ -13,7 +13,7 @@ const Gap = () => {
   return (
     <div>
       <Typography>
-        このページでは「要素間の間隔を調整する」場面でよく使うTailwindのgapについて徹底的に解説します。
+        このページでは「要素間の間隔を調整する」場面でよく使うTailwindのgapを扱う
         <br />
         最新情報は
       </Typography>
@@ -21,7 +21,6 @@ const Gap = () => {
         text="Tailwind CSS Gap公式ドキュメント"
         url="https://tailwindcss.com/docs/gap"
       />
-      <Typography>を参照してください。</Typography>
 
       <Typography variant="h2">よくあるユースケース</Typography>
       <BulletPoints items={useCaseList} style="number" />
@@ -29,16 +28,15 @@ const Gap = () => {
 
       <Typography variant="h2">gap：要素間の間隔を調整</Typography>
       <Typography>
-        <b>gapはFlexコンテナまたはGridコンテナでのみ有効</b>です。
+        <b>gapはFlexコンテナまたはGridコンテナでのみ有効</b>
         <br />
         親要素に<code>flex</code>や<code>grid</code>
-        クラスがない場合、gapは効きません。
+        クラスがない場合、gapは効かない
         <br />
-        例えば<code>gap-4</code>は16px（1rem）です。
+        例えば<code>gap-4</code>は16px（1rem）
       </Typography>
       <Typography>
-        <b>Flexで使う場合：</b>{" "}
-        子要素同士の間隔が水平方向・垂直方向に均等に空きます。
+        <b>Flexで使う場合：</b> 子要素同士の間隔が水平方向・垂直方向に均等に空く
       </Typography>
       <CodePreview
         code={`
@@ -56,7 +54,7 @@ const Gap = () => {
         `}
       />
       <Typography>
-        <b>Gridで使う場合：</b> 行・列の両方の間隔が均等に空きます。
+        <b>Gridで使う場合：</b> 行・列の両方の間隔が均等に空く
       </Typography>
       <CodePreview
         code={`
@@ -78,7 +76,7 @@ const Gap = () => {
       <Typography variant="h2">gap-x, gap-y：横・縦方向の個別指定</Typography>
       <Typography>
         <code>gap-x-*</code>で横方向、<code>gap-y-*</code>
-        で縦方向の間隔を個別に指定できます。
+        で縦方向の間隔を個別に指定できる
       </Typography>
       <CodePreview
         code={`

@@ -200,7 +200,7 @@ const Justify = () => {
 
       <Typography variant="h2">Gridで使う場合</Typography>
       <Typography>
-        <b>Gridで使う場合：</b> Grid全体の子要素の配置を制御します。
+        <b>Gridで使う場合：</b> Grid全体の子要素の配置を制御する
       </Typography>
       <CodePreview
         code={`
