@@ -13,15 +13,27 @@ const Flex = () => {
   return (
     <div>
       <Typography>
-        このページでは「横並び・縦並びのレイアウトを作る」場面でよく使うTailwindのflexについて徹底的に解説します。
+        このページでは「横並び・縦並びのレイアウトを作る」場面でよく使う
+        Tailwindのflexを扱う
         <br />
-        最新情報は
+        Flexは単に横並び・縦並びを実現するだけでなく、
+        <br />
+        <b>要素同士の関係性をもとに自動的に整列・分配するための仕組み</b>
       </Typography>
+      <Space />
+      <Typography>
+        これがない場合、すべての要素の位置やサイズを個別に指定する必要があり、保守やレスポンシブ対応が難しくなる
+        <br />
+        Flexを使うことで、親要素にflexを指定するだけで、子要素が自動的にきれいに並び、空きスペースや間隔も柔軟に調整できる
+        <br />
+        これがFlexの最大の利点
+      </Typography>
+      <Space />
+      <Typography>最新情報は</Typography>
       <Link
         text="Tailwind CSS Flexbox公式ドキュメント"
         url="https://tailwindcss.com/docs/flex"
       />
-      <Typography>を参照してください。</Typography>
 
       <Typography variant="h2">よくあるユースケース</Typography>
       <BulletPoints items={useCaseList} style="number" />
@@ -30,9 +42,9 @@ const Flex = () => {
       <Typography variant="h2">flex：横並び・縦並びの基本</Typography>
       <Typography>
         Tailwindで要素を横並び・縦並びにするには、親要素に<code>flex</code>
-        クラスを指定します。
+        クラスを指定する
         <br />
-        デフォルトは横並び（row）です。
+        デフォルトは横並び（row）
       </Typography>
       <CodePreview
         code={`
@@ -50,7 +62,7 @@ const Flex = () => {
         `}
       />
       <Typography>
-        <b>flex-col</b>を指定すると縦並びになります。
+        <b>flex-col</b>を指定すると縦並びになる
       </Typography>
       <CodePreview
         code={`
@@ -73,7 +85,7 @@ const Flex = () => {
       <Typography variant="h2">flex-wrap：折り返し</Typography>
       <Typography>
         <code>flex-wrap</code>
-        を使うと、子要素が親要素の幅を超えたときに自動で折り返すことができます。
+        を使うと、子要素が親要素の幅を超えたときに自動で折り返すことができる
       </Typography>
       <CodePreview
         code={`
@@ -101,17 +113,17 @@ const Flex = () => {
       <Typography variant="h3">flex-grow：拡大の制御</Typography>
       <Typography>
         <code>flex-grow</code>
-        は、空きスペースがあるときに子要素をどれだけ拡大するかを制御するプロパティ。
+        は、空きスペースがあるときに子要素をどれだけ拡大するかを制御するプロパティ
         <br />
         Tailwindでは<code>flex-1</code>や<code>grow</code>、<code>grow-0</code>
-        などのユーティリティクラスで指定できる。
+        などのユーティリティクラスで指定できる
         <br />
         <b>
-          flex-1やgrow-2などの数字は「比率」を表し、複数の要素で比率に応じて空きスペースを分配できる。
+          flex-1やgrow-2などの数字は「比率」を表し、複数の要素で比率に応じて空きスペースを分配できる
         </b>
         <br />
         例：<code>flex-1</code>は
-        <code>flex-grow:1; flex-shrink:1; flex-basis:0%</code>と同じ意味。
+        <code>flex-grow:1; flex-shrink:1; flex-basis:0%</code>と同じ意味
       </Typography>
       <BulletPoints
         items={[
@@ -141,13 +153,13 @@ const Flex = () => {
       <Typography variant="h3">flex-shrink：縮小の制御</Typography>
       <Typography>
         <code>flex-shrink</code>
-        は、親要素が小さくなったときに子要素をどれだけ縮小するかを制御するプロパティ。
+        は、親要素が小さくなったときに子要素をどれだけ縮小するかを制御するプロパティ
         <br />
         Tailwindでは<code>shrink</code>や<code>shrink-0</code>
-        などのユーティリティクラスで指定できる。
+        などのユーティリティクラスで指定できる
         <br />
         <b>
-          shrink-0は縮小しない、shrinkは縮小を許可する。数字を増やすと縮小の比率が大きくなる。
+          shrink-0は縮小しない、shrinkは縮小を許可する。数字を増やすと縮小の比率が大きくなる
         </b>
       </Typography>
       <BulletPoints
