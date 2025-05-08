@@ -148,11 +148,12 @@ const SideMenu = () => {
                         p: 1,
                         display: "flex",
                         alignItems: "center",
-                        borderBottom:
+                        textDecoration:
                           router.pathname === `${menuItem.path}${child.path}`
-                            ? "2px solid"
+                            ? "underline"
                             : "none",
-                        borderColor: "primary.main",
+                        textDecorationColor: "primary.main",
+                        textUnderlineOffset: "3px",
                         cursor: "pointer",
                         transition: "background 0.2s, color 0.2s",
                         "&:hover": {
