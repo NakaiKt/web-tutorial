@@ -230,9 +230,9 @@ const Position = () => {
       <CodePreview
         code={`
   <div className="flex flex-row items-center bg-gray-300 p-4 h-32">
-    <div className="w-16 h-8 bg-blue-500 text-white flex items-center justify-center">A</div>
-    <div className="w-16 h-16 bg-green-500 text-white flex items-center justify-center">B</div>
-    <div className="w-16 h-24 bg-red-500 text-white flex items-center justify-center">C</div>
+    <div className="w-16 h-8 bg-blue-500 text-white flex items-center justify-center text-xs">A</div>
+    <div className="w-16 h-16 bg-green-500 text-white flex items-center justify-center text-2xl">B</div>
+    <div className="w-16 h-24 bg-red-500 text-white flex items-center justify-center text-base">C</div>
   </div>
         `}
       />
@@ -243,13 +243,15 @@ const Position = () => {
       <Typography>
         <code>items-baseline</code>
         を指定すると、全ての子要素が交差軸方向（flex-rowなら縦方向）のベースラインに揃う
+        <br />
+        ベースラインとは，テキストの下線のことであり，以下の例でフォントが大きいBのベースラインに揃う
       </Typography>
       <CodePreview
         code={`
   <div className="flex flex-row items-baseline bg-gray-300 p-4 h-32">
-    <div className="w-16 h-8 bg-blue-500 text-white flex items-center justify-center">A</div>
-    <div className="w-16 h-16 bg-green-500 text-white flex items-center justify-center">B</div>
-    <div className="w-16 h-24 bg-red-500 text-white flex items-center justify-center">C</div>
+    <div className="w-16 h-8 bg-blue-500 text-white flex items-center justify-center text-xs">A</div>
+    <div className="w-16 h-16 bg-green-500 text-white flex items-center justify-center text-2xl">B</div>
+    <div className="w-16 h-24 bg-red-500 text-white flex items-center justify-center text-base">C</div>
   </div>
         `}
       />
@@ -280,7 +282,6 @@ const Position = () => {
           "start：主軸・交差軸とも先頭揃え（place-items-start, place-content-start, place-self-start）",
           "end：主軸・交差軸とも末尾揃え（place-items-end, place-content-end, place-self-end）",
         ]}
-        style="number"
       />
       <Space />
       <Typography variant="h4">
@@ -305,7 +306,37 @@ const Position = () => {
         `}
       />
       <Space />
-
+      <Typography variant="h4">
+        サンプル（place-items-start＝align-items: flex-start + justify-items:
+        start）
+      </Typography>
+      <Typography>
+        <code>place-items-start</code>
+        を指定すると、Gridの各アイテムが縦横とも上端に揃う
+      </Typography>
+      <CodePreview
+        code={`
+  <div className="grid grid-cols-3 place-items-start bg-gray-300 p-4 h-32">
+    <div className="w-16 h-8 bg-blue-500 text-white flex items-center justify-center">A</div>
+    <div className="w-16 h-8 bg-green-500 text-white flex items-center justify-center">B</div>
+    <div className="w-16 h-8 bg-red-500 text-white flex items-center justify-center">C</div>
+  </div>
+        `}
+      />
+      <Space />
+      <Typography variant="h4">
+        サンプル（place-items-end＝align-items: flex-end + justify-items: end）
+      </Typography>
+      <CodePreview
+        code={`
+  <div className="grid grid-cols-3 place-items-end bg-gray-300 p-4 h-32">
+    <div className="w-16 h-8 bg-blue-500 text-white flex items-center justify-center">A</div>
+    <div className="w-16 h-8 bg-green-500 text-white flex items-center justify-center">B</div>
+    <div className="w-16 h-8 bg-red-500 text-white flex items-center justify-center">C</div>
+  </div>
+        `}
+      />
+      <Space />
       {/* --- 対象 --- */}
       <Typography variant="h2">対象</Typography>
 
