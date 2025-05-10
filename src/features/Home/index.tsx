@@ -8,10 +8,9 @@ const Home = () => {
         これはCSS, MUI, React, ReactHookFormのチュートリアルです
         <br />
         実装は
-        <Link text="github" url="https://github.com/NakaiKt/web-tutorial" />
-        <br />
-        環境は以下を参考にしてください
       </Typography>
+      <Link text="github" url="https://github.com/NakaiKt/web-tutorial" />
+      <Typography>環境は以下を参考にしてください</Typography>
       <Box
         component="pre"
         sx={{
