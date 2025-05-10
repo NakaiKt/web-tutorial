@@ -49,8 +49,8 @@ const SideMenu = () => {
           icon: <SpaceBar fontSize="small" />,
         },
         {
-          title: "Justify（主軸方向の配置）",
-          path: "/justify",
+          title: "配置",
+          path: "/position",
           icon: <FormatAlignJustify fontSize="small" />,
         },
         {
@@ -125,7 +125,7 @@ const SideMenu = () => {
                   transition: "background 0.2s, color 0.2s",
                   "&:hover": {
                     bgcolor: "primary.light",
-                    color: "text.primary",
+                    color: "inherit",
                   },
                 }}
               >
@@ -148,10 +148,10 @@ const SideMenu = () => {
                         p: 1,
                         display: "flex",
                         alignItems: "center",
-                        textDecoration:
+                        color:
                           router.pathname === `${menuItem.path}${child.path}`
-                            ? "underline"
-                            : "none",
+                            ? "primary.main"
+                            : "inherit",
                         textDecorationColor: "primary.main",
                         textUnderlineOffset: "3px",
                         cursor: "pointer",
@@ -159,6 +159,7 @@ const SideMenu = () => {
                         "&:hover": {
                           bgcolor: "primary.light",
                           borderRadius: 3,
+                          color: "inherit",
                         },
                       }}
                     >
