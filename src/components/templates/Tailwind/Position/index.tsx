@@ -257,6 +257,10 @@ const Position = () => {
       />
       <Space />
       <Typography variant="h3">place（一括指定）</Typography>
+      <Alert severity="warning">
+        <code>place-items-*</code>や<code>place-content-*</code>、
+        <code>place-self-*</code>はGrid専用
+      </Alert>
       <Typography>
         placeは、主軸方向（justify）と交差軸方向（align）の配置を1つのプロパティでまとめて指定できるshorthand（ショートハンド）
         <br />
@@ -285,13 +289,9 @@ const Position = () => {
       />
       <Space />
       <Typography variant="h4">
-        サンプル（place-items-center＝align-items: center + justify-items:
+        サンプル（place-items-center = align-items: center + justify-items:
         center）
       </Typography>
-      <Alert severity="warning">
-        <code>place-items-*</code>や<code>place-content-*</code>、
-        <code>place-self-*</code>はGrid専用
-      </Alert>
       <Typography>
         <code>place-items-center</code>
         を指定すると、Gridの各アイテムが縦横とも中央に揃う
@@ -307,7 +307,7 @@ const Position = () => {
       />
       <Space />
       <Typography variant="h4">
-        サンプル（place-items-start＝align-items: flex-start + justify-items:
+        サンプル（place-items-start = align-items: flex-start + justify-items:
         start）
       </Typography>
       <Typography>
@@ -325,7 +325,11 @@ const Position = () => {
       />
       <Space />
       <Typography variant="h4">
-        サンプル（place-items-end＝align-items: flex-end + justify-items: end）
+        サンプル（place-items-end = align-items: flex-end + justify-items: end）
+      </Typography>
+      <Typography>
+        <code>place-items-end</code>
+        を指定すると、Gridの各アイテムが縦横とも下端に揃う
       </Typography>
       <CodePreview
         code={`
@@ -367,17 +371,35 @@ const Position = () => {
         <code>content-center</code>
         を指定すると、複数行になったグリッド全体が交差軸方向の中央に揃う
       </Typography>
+      <Alert severity="error">
+        content-centerとcontent-startの例が同じなので．ここを書き直す
+      </Alert>
       <CodePreview
         code={`
   <div className="grid grid-rows-2 grid-flow-col gap-4 content-center bg-gray-300 p-4 h-48">
-    <div className="w-16 h-8 bg-blue-500 text-white flex items-center justify-center">A</div>
-    <div className="w-16 h-8 bg-green-500 text-white flex items-center justify-center">B</div>
-    <div className="w-16 h-8 bg-red-500 text-white flex items-center justify-center">C</div>
-    <div className="w-16 h-8 bg-yellow-500 text-white flex items-center justify-center">D</div>
+    <div className="w-64 h-4 bg-blue-500 text-white flex items-center justify-center">A</div>
+    <div className="w-64 h-4 bg-green-500 text-white flex items-center justify-center">B</div>
+    <div className="w-64 h-4 bg-red-500 text-white flex items-center justify-center">C</div>
+    <div className="w-64 h-4 bg-yellow-500 text-white flex items-center justify-center">D</div>
   </div>
         `}
       />
       <Space />
+      <Typography variant="h4">サンプル（content-start, Grid）</Typography>
+      <Typography>
+        <code>content-start</code>
+        を指定すると、複数行になったグリッド全体が交差軸方向の上端に揃う
+      </Typography>
+      <CodePreview
+        code={`
+  <div className="grid grid-rows-2 grid-flow-col gap-4 content-start bg-gray-300 p-4 h-48">
+    <div className="w-16 h-4 bg-blue-500 text-white flex items-center justify-center">A</div>
+    <div className="w-16 h-4 bg-green-500 text-white flex items-center justify-center">B</div>
+    <div className="w-16 h-4 bg-red-500 text-white flex items-center justify-center">C</div>
+    <div className="w-16 h-4 bg-yellow-500 text-white flex items-center justify-center">D</div>
+  </div>
+        `}
+      />
 
       <Typography variant="h3">items（各アイテムのデフォルト配置）</Typography>
       <Typography>
@@ -437,6 +459,8 @@ const Position = () => {
       <Typography>
         <code>self-end</code>
         を指定すると、そのアイテムだけ交差軸方向（flex-rowなら縦方向）の下端に揃う
+        <br />
+        以下の例では <code>A</code>にのみ<code>self-end</code>を指定している
       </Typography>
       <CodePreview
         code={`
