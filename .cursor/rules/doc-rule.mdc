@@ -1,0 +1,14 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+全体のディレクトリ構成として
+src配下の
+- components/partsは，汎用的な小規模コンポーネントです
+- components/templatesは，pagesに対応する，あるいは強く紐づくコンポーネントです
+- features/はプロジェクトページ全体に関わってくる大きなコンポーネントです
+- stylesやthemeは，全体のスタイルにかかわっています
+
+
+ページのタイトルやパスを更新するときは，features/SideMenuに対応する定義があるので，そこも合わせて変更してください
