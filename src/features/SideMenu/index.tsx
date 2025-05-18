@@ -9,6 +9,7 @@ import {
   Yard,
   SmartButton,
   Rtt,
+  CropFree,
 } from "@mui/icons-material";
 import { useRouter } from "next/router";
 
@@ -69,6 +70,11 @@ const SideMenu = () => {
       title: "MUI",
       path: "/mui",
       children: [
+        {
+          title: "ラッパーコンポーネント",
+          path: "/wrapper",
+          icon: <CropFree fontSize="small" />,
+        },
         {
           title: "Button",
           path: "/button",
