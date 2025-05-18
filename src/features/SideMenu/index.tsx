@@ -9,8 +9,10 @@ import {
   SmartButton,
   Rtt,
   CropFree,
+  Flip,
 } from "@mui/icons-material";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 type MenuItems = {
   title: string;
@@ -20,15 +22,12 @@ type MenuItems = {
 }[];
 
 const DRAWER_WIDTH = 280;
+const CLOSE_DRAWER_WIDTH = 50;
 
 const SideMenu = () => {
   const router = useRouter();
+  const [isOpen, setIsOpen] = useState(true);
   const menuItems: MenuItems = [
-    {
-      title: "ホーム",
-      path: "/",
-      icon: <Home />,
-    },
     {
       title: "基本",
       path: "/base",
@@ -78,100 +77,139 @@ const SideMenu = () => {
     },
   ];
 
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <Box sx={{ display: "flex" }}>
       <Drawer
         sx={{
-          width: DRAWER_WIDTH, // Drawerの幅を指定するためのプロパティ
+          width: isOpen ? DRAWER_WIDTH : CLOSE_DRAWER_WIDTH, // Drawerの幅を指定するためのプロパティ
           flexShrink: 0, // ウィンドウサイズが小さくなってもDrawerを縮小しないように
           "& .MuiDrawer-paper": {
-            // Drawerのスタイルを指定するためのプロパティ
-            width: DRAWER_WIDTH, // Drawerの幅を指定するためのプロパティ. 上のwidthとの違いは
+            width: isOpen ? DRAWER_WIDTH : CLOSE_DRAWER_WIDTH, // Drawerの幅を指定するためのプロパティ. 上のwidthとの違いは
             boxSizing: "border-box", //
           },
         }}
         variant="permanent"
         anchor="left"
       >
-        {menuItems.map((menuItem) => (
-          <>
-            <Link key={menuItem.path} href={menuItem.path} passHref>
-              <Typography
-                variant="body1"
+        <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              p: 2,
+            }}
+          >
+            {isOpen ? (
+              <>
+                <Link href="/">
+                  <Typography variant="h6" display="flex" alignItems="center">
+                    {<Home />}雑ドキュメント
+                  </Typography>
+                </Link>
+                <Flip onClick={handleClose} />
+              </>
+            ) : (
+              <Flip
+                onClick={handleOpen}
                 sx={{
-                  p: 2,
-                  display: "flex",
-                  alignItems: "center",
-                  bgcolor:
-                    router.pathname === menuItem.path ||
-                    (menuItem.children &&
-                      menuItem.children.some(
-                        (child) =>
-                          router.pathname === `${menuItem.path}${child.path}`
-                      ))
-                      ? "primary.main"
-                      : "inherit",
-                  color:
-                    router.pathname === menuItem.path ||
-                    (menuItem.children &&
-                      menuItem.children.some(
-                        (child) =>
-                          router.pathname === `${menuItem.path}${child.path}`
-                      ))
-                      ? "primary.contrastText"
-                      : "inherit",
-                  borderRadius: 3,
-                  cursor: "pointer",
-                  transition: "background 0.2s, color 0.2s",
-                  "&:hover": {
-                    bgcolor: "primary.light",
-                    color: "inherit",
-                  },
+                  transform: "rotate(180deg)",
                 }}
-              >
-                {menuItem.icon}
-                {menuItem.title}
-              </Typography>
-            </Link>
-
-            {menuItem.children && (
-              <Box sx={{ pl: 4 }}>
-                {menuItem.children.map((child) => (
-                  <Link
-                    key={`${menuItem.path}-child-${child.path}`}
-                    href={`${menuItem.path}${child.path}`}
-                    passHref
-                  >
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        p: 1,
-                        display: "flex",
-                        alignItems: "center",
-                        color:
-                          router.pathname === `${menuItem.path}${child.path}`
-                            ? "primary.main"
-                            : "inherit",
-                        textDecorationColor: "primary.main",
-                        textUnderlineOffset: "3px",
-                        cursor: "pointer",
-                        transition: "background 0.2s, color 0.2s",
-                        "&:hover": {
-                          bgcolor: "primary.light",
-                          borderRadius: 3,
-                          color: "inherit",
-                        },
-                      }}
-                    >
-                      {child.icon}
-                      {child.title}
-                    </Typography>
-                  </Link>
-                ))}
-              </Box>
+              />
             )}
-          </>
-        ))}
+          </Box>
+          {isOpen &&
+            menuItems.map((menuItem) => (
+              <>
+                <Link key={menuItem.path} href={menuItem.path} passHref>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      p: 2,
+                      display: "flex",
+                      alignItems: "center",
+                      bgcolor:
+                        router.pathname === menuItem.path ||
+                        (menuItem.children &&
+                          menuItem.children.some(
+                            (child) =>
+                              router.pathname ===
+                              `${menuItem.path}${child.path}`
+                          ))
+                          ? "primary.main"
+                          : "inherit",
+                      color:
+                        router.pathname === menuItem.path ||
+                        (menuItem.children &&
+                          menuItem.children.some(
+                            (child) =>
+                              router.pathname ===
+                              `${menuItem.path}${child.path}`
+                          ))
+                          ? "primary.contrastText"
+                          : "inherit",
+                      borderRadius: 3,
+                      cursor: "pointer",
+                      transition: "background 0.2s, color 0.2s",
+                      "&:hover": {
+                        bgcolor: "primary.light",
+                        color: "inherit",
+                      },
+                    }}
+                  >
+                    {menuItem.icon}
+                    {menuItem.title}
+                  </Typography>
+                </Link>
+
+                {menuItem.children && (
+                  <Box sx={{ pl: 4 }}>
+                    {menuItem.children.map((child) => (
+                      <Link
+                        key={`${menuItem.path}-child-${child.path}`}
+                        href={`${menuItem.path}${child.path}`}
+                        passHref
+                      >
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            p: 1,
+                            display: "flex",
+                            alignItems: "center",
+                            color:
+                              router.pathname ===
+                              `${menuItem.path}${child.path}`
+                                ? "primary.main"
+                                : "inherit",
+                            textDecorationColor: "primary.main",
+                            textUnderlineOffset: "3px",
+                            cursor: "pointer",
+                            transition: "background 0.2s, color 0.2s",
+                            "&:hover": {
+                              bgcolor: "primary.light",
+                              borderRadius: 3,
+                              color: "inherit",
+                            },
+                          }}
+                        >
+                          {child.icon}
+                          {child.title}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                )}
+              </>
+            ))}
+        </Box>
       </Drawer>
     </Box>
   );
