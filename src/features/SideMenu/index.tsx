@@ -58,6 +58,11 @@ const SideMenu = () => {
           path: "/background",
           icon: <Yard fontSize="small" />,
         },
+        {
+          title: "オートレイアウト（FlexとGrid）",
+          path: "/auto-layout",
+          icon: <AutoAwesomeMosaic fontSize="small" />,
+        },
       ],
     },
     {
