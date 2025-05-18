@@ -28,7 +28,9 @@ const Layout = () => {
       <Space />
 
       {/* --- Flexbox --- */}
-      <Typography variant="h2">Flexbox</Typography>
+      <Typography variant="h2" id="flexbox">
+        Flexbox
+      </Typography>
       <Typography>
         Flexboxは、Webレイアウトで最もよく使われる仕組みの一つ。
         <br />
@@ -40,7 +42,7 @@ const Layout = () => {
         例えば、ボタンやカードを横一列に並べたい場合や、中央揃え・均等配置なども簡単に実現できる。
       </Typography>
       <Space />
-      <Typography variant="h3">
+      <Typography variant="h3" id="flexbox-advantage">
         <b>最大の利点</b>
       </Typography>
       <Typography>
@@ -60,7 +62,9 @@ const Layout = () => {
         style="number"
       />
       <Space />
-      <Typography variant="h3">flex-row / flex-col：並び方向</Typography>
+      <Typography variant="h3" id="flexbox-row-col">
+        flex-row / flex-col：並び方向
+      </Typography>
       <Typography>
         デフォルトは横並び（<code>flex-row</code>）。縦並びにしたい場合は
         <code>flex-col</code>を使う。
@@ -84,7 +88,9 @@ const Layout = () => {
       `}
       />
       <Space />
-      <Typography variant="h3">flex-wrap：折り返し</Typography>
+      <Typography variant="h3" id="flexbox-wrap">
+        flex-wrap：折り返し
+      </Typography>
       <Typography>
         <code>flex-wrap</code>
         を使うと、子要素が親要素の幅を超えたときに自動で折り返すことができる。
@@ -99,7 +105,9 @@ const Layout = () => {
       `}
       />
       <Space />
-      <Typography variant="h3">grow / shrink / flex-1：伸縮の制御</Typography>
+      <Typography variant="h3" id="flexbox-grow-shrink-flex-1">
+        grow / shrink / flex-1：伸縮の制御
+      </Typography>
       <Typography>
         <code>grow</code>や<code>shrink</code>、<code>flex-1</code>
         を使うと、空きスペースの比率配分や縮小の可否を柔軟に制御できる。
@@ -123,7 +131,9 @@ const Layout = () => {
       <Space />
 
       {/* --- Grid --- */}
-      <Typography variant="h2">Grid</Typography>
+      <Typography variant="h2" id="grid">
+        Grid
+      </Typography>
       <Typography>
         Gridは2次元（行・列）のレイアウトを柔軟に作れる手法。
         <br />
@@ -168,7 +178,9 @@ const Layout = () => {
       <Space />
 
       {/* --- 使い分け --- */}
-      <Typography variant="h2">FlexとGridの使い分け</Typography>
+      <Typography variant="h2" id="flex-grid-usage">
+        FlexとGridの使い分け
+      </Typography>
       <BulletPoints
         items={[
           "1次元の並びやシンプルなレイアウトはFlex",
@@ -184,7 +196,9 @@ const Layout = () => {
         配置や細かな整列は「配置」ページで詳しく解説
       </Typography>
       <Space />
-      <Typography variant="h2">まとめ</Typography>
+      <Typography variant="h2" id="summary">
+        まとめ
+      </Typography>
       <BulletPoints
         items={[
           "Flexは1次元、Gridは2次元のレイアウトに強い",

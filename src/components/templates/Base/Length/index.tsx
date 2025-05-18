@@ -27,14 +27,18 @@ const Length = () => {
       </a>
       <Space />
 
-      <Typography variant="h2">絶対単位</Typography>
+      <Typography variant="h2" id="absolute-unit">
+        絶対単位
+      </Typography>
       <Typography>
         画面上で常に同じサイズを持つ単位主にデザインの基準や、細かなピクセル調整が必要な場面で使う
       </Typography>
       <Space />
 
       {/* px */}
-      <Typography variant="h3">px（ピクセル）</Typography>
+      <Typography variant="h3" id="px">
+        px（ピクセル）
+      </Typography>
       <Typography>
         絶対的な長さの単位画面上の物理的なピクセル数を指定
         <br />
@@ -61,14 +65,18 @@ const Length = () => {
       `}
       />
 
-      <Typography variant="h2">相対単位</Typography>
+      <Typography variant="h2" id="relative-unit">
+        相対単位
+      </Typography>
       <Typography>
         親要素やルート要素、ビューポートなどのサイズに応じて変化する単位レスポンシブデザインや柔軟なレイアウトに最適
       </Typography>
       <Space />
 
       {/* rem */}
-      <Typography variant="h3">rem（ルート相対）</Typography>
+      <Typography variant="h3" id="rem">
+        rem（ルート相対）
+      </Typography>
       <Typography>
         ルート要素（html）のfont-sizeを基準とした相対単位
         <br />
@@ -105,7 +113,9 @@ const Length = () => {
       />
 
       {/* em */}
-      <Typography variant="h3">em（親要素相対）</Typography>
+      <Typography variant="h3" id="em">
+        em（親要素相対）
+      </Typography>
       <Typography>
         親要素のfont-sizeを基準とした相対単位
         <br />
@@ -161,7 +171,9 @@ const Length = () => {
       />
 
       {/* % */}
-      <Typography variant="h3">%（パーセンテージ）</Typography>
+      <Typography variant="h3" id="percentage">
+        %（パーセンテージ）
+      </Typography>
       <Typography>
         直近の親要素のサイズに対する割合で指定
         <br />
@@ -193,7 +205,9 @@ const Length = () => {
   </div>
       `}
       />
-      <Typography variant="h4">割合が100%を超える場合</Typography>
+      <Typography variant="h4" id="percentage-exceed">
+        割合が100%を超える場合
+      </Typography>
       <Typography>
         割合が100%を超える場合，親の設定によって動作が変わる．基本的には，親の設定に従う．
       </Typography>
@@ -216,7 +230,9 @@ const Length = () => {
       />
 
       {/* vw/vh */}
-      <Typography variant="h3">vw / vh（ビューポート単位）</Typography>
+      <Typography variant="h3" id="vw-vh">
+        vw / vh（ビューポート単位）
+      </Typography>
       <Typography>
         ビューポート（画面全体）の幅・高さに対する割合で指定
         <br />
@@ -242,7 +258,9 @@ const Length = () => {
       `}
       />
 
-      <Typography variant="h4">%とvw/vhの違い</Typography>
+      <Typography variant="h4" id="percentage-vw-vh">
+        %とvw/vhの違い
+      </Typography>
       <Typography>
         %は親要素のサイズに対する割合で指定
         <br />
@@ -268,7 +286,9 @@ const Length = () => {
       />
 
       {/* auto */}
-      <Typography variant="h3">auto（自動）</Typography>
+      <Typography variant="h3" id="auto">
+        auto（自動）
+      </Typography>
       <Typography>
         コンテンツのサイズや親要素の制約に応じて自動的にサイズが決まる
         <br />
@@ -308,7 +328,9 @@ const Length = () => {
       />
 
       {/* w-full, max-w, min-w */}
-      <Typography variant="h2">Tailwind独自の便利な幅指定</Typography>
+      <Typography variant="h2" id="tailwind-width-spec">
+        Tailwind独自の便利な幅指定
+      </Typography>
       <Typography>
         <code>w-full</code>は親要素の幅いっぱいに広げる．w-[100%]と同じ．
         <br />
@@ -337,7 +359,9 @@ const Length = () => {
       />
 
       {/* カスタム値 */}
-      <Typography variant="h2">カスタム値（任意の長さ指定）</Typography>
+      <Typography variant="h2" id="custom-value">
+        カスタム値（任意の長さ指定）
+      </Typography>
       <Typography>
         Tailwindでは、<code>w-[72px]</code>や<code>w-[5vw]</code>
         のように[]記法で任意の長さを指定できる

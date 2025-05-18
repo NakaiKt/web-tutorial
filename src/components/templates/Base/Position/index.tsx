@@ -46,8 +46,12 @@ const Position = () => {
       <Space />
 
       {/* --- 配置の軸 --- */}
-      <Typography variant="h2">配置の軸</Typography>
-      <Typography variant="h3">justify（主軸方向の配置）</Typography>
+      <Typography variant="h2" id="axis">
+        配置の軸
+      </Typography>
+      <Typography variant="h3" id="justify">
+        justify（主軸方向の配置）
+      </Typography>
       <Typography>
         justifyは、FlexboxやGridの「主軸方向」（flex-rowなら横、flex-colなら縦）における子要素の配置を制御するプロパティ
         <br />
@@ -55,7 +59,9 @@ const Position = () => {
       </Typography>
       <BulletPoints items={justifyUseCases} style="number" />
       <Space />
-      <Typography variant="h4">主な値と効果</Typography>
+      <Typography variant="h4" id="justify-values">
+        主な値と効果
+      </Typography>
       <BulletPoints
         items={[
           "start：主軸の先頭に揃える（justify-start）",
@@ -67,7 +73,9 @@ const Position = () => {
         ]}
       />
       <Space />
-      <Typography variant="h4">サンプル（justify-start）</Typography>
+      <Typography variant="h4" id="justify-start">
+        サンプル（justify-start）
+      </Typography>
       <Typography>
         <code>justify-start</code>
         を指定すると、子要素が主軸方向（flex-rowなら横方向）の先頭に揃う
@@ -82,7 +90,9 @@ const Position = () => {
         `}
       />
       <Space />
-      <Typography variant="h4">サンプル（justify-end）</Typography>
+      <Typography variant="h4" id="justify-end">
+        サンプル（justify-end）
+      </Typography>
       <Typography>
         <code>justify-end</code>
         を指定すると、子要素が主軸方向（flex-rowなら横方向）の末尾に揃う
@@ -97,7 +107,9 @@ const Position = () => {
         `}
       />
       <Space />
-      <Typography variant="h4">サンプル（justify-center）</Typography>
+      <Typography variant="h4" id="justify-center">
+        サンプル（justify-center）
+      </Typography>
       <Typography>
         <code>justify-center</code>
         を指定すると、子要素が主軸方向（flex-rowなら横方向）の中央に揃う
@@ -112,7 +124,9 @@ const Position = () => {
         `}
       />
       <Space />
-      <Typography variant="h4">サンプル（justify-between）</Typography>
+      <Typography variant="h4" id="justify-between">
+        サンプル（justify-between）
+      </Typography>
       <Typography>
         <code>justify-between</code>
         を指定すると、子要素が主軸方向（flex-rowなら横方向）の両端に揃い、その間隔が均等になる
@@ -127,7 +141,9 @@ const Position = () => {
         `}
       />
       <Space />
-      <Typography variant="h4">サンプル（justify-around）</Typography>
+      <Typography variant="h4" id="justify-around">
+        サンプル（justify-around）
+      </Typography>
       <Typography>
         <code>justify-around</code>
         を指定すると、子要素が主軸方向（flex-rowなら横方向）の両端に揃い、その間隔が均等になる
@@ -142,7 +158,9 @@ const Position = () => {
         `}
       />
       <Space />
-      <Typography variant="h4">サンプル（justify-evenly）</Typography>
+      <Typography variant="h4" id="justify-evenly">
+        サンプル（justify-evenly）
+      </Typography>
       <Typography>
         <code>justify-evenly</code>
         を指定すると、子要素が主軸方向（flex-rowなら横方向）の両端に揃い、その間隔が均等になる
@@ -156,7 +174,9 @@ const Position = () => {
   </div>
         `}
       />
-      <Typography variant="h3">align（交差軸方向の配置）</Typography>
+      <Typography variant="h3" id="align">
+        align（交差軸方向の配置）
+      </Typography>
       <Typography>
         alignは、FlexboxやGridの「交差軸方向」（flex-rowなら縦、flex-colなら横）における子要素の配置を制御するプロパティ
         <br />
@@ -176,7 +196,9 @@ const Position = () => {
         style="number"
       />
       <Space />
-      <Typography variant="h4">主な値と効果</Typography>
+      <Typography variant="h4" id="align-values">
+        主な値と効果
+      </Typography>
       <BulletPoints
         items={[
           "start：交差軸の先頭に揃える（items-start）",
@@ -186,7 +208,7 @@ const Position = () => {
         ]}
       />
       <Space />
-      <Typography variant="h4">
+      <Typography variant="h4" id="align-start">
         サンプル（items-start = align-items: flex-start）
       </Typography>
       <Typography>
@@ -203,7 +225,7 @@ const Position = () => {
         `}
       />
       <Space />
-      <Typography variant="h4">
+      <Typography variant="h4" id="align-end">
         サンプル（items-end = align-items: flex-end）
       </Typography>
       <Typography>
@@ -220,7 +242,7 @@ const Position = () => {
         `}
       />
       <Space />
-      <Typography variant="h4">
+      <Typography variant="h4" id="align-center">
         サンプル（items-center = align-items: center）
       </Typography>
       <Typography>
@@ -237,7 +259,7 @@ const Position = () => {
         `}
       />
       <Space />
-      <Typography variant="h4">
+      <Typography variant="h4" id="align-baseline">
         サンプル（items-baseline = align-items: baseline）
       </Typography>
       <Typography>
@@ -256,7 +278,9 @@ const Position = () => {
         `}
       />
       <Space />
-      <Typography variant="h3">place（一括指定）</Typography>
+      <Typography variant="h3" id="place">
+        place（一括指定）
+      </Typography>
       <Alert severity="warning">
         <code>place-items-*</code>や<code>place-content-*</code>、
         <code>place-self-*</code>はGrid専用
@@ -279,7 +303,9 @@ const Position = () => {
         style="number"
       />
       <Space />
-      <Typography variant="h4">主な値と効果</Typography>
+      <Typography variant="h4" id="place-values">
+        主な値と効果
+      </Typography>
       <BulletPoints
         items={[
           "center：主軸・交差軸とも中央揃え（place-items-center, place-content-center, place-self-center）",
@@ -288,7 +314,7 @@ const Position = () => {
         ]}
       />
       <Space />
-      <Typography variant="h4">
+      <Typography variant="h4" id="place-center">
         サンプル（place-items-center = align-items: center + justify-items:
         center）
       </Typography>
@@ -306,7 +332,7 @@ const Position = () => {
         `}
       />
       <Space />
-      <Typography variant="h4">
+      <Typography variant="h4" id="place-start">
         サンプル（place-items-start = align-items: flex-start + justify-items:
         start）
       </Typography>
@@ -324,7 +350,7 @@ const Position = () => {
         `}
       />
       <Space />
-      <Typography variant="h4">
+      <Typography variant="h4" id="place-end">
         サンプル（place-items-end = align-items: flex-end + justify-items: end）
       </Typography>
       <Typography>
@@ -342,9 +368,13 @@ const Position = () => {
       />
       <Space />
       {/* --- 対象 --- */}
-      <Typography variant="h2">対象</Typography>
+      <Typography variant="h2" id="target">
+        対象
+      </Typography>
 
-      <Typography variant="h3">content（アイテム群全体の配置）</Typography>
+      <Typography variant="h3" id="content">
+        content（アイテム群全体の配置）
+      </Typography>
       <Typography>
         <b>content-*</b>
         は、複数行・複数列に折り返したアイテム群全体（グループ全体）の配置を制御するプロパティ
@@ -366,7 +396,9 @@ const Position = () => {
         style="number"
       />
       <Space />
-      <Typography variant="h4">サンプル（content-center, Grid）</Typography>
+      <Typography variant="h4" id="content-center">
+        サンプル（content-center, Grid）
+      </Typography>
       <Typography>
         <code>content-center</code>
         を指定すると、複数行になったグリッド全体が交差軸方向の中央に揃う
@@ -385,7 +417,9 @@ const Position = () => {
         `}
       />
       <Space />
-      <Typography variant="h4">サンプル（content-start, Grid）</Typography>
+      <Typography variant="h4" id="content-start">
+        サンプル（content-start, Grid）
+      </Typography>
       <Typography>
         <code>content-start</code>
         を指定すると、複数行になったグリッド全体が交差軸方向の上端に揃う
@@ -401,7 +435,9 @@ const Position = () => {
         `}
       />
 
-      <Typography variant="h3">items（各アイテムのデフォルト配置）</Typography>
+      <Typography variant="h3" id="items">
+        items（各アイテムのデフォルト配置）
+      </Typography>
       <Typography>
         <b>items-*</b>
         は、コンテナ内の全てのアイテムの交差軸方向のデフォルト整列方法を指定するプロパティ
@@ -420,7 +456,9 @@ const Position = () => {
         style="number"
       />
       <Space />
-      <Typography variant="h4">サンプル（items-center, Flex）</Typography>
+      <Typography variant="h4" id="items-center">
+        サンプル（items-center, Flex）
+      </Typography>
       <Typography>
         <code>items-center</code>
         を指定すると、全ての子要素が交差軸方向（flex-rowなら縦方向）の中央に揃う
@@ -436,7 +474,9 @@ const Position = () => {
       />
       <Space />
 
-      <Typography variant="h3">self（個別アイテムの配置）</Typography>
+      <Typography variant="h3" id="self">
+        self（個別アイテムの配置）
+      </Typography>
       <Typography>
         <b>self-*</b>
         は、個々のアイテムだけ他と異なる交差軸方向の位置に配置したい場合に使うプロパティ
@@ -455,7 +495,9 @@ const Position = () => {
         style="number"
       />
       <Space />
-      <Typography variant="h4">サンプル（self-end, Flex）</Typography>
+      <Typography variant="h4" id="self-end">
+        サンプル（self-end, Flex）
+      </Typography>
       <Typography>
         <code>self-end</code>
         を指定すると、そのアイテムだけ交差軸方向（flex-rowなら縦方向）の下端に揃う

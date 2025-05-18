@@ -22,11 +22,15 @@ const Gap = () => {
         url="https://tailwindcss.com/docs/gap"
       />
 
-      <Typography variant="h2">よくあるユースケース</Typography>
+      <Typography variant="h2" id="use-case">
+        よくあるユースケース
+      </Typography>
       <BulletPoints items={useCaseList} style="number" />
       <Space />
 
-      <Typography variant="h2">gap：要素間の間隔を調整</Typography>
+      <Typography variant="h2" id="gap">
+        gap：要素間の間隔を調整
+      </Typography>
       <Typography>
         <b>gapはFlexコンテナまたはGridコンテナでのみ有効</b>
         <br />
@@ -73,7 +77,9 @@ const Gap = () => {
       />
       <Space />
 
-      <Typography variant="h2">gap-x, gap-y：横・縦方向の個別指定</Typography>
+      <Typography variant="h2" id="gap-x-gap-y">
+        gap-x, gap-y：横・縦方向の個別指定
+      </Typography>
       <Typography>
         <code>gap-x-*</code>で横方向、<code>gap-y-*</code>
         で縦方向の間隔を個別に指定できる

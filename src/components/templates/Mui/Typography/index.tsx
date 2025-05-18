@@ -50,7 +50,9 @@ const Pages = () => {
         url="https://mui.com/material-ui/api/typography/"
       />
       <Typography>を参照してください．</Typography>
-      <Typography variant="h2">基本</Typography>
+      <Typography variant="h2" id="basic">
+        基本
+      </Typography>
       <Typography>
         Typographyはテキストを表示するコンポーネントで，代表的なものだと以下のようなスタイルを指定できる
       </Typography>
@@ -65,13 +67,15 @@ const Pages = () => {
         `}
       />
 
-      <Typography variant="h2">
+      <Typography variant="h2" id="difference">
         通常のHTMLのh1~h6などのテキストとの違い
       </Typography>
       <Typography>通常のHTMLのh1~h6などのテキストとの違いは</Typography>
       <BulletPoints items={TypographyFeatureList} style="number" />
       <Space />
-      <Typography variant="h3">{TypographyFeatureList[0]}</Typography>
+      <Typography variant="h3" id="guarantee-consistent-text-style">
+        {TypographyFeatureList[0]}
+      </Typography>
       <Typography variant="code">theme/index.tsx</Typography>
       <Typography>
         にて設定することで，全体で一貫したテキストスタイルを保証できる．
@@ -99,7 +103,9 @@ const Pages = () => {
         },          
       `}
       />
-      <Typography variant="h3"> {TypographyFeatureList[1]} </Typography>
+      <Typography variant="h3" id="separate-text-style-and-html-element">
+        {TypographyFeatureList[1]}
+      </Typography>
       <Typography>
         Typographyはvariantプロパティでスタイルを，componentプロパティでHTMLの要素を指定できる．
       </Typography>
@@ -112,7 +118,9 @@ const Pages = () => {
         `}
       />
       <Typography>これにより以下のような利点がある</Typography>
-      <Typography variant="h4">SEO対策になる</Typography>
+      <Typography variant="h4" id="seo-improvement">
+        SEO対策になる
+      </Typography>
       <Typography gutterBottom>
         ページ内に複数のh1要素があると，SEO的によくないといわれている．
         <br />
@@ -121,11 +129,15 @@ const Pages = () => {
       <Typography>
         そのような場合に，componentプロパティを使用すると，h1のスタイルをそのままに，h2のHTML要素として表示することができる．
       </Typography>
-      <Typography variant="h4">デザインと構造を分離できる</Typography>
+      <Typography variant="h4" id="separate-design-and-structure">
+        デザインと構造を分離できる
+      </Typography>
       <Typography>
         デザイン変更時（variant変更）をしても，HTML構造を変えずに見た目だけ変えることが可能
       </Typography>
-      <Typography variant="h3">{TypographyFeatureList[2]}</Typography>
+      <Typography variant="h3" id="responsive-font-size">
+        {TypographyFeatureList[2]}
+      </Typography>
       <Typography>
         デフォルトではフォントサイズは固定だが，以下のような設定をすることでウィンドウサイズ（PCのブラウザサイズ，スマホなどなど）によってサイズを変える設定ができる
       </Typography>
@@ -140,11 +152,15 @@ const Pages = () => {
       <Typography>
         ただしこれはなめらかに変わるわけではなく，CSSのメディアクエリによる変更なので，ブレークポイントごとに段階的に変わる
       </Typography>
-      <Typography variant="h3">{TypographyFeatureList[3]}</Typography>
+      <Typography variant="h3" id="additional-properties">
+        {TypographyFeatureList[3]}
+      </Typography>
       <Typography>
         Typographyにはもとのhtmlには存在しない（あるいは指定が面倒な）様々なオプションが提供されている
       </Typography>
-      <Typography variant="h4">noWrap</Typography>
+      <Typography variant="h4" id="no-wrap">
+        noWrap
+      </Typography>
       <Typography>
         テキストがはみ出した場合に，テキストを折り返すかどうかを指定する
         <br />
@@ -159,7 +175,9 @@ const Pages = () => {
   </Typography>
       `}
       />
-      <Typography variant="h4">gutterBottom</Typography>
+      <Typography variant="h4" id="gutter-bottom">
+        gutterBottom
+      </Typography>
       <Typography>
         要素の下に余白（マージン）を自動で追加する
         <br />
@@ -178,7 +196,9 @@ const Pages = () => {
         `}
       />
 
-      <Typography variant="h4">align</Typography>
+      <Typography variant="h4" id="align">
+        align
+      </Typography>
       <Typography>
         テキストの配置を指定する．
         <br />
@@ -211,7 +231,9 @@ const Pages = () => {
         justifyとleftの違いは，英語を入力するときには顕著だが，日本語を入力するときには気にしなくていい(leftを選んでおけばいい)
       </Typography>
 
-      <Typography variant="h4">color</Typography>
+      <Typography variant="h4" id="color">
+        color
+      </Typography>
       <Typography>
         テーマで定義された色を簡単に使用できる．
         <br />
@@ -251,7 +273,9 @@ const Pages = () => {
       `}
       />
 
-      <Typography variant="h4">fontWeight</Typography>
+      <Typography variant="h4" id="font-weight">
+        fontWeight
+      </Typography>
       <Typography>
         フォントの太さを指定できる．
         <br />
