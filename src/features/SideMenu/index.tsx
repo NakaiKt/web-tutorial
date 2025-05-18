@@ -26,7 +26,9 @@ const CLOSE_DRAWER_WIDTH = 50;
 
 const SideMenu = () => {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(true);
+  const [isHover, setIsHover] = useState(false);
+  const isOpen = isExpanded || isHover;
   const menuItems: MenuItems = [
     {
       title: "基本",
@@ -78,11 +80,19 @@ const SideMenu = () => {
   ];
 
   const handleOpen = () => {
-    setIsOpen(true);
+    setIsExpanded(true);
   };
 
   const handleClose = () => {
-    setIsOpen(false);
+    setIsExpanded(false);
+  };
+
+  const handleHover = () => {
+    setIsHover(true);
+  };
+
+  const handleLeave = () => {
+    setIsHover(false);
   };
 
   return (
@@ -93,11 +103,23 @@ const SideMenu = () => {
           flexShrink: 0, // ウィンドウサイズが小さくなってもDrawerを縮小しないように
           "& .MuiDrawer-paper": {
             width: isOpen ? DRAWER_WIDTH : CLOSE_DRAWER_WIDTH, // Drawerの幅を指定するためのプロパティ. 上のwidthとの違いは
-            boxSizing: "border-box", //
+            boxSizing: "border-box",
+            transition: "width 0.3s ease",
+            overflowX: "hidden",
+            whiteSpace: "nowrap",
           },
         }}
         variant="permanent"
         anchor="left"
+        slotProps={{
+          paper: {
+            sx: {
+              backgroundColor: "grey.100",
+            },
+            onMouseEnter: handleHover,
+            onMouseLeave: handleLeave,
+          },
+        }}
       >
         <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
           <Box
@@ -108,13 +130,15 @@ const SideMenu = () => {
               p: 2,
             }}
           >
-            {isOpen ? (
+            {isOpen && (
+              <Link href="/">
+                <Typography variant="h6" display="flex" alignItems="center">
+                  {<Home />}雑ドキュメント
+                </Typography>
+              </Link>
+            )}
+            {isExpanded ? (
               <>
-                <Link href="/">
-                  <Typography variant="h6" display="flex" alignItems="center">
-                    {<Home />}雑ドキュメント
-                  </Typography>
-                </Link>
                 <Flip onClick={handleClose} />
               </>
             ) : (
