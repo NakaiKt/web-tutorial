@@ -1,10 +1,10 @@
-import Wrapper from "@/components/templates/Mui/Wrapper";
+import Position from "@/components/templates/Base/Position";
 import { BaseTemplate } from "@/features/Template";
 
 const Pages = () => {
   return (
-    <BaseTemplate title="ラッパーコンポーネント">
-      <Wrapper />
+    <BaseTemplate title="配置">
+      <Position />
     </BaseTemplate>
   );
 };

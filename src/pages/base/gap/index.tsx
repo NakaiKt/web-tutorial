@@ -1,10 +1,10 @@
-import Length from "@/components/templates/Tailwind/Length";
+import Gap from "@/components/templates/Base/Gap";
 import { BaseTemplate } from "@/features/Template";
 
 const Pages = () => {
   return (
-    <BaseTemplate title="長さの単位">
-      <Length />
+    <BaseTemplate title="Gap（要素間の間隔調整）">
+      <Gap />
     </BaseTemplate>
   );
 };

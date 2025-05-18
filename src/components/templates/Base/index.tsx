@@ -1,11 +1,11 @@
 import { Typography, Box } from "@mui/material";
 import Link from "@/components/parts/Link";
 
-const Tailwind = () => {
+const Base = () => {
   return (
     <Box>
       <Typography>
-        使用するTailwindのバージョンは
+        使用するTailwindのバージョンやMUIのバージョンは
         <Link text="ここ" url="/" />
         を参照してください
       </Typography>
@@ -13,4 +13,4 @@ const Tailwind = () => {
   );
 };
 
-export default Tailwind;
+export default Base;

@@ -1,4 +1,4 @@
-import AutoLayout from "@/components/templates/Tailwind/AutoLayout";
+import AutoLayout from "@/components/templates/Base/AutoLayout";
 import { BaseTemplate } from "@/features/Template";
 
 const Pages = () => {

@@ -6,7 +6,6 @@ import {
   AutoAwesomeMosaic,
   SpaceBar,
   FormatAlignJustify,
-  Yard,
   SmartButton,
   Rtt,
   CropFree,
@@ -31,8 +30,8 @@ const SideMenu = () => {
       icon: <Home />,
     },
     {
-      title: "CSS(Tailwind)",
-      path: "/tailwind",
+      title: "基本",
+      path: "/base",
       children: [
         {
           title: "長さの単位",
@@ -45,19 +44,19 @@ const SideMenu = () => {
           icon: <SpaceBar fontSize="small" />,
         },
         {
-          title: "配置",
+          title: "配置(justify, align, place)",
           path: "/position",
           icon: <FormatAlignJustify fontSize="small" />,
-        },
-        {
-          title: "Background",
-          path: "/background",
-          icon: <Yard fontSize="small" />,
         },
         {
           title: "オートレイアウト（FlexとGrid）",
           path: "/auto-layout",
           icon: <AutoAwesomeMosaic fontSize="small" />,
+        },
+        {
+          title: "ラッパーコンポーネント",
+          path: "/wrapper",
+          icon: <CropFree fontSize="small" />,
         },
       ],
     },
@@ -65,11 +64,6 @@ const SideMenu = () => {
       title: "MUI",
       path: "/mui",
       children: [
-        {
-          title: "ラッパーコンポーネント",
-          path: "/wrapper",
-          icon: <CropFree fontSize="small" />,
-        },
         {
           title: "Button",
           path: "/button",
