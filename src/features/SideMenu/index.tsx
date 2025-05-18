@@ -40,11 +40,6 @@ const SideMenu = () => {
           icon: <Straighten fontSize="small" />,
         },
         {
-          title: "Flex（横並び・縦並び）",
-          path: "/flex",
-          icon: <AutoAwesomeMosaic fontSize="small" />,
-        },
-        {
           title: "Gap（要素間の間隔調整）",
           path: "/gap",
           icon: <SpaceBar fontSize="small" />,
