@@ -24,3 +24,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+pre.shiki {
+  width: 100% !important;
+  display: block;
+  box-sizing: border-box;
+  overflow: auto;
+}

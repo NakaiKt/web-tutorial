@@ -22,7 +22,7 @@ const CodeBlock = ({ code, language = "tsx", fileName = "app.tsx" }: Props) => {
   };
 
   return (
-    <Paper sx={{ mb: 3, borderRadius: 1, fontFamily: "monospace" }}>
+    <Paper sx={{ mb: 3, borderRadius: 1, fontFamily: "monospace", p: 0 }}>
       <Box
         sx={{
           display: "flex",
@@ -57,7 +57,7 @@ const CodeBlock = ({ code, language = "tsx", fileName = "app.tsx" }: Props) => {
         </Tooltip>
       </Box>
 
-      <Box sx={{ position: "relative", overflowX: "auto", whiteSpace: "pre" }}>
+      <Box sx={{ position: "relative", overflowX: "auto", width: "100%" }}>
         {highlightedCode}
       </Box>
     </Paper>
