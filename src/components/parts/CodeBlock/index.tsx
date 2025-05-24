@@ -57,7 +57,9 @@ const CodeBlock = ({ code, language = "tsx", fileName = "app.tsx" }: Props) => {
         </Tooltip>
       </Box>
 
-      <Box sx={{ position: "relative" }}>{highlightedCode}</Box>
+      <Box sx={{ position: "relative", overflowX: "auto", whiteSpace: "pre" }}>
+        {highlightedCode}
+      </Box>
     </Paper>
   );
 };
