@@ -16,3 +16,5 @@ alwaysApply: true
 - 詳細に私に説明してください．特に css のスタイル指定や MUI v7, Tailwind v4 の使い方については，具体的なコード例を交えて説明してください
   - このスタイル指定にはどのような意味があるのか，どのような効果があるのかを詳しく説明してください
 
+コード規約は `./code-conventions` に
+またあなたの記憶は [MemoryBank.md](mdc:MemoryBank.md) です．こちらも参照してください
