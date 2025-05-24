@@ -1,4 +1,4 @@
-import Position from "@/components/templates/Base/Position";
+import Position from "@/contents/Base/Position";
 import { BaseTemplate } from "@/features/Template";
 
 const Pages = () => {

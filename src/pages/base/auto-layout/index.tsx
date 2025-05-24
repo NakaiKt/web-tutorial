@@ -1,4 +1,4 @@
-import AutoLayout from "@/components/templates/Base/AutoLayout";
+import AutoLayout from "@/contents/Base/AutoLayout";
 import { BaseTemplate } from "@/features/Template";
 
 const Pages = () => {

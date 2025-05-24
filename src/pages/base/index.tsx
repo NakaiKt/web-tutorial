@@ -1,4 +1,4 @@
-import Base from "@/components/templates/Base";
+import Base from "@/contents/Base";
 import { BaseTemplate } from "@/features/Template";
 
 const Pages = () => {

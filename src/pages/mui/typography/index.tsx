@@ -1,4 +1,4 @@
-import Typography from "@/components/templates/Mui/Typography";
+import Typography from "@/contents/Mui/Typography";
 import { BaseTemplate } from "@/features/Template";
 
 const Pages = () => {

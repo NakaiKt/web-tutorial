@@ -1,4 +1,4 @@
-import Gap from "@/components/templates/Base/Gap";
+import Gap from "@/contents/Base/Gap";
 import { BaseTemplate } from "@/features/Template";
 
 const Pages = () => {

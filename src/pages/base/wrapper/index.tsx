@@ -1,4 +1,4 @@
-import Wrapper from "@/components/templates/Base/Wrapper";
+import Wrapper from "@/contents/Base/Wrapper";
 import { BaseTemplate } from "@/features/Template";
 
 const Pages = () => {

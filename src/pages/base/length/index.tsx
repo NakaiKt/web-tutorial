@@ -1,4 +1,4 @@
-import Length from "@/components/templates/Base/Length";
+import Length from "@/contents/Base/Length";
 import { BaseTemplate } from "@/features/Template";
 
 const Pages = () => {
