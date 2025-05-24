@@ -29,7 +29,7 @@ const Page = () => {
       <Typography variant="h3" id="fragment">
         &lt;&gt;（空タグ, Fragment）
       </Typography>
-      <Typography variant="h4" id="overview">
+      <Typography variant="h4" id="fragment-overview">
         概要
       </Typography>
       <Typography>
@@ -37,7 +37,7 @@ const Page = () => {
         <br />
         <b>スタイルや属性を付与する必要がない場合はFragmentで十分</b>。
       </Typography>
-      <Typography variant="h4" id="difference">
+      <Typography variant="h4" id="fragment-difference">
         他との違い（使いどころ）
       </Typography>
       <Typography>
@@ -45,7 +45,7 @@ const Page = () => {
         <br />
         例えば、リストやテーブルの中で余計なdivを増やしたくない場合などに有効。
       </Typography>
-      <Typography variant="h4" id="minimum-sample-code">
+      <Typography variant="h4" id="fragment-minimum-sample-code">
         最小限のサンプルコード
       </Typography>
       <CodePreview
@@ -54,7 +54,7 @@ const Page = () => {
   <div>要素2</div>
 </>`}
       />
-      <Typography variant="h4" id="application-example">
+      <Typography variant="h4" id="fragment-application-example">
         応用例
       </Typography>
       <CodePreview
@@ -69,7 +69,7 @@ const Page = () => {
       <Typography variant="h3" id="div">
         &lt;div&gt;
       </Typography>
-      <Typography variant="h4" id="overview">
+      <Typography variant="h4" id="div-overview">
         概要
       </Typography>
       <Typography>
@@ -77,7 +77,7 @@ const Page = () => {
         <br />
         <b>Tailwindや独自CSS中心のプロジェクトではdivが基本</b>。
       </Typography>
-      <Typography variant="h4" id="difference">
+      <Typography variant="h4" id="div-difference">
         他との違い（使いどころ）
       </Typography>
       <Typography>
@@ -85,7 +85,7 @@ const Page = () => {
         <br />
         ただし、MUIのテーマやsxプロパティを活用したい場合はBoxを使うと便利。
       </Typography>
-      <Typography variant="h4" id="minimum-sample-code">
+      <Typography variant="h4" id="div-minimum-sample-code">
         最小限のサンプルコード
       </Typography>
       <CodePreview
@@ -94,7 +94,7 @@ const Page = () => {
   <div>要素2</div>
 </div>`}
       />
-      <Typography variant="h4" id="application-example">
+      <Typography variant="h4" id="div-application-example">
         応用例
       </Typography>
       <CodePreview
@@ -110,7 +110,7 @@ const Page = () => {
       <Typography variant="h3" id="box">
         &lt;Box&gt;
       </Typography>
-      <Typography variant="h4" id="overview">
+      <Typography variant="h4" id="box-overview">
         概要
       </Typography>
       <Typography>
@@ -118,7 +118,7 @@ const Page = () => {
         <br />
         <b>MUI中心のプロジェクトではBoxが基本</b>。
       </Typography>
-      <Typography variant="h4" id="difference">
+      <Typography variant="h4" id="box-difference">
         他との違い（使いどころ）
       </Typography>
       <Typography>
@@ -130,13 +130,13 @@ const Page = () => {
         </b>
         。
       </Typography>
-      <Typography variant="h4" id="minimum-sample-code">
+      <Typography variant="h4" id="box-minimum-sample-code">
         最小限のサンプルコード
       </Typography>
       <CodePreview
         code={`<Box sx={{ p: 2, bgcolor: 'primary.light' }}>A</Box>`}
       />
-      <Typography variant="h4" id="application-example">
+      <Typography variant="h4" id="box-application-example">
         応用例
       </Typography>
       <CodePreview
@@ -149,7 +149,7 @@ const Page = () => {
       <Typography variant="h3" id="container">
         &lt;Container&gt;
       </Typography>
-      <Typography variant="h4" id="overview">
+      <Typography variant="h4" id="container-overview">
         概要
       </Typography>
       <Typography>
@@ -157,7 +157,7 @@ const Page = () => {
         <br />
         <b>ページ全体の幅や中央寄せを管理したい場合に便利</b>。
       </Typography>
-      <Typography variant="h4" id="difference">
+      <Typography variant="h4" id="container-difference">
         他との違い（使いどころ）
       </Typography>
       <Typography>
@@ -165,7 +165,7 @@ const Page = () => {
         <br />
         <b>ContainerはBoxのレイアウト特化版</b>。
       </Typography>
-      <Typography variant="h4" id="minimum-sample-code">
+      <Typography variant="h4" id="container-minimum-sample-code">
         最小限のサンプルコード
       </Typography>
       <CodePreview
@@ -173,7 +173,7 @@ const Page = () => {
   コンテンツ
 </Container>`}
       />
-      <Typography variant="h4" id="application-example">
+      <Typography variant="h4" id="container-application-example">
         応用例
       </Typography>
       <CodePreview
@@ -186,7 +186,7 @@ const Page = () => {
       <Typography variant="h3" id="paper">
         &lt;Paper&gt;
       </Typography>
-      <Typography variant="h4" id="overview">
+      <Typography variant="h4" id="paper-overview">
         概要
       </Typography>
       <Typography>
@@ -194,7 +194,7 @@ const Page = () => {
         <br />
         <b>カードやパネル、区切りたい領域に最適</b>。
       </Typography>
-      <Typography variant="h4" id="difference">
+      <Typography variant="h4" id="paper-difference">
         他との違い（使いどころ）
       </Typography>
       <Typography>
@@ -202,7 +202,7 @@ const Page = () => {
         <br />
         <b>PaperはContainer/Boxの装飾特化版</b>。
       </Typography>
-      <Typography variant="h4" id="minimum-sample-code">
+      <Typography variant="h4" id="paper-minimum-sample-code">
         最小限のサンプルコード
       </Typography>
       <CodePreview
@@ -210,7 +210,7 @@ const Page = () => {
   コンテンツ
 </Paper>`}
       />
-      <Typography variant="h4" id="application-example">
+      <Typography variant="h4" id="paper-application-example">
         応用例
       </Typography>
       <CodePreview
@@ -223,7 +223,7 @@ const Page = () => {
       <Typography variant="h3" id="stack">
         &lt;Stack&gt;
       </Typography>
-      <Typography variant="h4" id="overview">
+      <Typography variant="h4" id="stack-overview">
         概要
       </Typography>
       <Typography>
@@ -231,7 +231,7 @@ const Page = () => {
         <br />
         <b>子要素を縦・横に並べたい、間隔を簡単に調整したい場合に便利</b>。
       </Typography>
-      <Typography variant="h4" id="difference">
+      <Typography variant="h4" id="stack-difference">
         他との違い（使いどころ）
       </Typography>
       <Typography>
@@ -239,7 +239,7 @@ const Page = () => {
         <br />
         <b>StackはBoxのflexレイアウト特化版</b>。
       </Typography>
-      <Typography variant="h4" id="minimum-sample-code">
+      <Typography variant="h4" id="stack-minimum-sample-code">
         最小限のサンプルコード
       </Typography>
       <CodePreview
@@ -248,7 +248,7 @@ const Page = () => {
   <Box sx={{ p: 2, bgcolor: 'secondary.light' }}>B</Box>
 </Stack>`}
       />
-      <Typography variant="h4" id="application-example">
+      <Typography variant="h4" id="stack-application-example">
         応用例
       </Typography>
       <CodePreview
