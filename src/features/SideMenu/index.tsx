@@ -13,6 +13,7 @@ import {
 } from "@mui/icons-material";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { SearchTypography } from "../SearchTypography";
 
 type MenuItems = {
   title: string;
@@ -125,8 +126,8 @@ const SideMenu = () => {
           <Box
             sx={{
               display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
+              flexDirection: "column",
+              alignItems: "flex-start",
               p: 2,
             }}
           >
@@ -134,9 +135,10 @@ const SideMenu = () => {
               <>
                 <Link href="/">
                   <Typography variant="h6" display="flex" alignItems="center">
-                    {<Home />}雑ドキュメント
+                    {<Home />}デザインドキュメント
                   </Typography>
                 </Link>
+                <SearchTypography />
                 {isExpanded ? (
                   <>
                     <Flip onClick={handleClose} />

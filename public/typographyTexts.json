@@ -1,0 +1,1187 @@
+[
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 11,
+    "text": "オートレイアウトは、Webページの構造や要素の並びを自動的に整える仕組み Tailwindでは主にFlexboxとGridの2つの方法がある それぞれ得意分野が異なり、1次元の並びにはFlex、2次元のグリッド状にはGridが適している"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 30,
+    "text": "Flexbox"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 33,
+    "text": "Flexboxは、Webレイアウトで最もよく使われる仕組みの一つ。 親要素にflex を指定するだけで、子要素が自動的に横並びや縦並びになり、空きスペースや間隔も柔軟に調整できる。 これにより、個別に位置やサイズを指定する手間が省け、保守やレスポンシブ対応が容易になる。 例えば、ボタンやカードを横一列に並べたい場合や、中央揃え・均等配置なども簡単に実現できる。"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 44,
+    "text": "最大の利点"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 47,
+    "text": "Flexの最大の利点は、要素同士の関係性をもとに自動的に整列・分配できる点。 これがない場合、すべての要素の位置やサイズを個別に指定する必要があり、レイアウトの保守や変更が難しくなる。"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 64,
+    "text": "flex-row / flex-col：並び方向"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 67,
+    "text": "デフォルトは横並び（flex-row）。縦並びにしたい場合は flex-colを使う。"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 90,
+    "text": "flex-wrap：折り返し"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 93,
+    "text": "flex-wrap を使うと、子要素が親要素の幅を超えたときに自動で折り返すことができる。"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 107,
+    "text": "grow / shrink / flex-1：伸縮の制御"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 110,
+    "text": "growやshrink、flex-1 を使うと、空きスペースの比率配分や縮小の可否を柔軟に制御できる。 例えば、中央の要素だけ空きスペースを埋めるようにしたい場合などに便利。"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 126,
+    "text": "配置（justify-*, items-*{\" \"} など）は詳細を「配置」ページ参照"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 133,
+    "text": "Grid"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 136,
+    "text": "Gridは2次元（行・列）のレイアウトを柔軟に作れる手法。 カード一覧やダッシュボードなど、複雑なレイアウトに強い。 Flexと同様にgapや配置プロパティを活用できる。"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 152,
+    "text": "基本例（3列グリッド）"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 162,
+    "text": "行・列spanの例"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 173,
+    "text": "配置（justify-*, items-*, place-*{\" \"} など）は詳細を「配置」ページ参照"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 180,
+    "text": "FlexとGridの使い分け"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 192,
+    "text": "どちらもレスポンシブ対応や間隔調整が得意だが、用途に応じて使い分ける。 配置や細かな整列は「配置」ページで詳しく解説"
+  },
+  {
+    "file": "/app/src/contents/Base/AutoLayout/index.tsx",
+    "line": 198,
+    "text": "まとめ"
+  },
+  {
+    "file": "/app/src/contents/Base/Gap/index.tsx",
+    "line": 15,
+    "text": "このページでは「要素間の間隔を調整する」場面でよく使うTailwindのgapを扱う 最新情報は"
+  },
+  {
+    "file": "/app/src/contents/Base/Gap/index.tsx",
+    "line": 25,
+    "text": "よくあるユースケース"
+  },
+  {
+    "file": "/app/src/contents/Base/Gap/index.tsx",
+    "line": 31,
+    "text": "gap：要素間の間隔を調整"
+  },
+  {
+    "file": "/app/src/contents/Base/Gap/index.tsx",
+    "line": 34,
+    "text": "gapはFlexコンテナまたはGridコンテナでのみ有効 親要素にflexやgrid クラスがない場合、gapは効かない 例えばgap-4は16px（1rem）"
+  },
+  {
+    "file": "/app/src/contents/Base/Gap/index.tsx",
+    "line": 42,
+    "text": "Flexで使う場合： 子要素同士の間隔が水平方向・垂直方向に均等に空く"
+  },
+  {
+    "file": "/app/src/contents/Base/Gap/index.tsx",
+    "line": 60,
+    "text": "Gridで使う場合： 行・列の両方の間隔が均等に空く"
+  },
+  {
+    "file": "/app/src/contents/Base/Gap/index.tsx",
+    "line": 80,
+    "text": "gap-x, gap-y：横・縦方向の個別指定"
+  },
+  {
+    "file": "/app/src/contents/Base/Gap/index.tsx",
+    "line": 83,
+    "text": "gap-x-*で横方向、gap-y-* で縦方向の間隔を個別に指定できる"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 12,
+    "text": "レイアウトはWebページの構造や要素の並びを決める仕組み Tailwindでは主にFlexboxとGridの2つの方法がある それぞれ得意分野が異なり、1次元の並びにはFlex、2次元のグリッド状にはGridが適している"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 31,
+    "text": "Flexbox"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 34,
+    "text": "Flexboxは、Webレイアウトで最もよく使われる仕組みの一つ。 親要素にflex を指定するだけで、子要素が自動的に横並びや縦並びになり、空きスペースや間隔も柔軟に調整できる。 これにより、個別に位置やサイズを指定する手間が省け、保守やレスポンシブ対応が容易になる。 例えば、ボタンやカードを横一列に並べたい場合や、中央揃え・均等配置なども簡単に実現できる。"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 45,
+    "text": "最大の利点"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 48,
+    "text": "Flexの最大の利点は、要素同士の関係性をもとに自動的に整列・分配できる点。 これがない場合、すべての要素の位置やサイズを個別に指定する必要があり、レイアウトの保守や変更が難しくなる。"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 65,
+    "text": "flex-row / flex-col：並び方向"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 68,
+    "text": "デフォルトは横並び（flex-row）。縦並びにしたい場合は flex-colを使う。"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 91,
+    "text": "flex-wrap：折り返し"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 94,
+    "text": "flex-wrap を使うと、子要素が親要素の幅を超えたときに自動で折り返すことができる。"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 108,
+    "text": "grow / shrink / flex-1：伸縮の制御"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 111,
+    "text": "growやshrink、flex-1 を使うと、空きスペースの比率配分や縮小の可否を柔軟に制御できる。 例えば、中央の要素だけ空きスペースを埋めるようにしたい場合などに便利。"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 127,
+    "text": "配置（justify-*, items-*{\" \"} など）は詳細を「配置」ページ参照"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 134,
+    "text": "Grid"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 137,
+    "text": "Gridは2次元（行・列）のレイアウトを柔軟に作れる手法。 カード一覧やダッシュボードなど、複雑なレイアウトに強い。 Flexと同様にgapや配置プロパティを活用できる。"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 153,
+    "text": "基本例（3列グリッド）"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 163,
+    "text": "行・列spanの例"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 174,
+    "text": "配置（justify-*, items-*, place-*{\" \"} など）は詳細を「配置」ページ参照"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 181,
+    "text": "FlexとGridの使い分け"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 193,
+    "text": "どちらもレスポンシブ対応や間隔調整が得意だが、用途に応じて使い分ける。 配置や細かな整列は「配置」ページで詳しく解説"
+  },
+  {
+    "file": "/app/src/contents/Base/Layout/index.tsx",
+    "line": 199,
+    "text": "まとめ"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 9,
+    "text": "CSSの長さの単位は大きく「絶対単位」と「相対単位」に分かれる 絶対単位は画面や印刷などで常に同じ物理的サイズを持ち、相対単位は親要素やルート要素、ビューポートなどのサイズに応じて変化する Tailwindではこれらの単位を直感的にクラスで指定でき、さらに w-fullやmax-w-*、min-w-* などの便利なユーティリティも用意されている 詳細は"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 30,
+    "text": "絶対単位"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 33,
+    "text": "画面上で常に同じサイズを持つ単位主にデザインの基準や、細かなピクセル調整が必要な場面で使う"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 39,
+    "text": "px（ピクセル）"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 42,
+    "text": "絶対的な長さの単位画面上の物理的なピクセル数を指定 精密なサイズ指定や、ボーダー・アイコン・ボタンなどの固定サイズ要素に使う"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 68,
+    "text": "相対単位"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 71,
+    "text": "親要素やルート要素、ビューポートなどのサイズに応じて変化する単位レスポンシブデザインや柔軟なレイアウトに最適"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 77,
+    "text": "rem（ルート相対）"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 80,
+    "text": "ルート要素（html）のfont-sizeを基準とした相対単位 サイト全体のスケーラビリティを意識した設計や、ユーザーのアクセシビリティ設定に追従したい場合に使う 親要素にfont-sizeの指定がなければ、remの基準はhtml要素のfont-size（多くのブラウザで16px。ユーザーが設定で変更している場合もある） 例えばMUIのTypographyやdiv直下でfont-size指定がなければ、remは常にhtmlのfont-size基準"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 116,
+    "text": "em（親要素相対）"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 119,
+    "text": "親要素のfont-sizeを基準とした相対単位 ネストしたコンポーネントや、ボタン内のアイコンサイズなど、親要素に合わせてサイズを変えたい場合に使う 親要素にfont-sizeの指定がなければ、emもhtml要素のfont-size（多くのブラウザで16px。ユーザーが設定で変更している場合もある）が基準"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 150,
+    "text": "ただし、親要素（例：Typographyやdiv）にfont-sizeを指定すると、その値がemの基準になる 例：Typography fontSize=&quot;24px&quot; の中で1emは24px、1remはhtmlのfont-size"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 174,
+    "text": "%（パーセンテージ）"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 177,
+    "text": "直近の親要素のサイズに対する割合で指定 レスポンシブなグリッドレイアウトや、親要素に合わせて幅を可変にしたい場合に使う"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 208,
+    "text": "割合が100%を超える場合"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 211,
+    "text": "割合が100%を超える場合，親の設定によって動作が変わる．基本的には，親の設定に従う．"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 233,
+    "text": "vw / vh（ビューポート単位）"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 236,
+    "text": "ビューポート（画面全体）の幅・高さに対する割合で指定 親要素のサイズに関係なく，画面いっぱいに広げたいバナーや全画面モーダルなどに使う"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 261,
+    "text": "%とvw/vhの違い"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 264,
+    "text": "%は親要素のサイズに対する割合で指定 例えば以下の例だと，直近の親要素の高さが32pxで，その50%である16pxが高さになる vw/vhはウィンドウ（ビューボード・画面全体）の表示領域の幅・高さに対する割合で指定 ウィンドウを縮小したら，vw/vhの割合に対する値が変わる"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 289,
+    "text": "auto（自動）"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 292,
+    "text": "コンテンツのサイズや親要素の制約に応じて自動的にサイズが決まる テキストや画像など、内容に応じて幅を自動調整したい場合に使う 親要素がflexやgridの場合、autoは空きスペースに応じて伸縮する（例：flex-grow, flex-shrinkの影響を受ける）"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 331,
+    "text": "Tailwind独自の便利な幅指定"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 334,
+    "text": "w-fullは親要素の幅いっぱいに広げる．w-[100%]と同じ． max-w-*やmin-w-* は最大幅・最小幅を制限し、レスポンシブなデザインや可読性の確保に役立つ"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 362,
+    "text": "カスタム値（任意の長さ指定）"
+  },
+  {
+    "file": "/app/src/contents/Base/Length/index.tsx",
+    "line": 365,
+    "text": "Tailwindでは、w-[72px]やw-[5vw] のように[]記法で任意の長さを指定できる px, rem, em, %, vw, vhなど、CSSで使える単位を自由に組み合わせて指定可能"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 16,
+    "text": "配置（Box Alignment）は、FlexboxやGridなどのレイアウトで要素の整列・配置を制御するためのプロパティ群 主に「justify（主軸方向）」「align（交差軸方向）」「place（shorthand）」があり、それぞれ -content・-items・-self のバリアントを持つ"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 49,
+    "text": "配置の軸"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 52,
+    "text": "justify（主軸方向の配置）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 55,
+    "text": "justifyは、FlexboxやGridの「主軸方向」（flex-rowなら横、flex-colなら縦）における子要素の配置を制御するプロパティ Tailwindではjustify-*クラスで指定"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 62,
+    "text": "主な値と効果"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 76,
+    "text": "サンプル（justify-start）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 79,
+    "text": "justify-start を指定すると、子要素が主軸方向（flex-rowなら横方向）の先頭に揃う"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 93,
+    "text": "サンプル（justify-end）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 96,
+    "text": "justify-end を指定すると、子要素が主軸方向（flex-rowなら横方向）の末尾に揃う"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 110,
+    "text": "サンプル（justify-center）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 113,
+    "text": "justify-center を指定すると、子要素が主軸方向（flex-rowなら横方向）の中央に揃う"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 127,
+    "text": "サンプル（justify-between）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 130,
+    "text": "justify-between を指定すると、子要素が主軸方向（flex-rowなら横方向）の両端に揃い、その間隔が均等になる"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 144,
+    "text": "サンプル（justify-around）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 147,
+    "text": "justify-around を指定すると、子要素が主軸方向（flex-rowなら横方向）の両端に揃い、その間隔が均等になる"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 161,
+    "text": "サンプル（justify-evenly）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 164,
+    "text": "justify-evenly を指定すると、子要素が主軸方向（flex-rowなら横方向）の両端に揃い、その間隔が均等になる"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 177,
+    "text": "align（交差軸方向の配置）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 180,
+    "text": "alignは、FlexboxやGridの「交差軸方向」（flex-rowなら縦、flex-colなら横）における子要素の配置を制御するプロパティ Tailwindではitems-*（=align-items）、content-* （=align-content）、self-* （=align-self）クラスが「align」の役割を担う 例えばitems-centerはCSSのalign-items: center に相当し、「交差軸方向の中央揃え」を意味する"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 199,
+    "text": "主な値と効果"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 211,
+    "text": "サンプル（items-start = align-items: flex-start）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 214,
+    "text": "items-start を指定すると、全ての子要素が交差軸方向（flex-rowなら縦方向）の上端（親要素の上）に揃う"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 228,
+    "text": "サンプル（items-end = align-items: flex-end）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 231,
+    "text": "items-end を指定すると、全ての子要素が交差軸方向（flex-rowなら縦方向）の下端（親要素の下）に揃う"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 245,
+    "text": "サンプル（items-center = align-items: center）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 248,
+    "text": "items-center を指定すると、全ての子要素が交差軸方向（flex-rowなら縦方向）の中央に揃う"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 262,
+    "text": "サンプル（items-baseline = align-items: baseline）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 265,
+    "text": "items-baseline を指定すると、全ての子要素が交差軸方向（flex-rowなら縦方向）のベースラインに揃う ベースラインとは，テキストの下線のことであり，以下の例でフォントが大きいBのベースラインに揃う"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 281,
+    "text": "place（一括指定）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 288,
+    "text": "placeは、主軸方向（justify）と交差軸方向（align）の配置を1つのプロパティでまとめて指定できるshorthand（ショートハンド） Tailwindではplace-items-*（=place-items）、 place-content-*（=place-content）、 place-self-*（=place-self）クラスで指定 例えばplace-items-centerは align-items: center; justify-items: center;と同じ効果になる"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 306,
+    "text": "主な値と効果"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 317,
+    "text": "サンプル（place-items-center = align-items: center + justify-items: center）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 321,
+    "text": "place-items-center を指定すると、Gridの各アイテムが縦横とも中央に揃う"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 335,
+    "text": "サンプル（place-items-start = align-items: flex-start + justify-items: start）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 339,
+    "text": "place-items-start を指定すると、Gridの各アイテムが縦横とも上端に揃う"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 353,
+    "text": "サンプル（place-items-end = align-items: flex-end + justify-items: end）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 356,
+    "text": "place-items-end を指定すると、Gridの各アイテムが縦横とも下端に揃う"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 371,
+    "text": "対象"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 375,
+    "text": "content（アイテム群全体の配置）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 378,
+    "text": "content-* は、複数行・複数列に折り返したアイテム群全体（グループ全体）の配置を制御するプロパティ Tailwindのcontent-*はalign-content （交差軸方向）に対応し、justify-content-*は主軸方向の justify-contentに対応する"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 399,
+    "text": "サンプル（content-center, Grid）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 402,
+    "text": "content-center を指定すると、複数行になったグリッド全体が交差軸方向の中央に揃う"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 420,
+    "text": "サンプル（content-start, Grid）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 423,
+    "text": "content-start を指定すると、複数行になったグリッド全体が交差軸方向の上端に揃う"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 438,
+    "text": "items（各アイテムのデフォルト配置）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 441,
+    "text": "items-* は、コンテナ内の全てのアイテムの交差軸方向のデフォルト整列方法を指定するプロパティ Tailwindのitems-*はalign-items （交差軸方向）に対応し、justify-items-*は主軸方向の justify-itemsに対応する（ただしjustify-items-*はGrid専用） ※両方を同時に設定するものではありません"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 459,
+    "text": "サンプル（items-center, Flex）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 462,
+    "text": "items-center を指定すると、全ての子要素が交差軸方向（flex-rowなら縦方向）の中央に揃う"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 477,
+    "text": "self（個別アイテムの配置）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 480,
+    "text": "self-* は、個々のアイテムだけ他と異なる交差軸方向の位置に配置したい場合に使うプロパティ Tailwindのself-*はalign-self （交差軸方向）に対応し、justify-self-*は主軸方向の justify-selfに対応する（ただしjustify-self-*はGrid専用） ※両方を同時に設定するものではありません"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 498,
+    "text": "サンプル（self-end, Flex）"
+  },
+  {
+    "file": "/app/src/contents/Base/Position/index.tsx",
+    "line": 501,
+    "text": "self-end を指定すると、そのアイテムだけ交差軸方向（flex-rowなら縦方向）の下端に揃う 以下の例では Aにのみself-endを指定している"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 8,
+    "text": "MUI系ラッパー・レイアウトコンポーネントの全体像と使い分け"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 11,
+    "text": "ReactやMUIでレイアウトやラップ要素を作る際、用途やプロジェクトのスタイル方針によって使い分けが重要になる。 スタイルや属性が不要な場合はFragment（&lt;&gt;）で十分。 HTMLやTailwind中心ならdiv、MUI中心ならBox推奨。 Container/Paper/StackはBoxの特化版で、よく使うレイアウトや装飾を簡単に書けるショートカット 。 それぞれの違いや使いどころを理解し、適切なコンポーネントを選択することで、保守性や可読性の高いUIを実現できる。"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 26,
+    "text": "CSS系"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 29,
+    "text": "&lt;&gt;（空タグ, Fragment）"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 32,
+    "text": "概要"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 35,
+    "text": "ReactのFragment。DOMに余計な要素を追加せず、複数要素をグループ化できる。 スタイルや属性を付与する必要がない場合はFragmentで十分。"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 40,
+    "text": "他との違い（使いどころ）"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 43,
+    "text": "追加のDOMノードを生成しないため、レイアウトやスタイリングに影響を与えずに複数要素を返したい場合に便利。classNameやstyleは直接指定できない。 例えば、リストやテーブルの中で余計なdivを増やしたくない場合などに有効。"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 48,
+    "text": "最小限のサンプルコード"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 57,
+    "text": "応用例"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 69,
+    "text": "&lt;div&gt;"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 72,
+    "text": "概要"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 75,
+    "text": "HTMLの基本的なブロック要素。レイアウトやグループ化のために最もよく使われる。 Tailwindや独自CSS中心のプロジェクトではdivが基本。"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 80,
+    "text": "他との違い（使いどころ）"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 83,
+    "text": "classNameやstyleで自由にスタイル指定できる。React/HTML/CSS/Tailwindなどどんな環境でも使える汎用性の高さが特徴。 ただし、MUIのテーマやsxプロパティを活用したい場合はBoxを使うと便利。"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 88,
+    "text": "最小限のサンプルコード"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 97,
+    "text": "応用例"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 107,
+    "text": "MUI系"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 110,
+    "text": "&lt;Box&gt;"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 113,
+    "text": "概要"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 116,
+    "text": "MUIの汎用コンテナ。divの機能＋sxプロパティで柔軟にスタイル指定できる。 MUI中心のプロジェクトではBoxが基本。"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 121,
+    "text": "他との違い（使いどころ）"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 124,
+    "text": "divと異なり、MUIのテーマやレスポンシブ、ショートハンドプロパティ（p, m, bgcolorなど）が使える。MUIの他コンポーネントと一貫したデザインがしやすい。 BoxはContainer/Paper/Stackのベースとなる最も汎用的なコンポーネント 。"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 133,
+    "text": "最小限のサンプルコード"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 139,
+    "text": "応用例"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 149,
+    "text": "&lt;Container&gt;"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 152,
+    "text": "概要"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 155,
+    "text": "Boxに「中央寄せ」「最大幅」「パディング」などのレイアウト用スタイルがデフォルトで付与されたもの。 ページ全体の幅や中央寄せを管理したい場合に便利。"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 160,
+    "text": "他との違い（使いどころ）"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 163,
+    "text": "Boxやdivよりも、ページ全体の幅や中央寄せを簡単に実現できる。主にページの外枠やセクションのラップに使う。 ContainerはBoxのレイアウト特化版。"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 168,
+    "text": "最小限のサンプルコード"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 176,
+    "text": "応用例"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 186,
+    "text": "&lt;Paper&gt;"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 189,
+    "text": "概要"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 192,
+    "text": "ContainerやBoxに「影（elevation）」「角丸」「背景色」などの視覚的装飾がデフォルトで付与されたもの。 カードやパネル、区切りたい領域に最適。"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 197,
+    "text": "他との違い（使いどころ）"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 200,
+    "text": "BoxやContainerよりも、視覚的に区切りたい・カード風にしたい場面で使う。elevationで影の強さも調整可能。 PaperはContainer/Boxの装飾特化版。"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 205,
+    "text": "最小限のサンプルコード"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 213,
+    "text": "応用例"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 223,
+    "text": "&lt;Stack&gt;"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 226,
+    "text": "概要"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 229,
+    "text": "Boxに「flexレイアウト（縦横並び）」「spacing（間隔）」がデフォルトで付与されたもの。 子要素を縦・横に並べたい、間隔を簡単に調整したい場合に便利。"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 234,
+    "text": "他との違い（使いどころ）"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 237,
+    "text": "Boxやdivでflexを書くよりも、Stackを使うと縦横の並びや間隔調整が簡単。複雑なflexレイアウトをシンプルに書きたいときに便利。 StackはBoxのflexレイアウト特化版。"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 242,
+    "text": "最小限のサンプルコード"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 251,
+    "text": "応用例"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 261,
+    "text": "まとめ：関係性と使い分け"
+  },
+  {
+    "file": "/app/src/contents/Base/Wrapper/index.tsx",
+    "line": 264,
+    "text": "これらのコンポーネントは、Box &gt; Container &gt; Paper、 Box &gt; Stackの関係で、左側が右側の機能をすべて代用できる。 ただし、右側のコンポーネントは「よく使うパターン」を簡単に書けるようにしたショートカット。 スタイル不要ならFragment、Tailwind中心ならdiv、MUI中心ならBox。 Container/Paper/StackはBoxの特化版で、用途に応じて使い分けると保守性・可読性が高まる 。"
+  },
+  {
+    "file": "/app/src/contents/Base/index.tsx",
+    "line": 7,
+    "text": "ここでは基本的なCSSやHTMLの内容，レイアウト要素など，フロントエンド開発に必要不可欠な要素を扱う． 使用するTailwindのバージョンやMUIのバージョンは を参照してください"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 39,
+    "text": "Typographyはテキストを表示するコンポーネント． 最新情報は"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 52,
+    "text": "を参照してください．"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 53,
+    "text": "基本"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 56,
+    "text": "Typographyはテキストを表示するコンポーネントで，代表的なものだと以下のようなスタイルを指定できる"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 60,
+    "text": "これらのスタイルはvariantプロパティで指定する"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 64,
+    "text": "これはh1のテキストです"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 70,
+    "text": "通常のHTMLのh1~h6などのテキストとの違い"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 73,
+    "text": "通常のHTMLのh1~h6などのテキストとの違いは"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 76,
+    "text": "{TypographyFeatureList[0]}"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 79,
+    "text": "theme/index.tsx"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 80,
+    "text": "にて設定することで，全体で一貫したテキストスタイルを保証できる． 例えば，今回はh2テーマを以下のように設定しており，この章のh2スタイルに適用している"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 106,
+    "text": "{TypographyFeatureList[1]}"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 109,
+    "text": "Typographyはvariantプロパティでスタイルを，componentプロパティでHTMLの要素を指定できる．"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 115,
+    "text": "これはh1のスタイルでありながら，h2のHTML要素です．"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 120,
+    "text": "これにより以下のような利点がある"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 121,
+    "text": "SEO対策になる"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 124,
+    "text": "ページ内に複数のh1要素があると，SEO的によくないといわれている． しかし，デザイン上では複数個所でh1を使用したい場合がある．"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 129,
+    "text": "そのような場合に，componentプロパティを使用すると，h1のスタイルをそのままに，h2のHTML要素として表示することができる．"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 132,
+    "text": "デザインと構造を分離できる"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 135,
+    "text": "デザイン変更時（variant変更）をしても，HTML構造を変えずに見た目だけ変えることが可能"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 138,
+    "text": "{TypographyFeatureList[2]}"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 141,
+    "text": "デフォルトではフォントサイズは固定だが，以下のような設定をすることでウィンドウサイズ（PCのブラウザサイズ，スマホなどなど）によってサイズを変える設定ができる"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 152,
+    "text": "ただしこれはなめらかに変わるわけではなく，CSSのメディアクエリによる変更なので，ブレークポイントごとに段階的に変わる"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 155,
+    "text": "{TypographyFeatureList[3]}"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 158,
+    "text": "Typographyにはもとのhtmlには存在しない（あるいは指定が面倒な）様々なオプションが提供されている"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 161,
+    "text": "noWrap"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 164,
+    "text": "テキストがはみ出した場合に，テキストを折り返すかどうかを指定する これを指定した場合，以下のように長い文章の末が「...」で省略される"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 171,
+    "text": "長い文章長い文章長い文章長い文章長い文章長い文章長い文章 長い文章長い文章長い文章長い文章長い文章長い文章長い文章 長い文章長い文章長い文章長い文章長い文章長い文章長い文章"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 178,
+    "text": "gutterBottom"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 181,
+    "text": "要素の下に余白（マージン）を自動で追加する 追加されるマージンはデフォルトで0.35em （その要素のフォントサイズの0.35倍）であり、テーマで上書きしない限りこの値が使われる"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 189,
+    "text": "要素の下に余白（マージン）を自動で追加する"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 192,
+    "text": "下との差はこれくらい"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 193,
+    "text": "指定しなかった場合はこれくらい"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 199,
+    "text": "align"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 202,
+    "text": "テキストの配置を指定する． デフォルトではinheritであり，以下のような選択肢がある"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 208,
+    "text": "これを指定した場合，以下のようにテキストの配置が変わる"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 213,
+    "text": "align=&quot;inherit&quot;のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 216,
+    "text": "align=&quot;center&quot;のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 219,
+    "text": "align=&quot;justify&quot;のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 222,
+    "text": "align=&quot;left&quot;のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 225,
+    "text": "align=&quot;right&quot;のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 230,
+    "text": "justifyとleftの違いは，英語を入力するときには顕著だが，日本語を入力するときには気にしなくていい(leftを選んでおけばいい)"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 234,
+    "text": "color"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 237,
+    "text": "テーマで定義された色を簡単に使用できる． これらの色はテーマで定義されており，アプリケーション全体で一貫した色を使用できる デフォルトでは&quot;text.primary&quot;（黒の87%不透明度）が使用され，以下のような色が標準で用意されている"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 246,
+    "text": "color=&quot;text.primary&quot;のテキスト（デフォルト）"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 249,
+    "text": "color=&quot;text.secondary&quot;のテキスト（より薄い色）"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 252,
+    "text": "color=&quot;text.disabled&quot;のテキスト（無効状態）"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 255,
+    "text": "color=&quot;primary&quot;のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 258,
+    "text": "color=&quot;secondary&quot;のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 261,
+    "text": "color=&quot;error&quot;のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 264,
+    "text": "color=&quot;warning&quot;のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 267,
+    "text": "color=&quot;info&quot;のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 270,
+    "text": "color=&quot;success&quot;のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 276,
+    "text": "fontWeight"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 279,
+    "text": "フォントの太さを指定できる． 数値（100〜900）または文字列（&quot;light&quot;, &quot;regular&quot;, &quot;medium&quot;, &quot;bold&quot;）で指定可能"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 287,
+    "text": "fontWeight=&quot;light&quot;のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 290,
+    "text": "fontWeight=&quot;regular&quot;のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 293,
+    "text": "fontWeight=&quot;medium&quot;のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 296,
+    "text": "fontWeight=&quot;bold&quot;のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 301,
+    "text": "数値での指定も可能"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 304,
+    "text": "fontWeight=300のテキスト"
+  },
+  {
+    "file": "/app/src/contents/Mui/Typography/index.tsx",
+    "line": 307,
+    "text": "fontWeight=900のテキスト"
+  }
+]
