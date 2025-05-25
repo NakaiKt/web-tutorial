@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Chip } from "@mui/material";
 import { Search } from "@mui/icons-material";
 
 interface SearchButtonProps {
@@ -7,20 +7,22 @@ interface SearchButtonProps {
 
 export const SearchButton = ({ onClick }: SearchButtonProps) => {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        cursor: "pointer",
-        p: 1,
-        borderRadius: 2,
-        transition: "background 0.2s",
-        mb: 3,
-      }}
+    <Chip
+      icon={<Search fontSize="small" />}
+      label="検索"
       onClick={onClick}
-    >
-      <Search fontSize="small" sx={{ mr: 0.5 }} />
-      <Typography variant="body1">検索</Typography>
-    </Box>
+      variant="filled"
+      sx={{
+        width: "100%",
+        mb: 2,
+        backgroundColor: "grey.300",
+        "&:hover": {
+          backgroundColor: "grey.400",
+        },
+        "& .MuiChip-label": {
+          fontWeight: 500,
+        },
+      }}
+    />
   );
 };

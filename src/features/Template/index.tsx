@@ -1,7 +1,8 @@
 import { Typography, Container, Box } from "@mui/material";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useState, useRef } from "react";
 import Space from "@/components/parts/Space";
 import TableOfContents from "@/features/TableOfContents";
+import { useHighlight } from "@/features/SearchTypography";
 
 import type { Heading } from "@/features/TableOfContents";
 
@@ -49,6 +50,10 @@ type TemplateProps = {
 
 const BaseTemplate = ({ title, children }: TemplateProps) => {
   const [extractedHeadings, setExtractedHeadings] = useState<Heading[]>([]);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // ハイライト機能を有効化
+  useHighlight();
 
   useEffect(() => {
     // 初回実行
@@ -79,7 +84,10 @@ const BaseTemplate = ({ title, children }: TemplateProps) => {
   return (
     <Container>
       <Box sx={{ display: "flex", flexDirection: "row" }}>
-        <div className="flex flex-col mx-auto mt-10 mb-10 w-[720px]">
+        <div
+          className="flex flex-col mx-auto mt-10 mb-10 w-[720px]"
+          ref={contentRef}
+        >
           <Typography variant="h1">{title}</Typography>
           <Space />
           <div>{children}</div>

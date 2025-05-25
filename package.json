@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "WATCHPACK_POLLING=true next dev",
-    "build": "next build",
+    "build": "npm run extract-typography && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "extract-typography": "tsx src/scripts/extractTypographyTexts.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -23,13 +24,13 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "@types/babel__traverse": "^7.20.7",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.1",
     "tailwindcss": "^4",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }

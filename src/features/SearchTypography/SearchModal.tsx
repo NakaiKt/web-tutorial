@@ -32,8 +32,14 @@ export const SearchModal = ({
   const handleResultClick = (item: TypographyText) => {
     const pageInfo = getPageInfo(item.file);
     if (pageInfo) {
-      // ページに遷移
-      router.push(pageInfo.url);
+      // ページに遷移（検索テキストと行番号をパラメータで渡す）
+      router.push({
+        pathname: pageInfo.url,
+        query: {
+          highlight: query,
+          line: item.line.toString(),
+        },
+      });
       // モーダルを閉じる
       onClose();
     }

@@ -33,6 +33,7 @@ export const SearchTypography = () => {
 export { SearchButton } from "./SearchButton";
 export { SearchModal } from "./SearchModal";
 export { useSearchTypography } from "./hooks/useSearchTypography";
+export { useHighlight } from "./hooks/useHighlight";
 export type { TypographyText } from "./hooks/useSearchTypography";
 export { getPageInfo, getDisplayName } from "./utils/pathMapping";
 export type { PageInfo } from "./utils/pathMapping";

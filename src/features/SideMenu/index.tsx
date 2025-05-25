@@ -133,24 +133,33 @@ const SideMenu = () => {
           >
             {isOpen && (
               <>
-                <Link href="/">
-                  <Typography variant="h6" display="flex" alignItems="center">
-                    {<Home />}デザインドキュメント
-                  </Typography>
-                </Link>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    mb: 2,
+                  }}
+                >
+                  <Link href="/">
+                    <Typography variant="h6" display="flex" alignItems="center">
+                      {<Home />}デザインドキュメント
+                    </Typography>
+                  </Link>
+                  {isExpanded ? (
+                    <Flip onClick={handleClose} sx={{ cursor: "pointer" }} />
+                  ) : (
+                    <Flip
+                      onClick={handleOpen}
+                      sx={{
+                        transform: "rotate(180deg)",
+                        cursor: "pointer",
+                      }}
+                    />
+                  )}
+                </Box>
                 <SearchTypography />
-                {isExpanded ? (
-                  <>
-                    <Flip onClick={handleClose} />
-                  </>
-                ) : (
-                  <Flip
-                    onClick={handleOpen}
-                    sx={{
-                      transform: "rotate(180deg)",
-                    }}
-                  />
-                )}
               </>
             )}
           </Box>
