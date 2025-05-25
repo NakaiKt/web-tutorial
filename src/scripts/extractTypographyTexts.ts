@@ -1,3 +1,17 @@
+/**
+ * Typography テキスト抽出スクリプト
+ *
+ * 目的: /src/contents 配下の .tsx ファイルから <Typography> 要素のテキストを抽出し、
+ *       検索機能で使用するための JSON ファイルを生成する
+ *
+ * 使用方法:
+ *   npm run extract-typography
+ *
+ * 出力先: public/typographyTexts.json
+ *
+ * 注意: ビルド時に自動実行されるため、通常は手動実行不要
+ */
+
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
