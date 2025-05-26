@@ -2,6 +2,7 @@ import { Typography, Container, Box } from "@mui/material";
 import { ReactNode, useEffect, useState, useRef } from "react";
 import Space from "@/components/parts/Space";
 import TableOfContents from "@/features/TableOfContents";
+import FeedbackButton from "@/features/FeedbackButton";
 import { useHighlight } from "@/features/SearchTypography";
 
 import type { Heading } from "@/features/TableOfContents";
@@ -94,6 +95,9 @@ const BaseTemplate = ({ title, children }: TemplateProps) => {
         </div>
         <TableOfContents headings={extractedHeadings} />
       </Box>
+
+      {/* フィードバックボタン */}
+      <FeedbackButton />
     </Container>
   );
 };
