@@ -2,7 +2,17 @@ import JsxParser from "react-jsx-parser";
 import CodeBlock from "@/components/parts/CodeBlock";
 import PreviewBlock from "@/components/parts/PreviewBlock";
 
-import { Typography, Box, Container, Paper, Stack } from "@mui/material";
+import {
+  Typography,
+  Box,
+  Container,
+  Paper,
+  Stack,
+  Skeleton,
+  CircularProgress,
+  Button,
+  Avatar,
+} from "@mui/material";
 
 type Props = {
   code: string;
@@ -14,6 +24,10 @@ const component = {
   Container,
   Paper,
   Stack,
+  Skeleton,
+  CircularProgress,
+  Button,
+  Avatar,
 };
 
 const CodePreview = ({ code }: Props) => {

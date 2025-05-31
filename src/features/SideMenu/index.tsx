@@ -10,6 +10,7 @@ import {
   Rtt,
   CropFree,
   Flip,
+  Texture,
 } from "@mui/icons-material";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -70,6 +71,11 @@ const SideMenu = () => {
           title: "Button",
           path: "/button",
           icon: <SmartButton fontSize="small" />,
+        },
+        {
+          title: "Skeleton",
+          path: "/skeleton",
+          icon: <Texture fontSize="small" />,
         },
         {
           title: "Typography",
