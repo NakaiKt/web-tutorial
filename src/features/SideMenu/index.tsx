@@ -11,6 +11,7 @@ import {
   CropFree,
   Flip,
   Texture,
+  Palette,
 } from "@mui/icons-material";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -36,6 +37,11 @@ const SideMenu = () => {
       title: "基本",
       path: "/base",
       children: [
+        {
+          title: "色",
+          path: "/color",
+          icon: <Palette fontSize="small" />,
+        },
         {
           title: "長さの単位",
           path: "/length",

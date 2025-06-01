@@ -8,6 +8,12 @@ export interface PageInfo {
 // ファイルパス → ページ情報のマッピング
 export const pathToPageMapping: Record<string, PageInfo> = {
   // Base系
+  "Base/Color/index.tsx": {
+    title: "色",
+    section: "基本",
+    url: "/base/color",
+    displayName: "基本 > 色",
+  },
   "Base/Length/index.tsx": {
     title: "長さの単位",
     section: "基本",
@@ -57,6 +63,12 @@ export const pathToPageMapping: Record<string, PageInfo> = {
     section: "MUI",
     url: "/mui/typography",
     displayName: "MUI > Typography",
+  },
+  "Mui/Skeleton/index.tsx": {
+    title: "Skeleton",
+    section: "MUI",
+    url: "/mui/skeleton",
+    displayName: "MUI > Skeleton",
   },
 };
 
