@@ -12,6 +12,7 @@ import {
   Flip,
   Texture,
   Palette,
+  DarkMode,
 } from "@mui/icons-material";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -82,6 +83,11 @@ const SideMenu = () => {
           title: "Skeleton",
           path: "/skeleton",
           icon: <Texture fontSize="small" />,
+        },
+        {
+          title: "Theme",
+          path: "/theme",
+          icon: <DarkMode fontSize="small" />,
         },
         {
           title: "Typography",
