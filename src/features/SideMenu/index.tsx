@@ -127,7 +127,13 @@ const SideMenu = () => {
         slotProps={{
           paper: {
             sx: {
-              backgroundColor: "grey.100",
+              // ダークモード対応: テーマに応じて背景色を変更
+              backgroundColor: "background.paper",
+              // ダークモード時のボーダーを追加（オプション）
+              borderRight: (theme) =>
+                theme.palette.mode === "dark"
+                  ? "1px solid rgba(255, 255, 255, 0.12)"
+                  : "1px solid rgba(0, 0, 0, 0.12)",
             },
             onMouseEnter: handleHover,
             onMouseLeave: handleLeave,

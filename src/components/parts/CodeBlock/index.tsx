@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { useShikiHighlighter } from "react-shiki";
 import { Box, IconButton, Tooltip, Typography, Paper } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import CheckIcon from "@mui/icons-material/Check";
 
@@ -13,7 +14,12 @@ type Props = {
 
 const CodeBlock = ({ code, language = "tsx", fileName = "app.tsx" }: Props) => {
   const [copied, setCopied] = useState(false);
-  const highlightedCode = useShikiHighlighter(code, language, "github-dark");
+  const theme = useTheme();
+
+  // ダークモード対応: テーマに応じてShikiのテーマを選択
+  const shikiTheme =
+    theme.palette.mode === "dark" ? "github-dark" : "github-light";
+  const highlightedCode = useShikiHighlighter(code, language, shikiTheme);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(code);
@@ -30,8 +36,10 @@ const CodeBlock = ({ code, language = "tsx", fileName = "app.tsx" }: Props) => {
           alignItems: "center",
           px: 2,
           py: 1,
-          backgroundColor: "grey.900",
-          color: "grey.300",
+          // ダークモード対応: テーマに応じてヘッダー色を調整
+          backgroundColor:
+            theme.palette.mode === "dark" ? "grey.900" : "grey.100",
+          color: theme.palette.mode === "dark" ? "grey.300" : "grey.700",
         }}
       >
         <Typography
@@ -46,7 +54,9 @@ const CodeBlock = ({ code, language = "tsx", fileName = "app.tsx" }: Props) => {
           <IconButton
             size="small"
             onClick={handleCopy}
-            sx={{ color: "grey.400" }}
+            sx={{
+              color: theme.palette.mode === "dark" ? "grey.400" : "grey.600",
+            }}
           >
             {copied ? (
               <CheckIcon fontSize="small" />

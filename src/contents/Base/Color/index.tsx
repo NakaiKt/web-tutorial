@@ -1,4 +1,4 @@
-import { Typography, Alert, Box } from "@mui/material";
+import { Typography, Alert, Box, Theme } from "@mui/material";
 import BulletPoints from "@/components/parts/BulletPoints";
 import Space from "@/components/parts/Space";
 import Link from "@/components/parts/Link";
@@ -33,6 +33,21 @@ const Color = () => {
     "色盲・色弱の方への配慮（カラーパレットの選択）",
     "ダークモード・ライトモードへの対応",
   ];
+  // ダークモード対応の背景色スタイル（Tailwind色表示用）
+  const colorBoxStyle = {
+    bgcolor: (theme: Theme) =>
+      theme.palette.mode === "dark" ? "grey.800" : "grey.200",
+    px: 1,
+    borderRadius: 1,
+  };
+
+  // ダークモード対応の背景色スタイル（MUIテキスト色表示用）
+  const textColorBoxStyle = {
+    p: 2,
+    bgcolor: (theme: Theme) =>
+      theme.palette.mode === "dark" ? "grey.900" : "grey.50",
+    borderRadius: 1,
+  };
   return (
     <div>
       <Typography>
@@ -83,9 +98,17 @@ const Color = () => {
         クラスでテキストの色を指定する。
         <br />
         shadeが小さいほど明るく、大きいほど暗くなる。以下でcolorとshadeの関係を確認できる：
-      </Typography>
+      </Typography>{" "}
       {/* Color and Shade Visualization */}
-      <Box sx={{ bgcolor: "grey.100", p: 3, borderRadius: 2, mb: 2 }}>
+      <Box
+        sx={{
+          bgcolor: (theme) =>
+            theme.palette.mode === "dark" ? "grey.900" : "grey.100",
+          p: 3,
+          borderRadius: 2,
+          mb: 2,
+        }}
+      >
         <Typography variant="h6" sx={{ mb: 2 }}>
           色とshadeの差分表示
         </Typography>
@@ -94,91 +117,85 @@ const Color = () => {
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             <Typography sx={{ minWidth: "80px", fontWeight: "bold" }}>
               Red:
-            </Typography>
+            </Typography>{" "}
             <Box
               className="text-red-300"
-              sx={{ bgcolor: "grey.800", px: 1, borderRadius: 1 }}
+              sx={{
+                bgcolor: (theme) =>
+                  theme.palette.mode === "dark" ? "grey.800" : "grey.200",
+                px: 1,
+                borderRadius: 1,
+              }}
             >
               text-red-300
             </Box>
             <Box
               className="text-red-500"
-              sx={{ bgcolor: "grey.800", px: 1, borderRadius: 1 }}
+              sx={{
+                bgcolor: (theme) =>
+                  theme.palette.mode === "dark" ? "grey.800" : "grey.200",
+                px: 1,
+                borderRadius: 1,
+              }}
             >
               text-red-500
-            </Box>
+            </Box>{" "}
             <Box
               className="text-red-700"
-              sx={{ bgcolor: "grey.800", px: 1, borderRadius: 1 }}
+              sx={{
+                bgcolor: (theme) =>
+                  theme.palette.mode === "dark" ? "grey.800" : "grey.200",
+                px: 1,
+                borderRadius: 1,
+              }}
             >
               text-red-700
             </Box>
             <Box
               className="text-red-900"
-              sx={{ bgcolor: "grey.800", px: 1, borderRadius: 1 }}
+              sx={{
+                bgcolor: (theme) =>
+                  theme.palette.mode === "dark" ? "grey.800" : "grey.200",
+                px: 1,
+                borderRadius: 1,
+              }}
             >
               text-red-900
             </Box>
-          </Box>
-
+          </Box>{" "}
           {/* Blue variations */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             <Typography sx={{ minWidth: "80px", fontWeight: "bold" }}>
               Blue:
             </Typography>
-            <Box
-              className="text-blue-300"
-              sx={{ bgcolor: "grey.800", px: 1, borderRadius: 1 }}
-            >
+            <Box className="text-blue-300" sx={colorBoxStyle}>
               text-blue-300
             </Box>
-            <Box
-              className="text-blue-500"
-              sx={{ bgcolor: "grey.800", px: 1, borderRadius: 1 }}
-            >
+            <Box className="text-blue-500" sx={colorBoxStyle}>
               text-blue-500
             </Box>
-            <Box
-              className="text-blue-700"
-              sx={{ bgcolor: "grey.800", px: 1, borderRadius: 1 }}
-            >
+            <Box className="text-blue-700" sx={colorBoxStyle}>
               text-blue-700
             </Box>
-            <Box
-              className="text-blue-900"
-              sx={{ bgcolor: "grey.800", px: 1, borderRadius: 1 }}
-            >
+            <Box className="text-blue-900" sx={colorBoxStyle}>
               text-blue-900
             </Box>
-          </Box>
-
+          </Box>{" "}
           {/* Green variations */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             <Typography sx={{ minWidth: "80px", fontWeight: "bold" }}>
               Green:
             </Typography>
-            <Box
-              className="text-green-300"
-              sx={{ bgcolor: "grey.800", px: 1, borderRadius: 1 }}
-            >
+            <Box className="text-green-300" sx={colorBoxStyle}>
               text-green-300
             </Box>
-            <Box
-              className="text-green-500"
-              sx={{ bgcolor: "grey.800", px: 1, borderRadius: 1 }}
-            >
+            <Box className="text-green-500" sx={colorBoxStyle}>
               text-green-500
             </Box>
-            <Box
-              className="text-green-700"
-              sx={{ bgcolor: "grey.800", px: 1, borderRadius: 1 }}
-            >
+            <Box className="text-green-700" sx={colorBoxStyle}>
               text-green-700
             </Box>
-            <Box
-              className="text-green-900"
-              sx={{ bgcolor: "grey.800", px: 1, borderRadius: 1 }}
-            >
+            <Box className="text-green-900" sx={colorBoxStyle}>
               text-green-900
             </Box>
           </Box>
@@ -1546,9 +1563,9 @@ const Color = () => {
       >
         <Typography variant="h6" sx={{ mb: 2 }}>
           MUIテキストカラーの階層
-        </Typography>
+        </Typography>{" "}
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-          <Box sx={{ p: 2, bgcolor: "grey.50", borderRadius: 1 }}>
+          <Box sx={textColorBoxStyle}>
             <Typography color="text.primary" sx={{ fontWeight: "bold" }}>
               text.primary - メインテキスト（最も重要な情報）
             </Typography>
@@ -1557,7 +1574,7 @@ const Color = () => {
             </Typography>
           </Box>
 
-          <Box sx={{ p: 2, bgcolor: "grey.50", borderRadius: 1 }}>
+          <Box sx={textColorBoxStyle}>
             <Typography color="text.secondary">
               text.secondary - サブテキスト（補足情報）
             </Typography>
@@ -1566,7 +1583,7 @@ const Color = () => {
             </Typography>
           </Box>
 
-          <Box sx={{ p: 2, bgcolor: "grey.50", borderRadius: 1 }}>
+          <Box sx={textColorBoxStyle}>
             <Typography color="text.disabled">
               text.disabled - 無効なテキスト（非アクティブ状態）
             </Typography>
@@ -1597,40 +1614,19 @@ const Color = () => {
       >
         <Typography variant="h6" sx={{ mb: 2 }}>
           color[shade]記法の例
-        </Typography>
+        </Typography>{" "}
         <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             <Typography sx={{ minWidth: "120px", fontWeight: "bold" }}>
               Primary:
             </Typography>
-            <Box
-              sx={{
-                color: "primary.light",
-                bgcolor: "grey.800",
-                px: 1,
-                borderRadius: 1,
-              }}
-            >
+            <Box sx={{ color: "primary.light", ...colorBoxStyle }}>
               primary.light
             </Box>
-            <Box
-              sx={{
-                color: "primary.main",
-                bgcolor: "grey.800",
-                px: 1,
-                borderRadius: 1,
-              }}
-            >
+            <Box sx={{ color: "primary.main", ...colorBoxStyle }}>
               primary.main
             </Box>
-            <Box
-              sx={{
-                color: "primary.dark",
-                bgcolor: "grey.800",
-                px: 1,
-                borderRadius: 1,
-              }}
-            >
+            <Box sx={{ color: "primary.dark", ...colorBoxStyle }}>
               primary.dark
             </Box>
           </Box>
@@ -1639,70 +1635,24 @@ const Color = () => {
             <Typography sx={{ minWidth: "120px", fontWeight: "bold" }}>
               Error:
             </Typography>
-            <Box
-              sx={{
-                color: "error.light",
-                bgcolor: "grey.800",
-                px: 1,
-                borderRadius: 1,
-              }}
-            >
+            <Box sx={{ color: "error.light", ...colorBoxStyle }}>
               error.light
             </Box>
-            <Box
-              sx={{
-                color: "error.main",
-                bgcolor: "grey.800",
-                px: 1,
-                borderRadius: 1,
-              }}
-            >
-              error.main
-            </Box>
-            <Box
-              sx={{
-                color: "error.dark",
-                bgcolor: "grey.800",
-                px: 1,
-                borderRadius: 1,
-              }}
-            >
-              error.dark
-            </Box>
+            <Box sx={{ color: "error.main", ...colorBoxStyle }}>error.main</Box>
+            <Box sx={{ color: "error.dark", ...colorBoxStyle }}>error.dark</Box>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             <Typography sx={{ minWidth: "120px", fontWeight: "bold" }}>
               Success:
             </Typography>
-            <Box
-              sx={{
-                color: "success.light",
-                bgcolor: "grey.800",
-                px: 1,
-                borderRadius: 1,
-              }}
-            >
+            <Box sx={{ color: "success.light", ...colorBoxStyle }}>
               success.light
             </Box>
-            <Box
-              sx={{
-                color: "success.main",
-                bgcolor: "grey.800",
-                px: 1,
-                borderRadius: 1,
-              }}
-            >
+            <Box sx={{ color: "success.main", ...colorBoxStyle }}>
               success.main
             </Box>
-            <Box
-              sx={{
-                color: "success.dark",
-                bgcolor: "grey.800",
-                px: 1,
-                borderRadius: 1,
-              }}
-            >
+            <Box sx={{ color: "success.dark", ...colorBoxStyle }}>
               success.dark
             </Box>
           </Box>
