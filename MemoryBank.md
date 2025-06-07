@@ -1,5 +1,74 @@
 # MemoryBank - 学習と実装の記録
 
+## React State(useState, useRef)ドキュメント実装 - 2025
+
+### 概要
+
+React の useState と useRef の違い・使い分けを解説するドキュメントを作成。
+実践的な組み合わせパターンと詳細なコード例を含む包括的な学習リソース。
+
+### 実装のポイント
+
+#### 1. Table コンポーネントの作成と活用
+
+**課題**: 比較表を美しく表示する必要があった
+**解決**: `src/components/parts/Table` に汎用テーブルコンポーネントを作成
+
+```typescript
+// テーマ対応のTableコンポーネント
+const Table: React.FC<TableProps> = ({ columns, rows }) => {
+  const theme = useTheme();
+  // ダークモード/ライトモードに対応した色彩設計
+};
+```
+
+**学習**:
+
+- MUI の useTheme を活用してテーマに応じた色彩調整
+- 奇数行・偶数行の背景色を交互に設定して readability を向上
+- border と padding 調整で統一感のあるデザイン
+
+#### 2. BulletPoints コンポーネントでの HTML 解釈
+
+**課題**: `<strong>`タグが文字列として表示されてしまう
+**解決**: `dangerouslySetInnerHTML` を使用して HTML タグを解釈
+
+```typescript
+// HTMLタグを正しく解釈する修正
+<span dangerouslySetInnerHTML={{ __html: item }} />
+```
+
+**学習**:
+
+- React の XSS 対策により HTML タグは文字列として扱われる
+- 信頼できるコンテンツに限り `dangerouslySetInnerHTML` を使用
+- コンポーネントの再利用性を高めるための API 設計
+
+#### 3. useRef のミュータブル性の詳細解説
+
+**重要な概念理解**:
+
+- useRef がミュータブルな理由：レンダリングサイクルに影響されない値の管理
+- DOM 要素参照、タイマー ID、前回値保持などの具体的活用場面
+- パフォーマンス最適化への寄与
+
+#### 4. 実践的な組み合わせパターンの充実
+
+実装したパターン:
+
+1. **フォーカス管理**: useState(入力値) + useRef(DOM 操作)
+2. **前回値保持**: useState(現在値) + useRef(前回値)
+3. **タイマー管理**: useState(時間・状態) + useRef(interval ID)
+
+各パターンに「何をしているか」「どう使っているか」の詳細説明を追加。
+
+### コード規約への反映
+
+- **太字表現**: `**text**` → `<strong>text</strong>` に統一
+- **コード例の充実**: CodeBlock を活用した詳細なコード解説
+- **プレビュー機能**: 静的 UI での動作イメージ提示
+- **段階的説明**: 概念 → 実装 → 実践例の順序で構成
+
 ## TableOfContents（目次機能）実装 - 2024
 
 ### 概要

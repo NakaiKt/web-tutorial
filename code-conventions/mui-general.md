@@ -4,13 +4,78 @@
 
 ## 1. 基本原則
 
-### 1.1 適切なバリアント選択
+### 1.1 MUI コンポーネント優先の原則
+
+- HTML の基本要素（`<input>`, `<button>`, `<div>`など）よりも MUI コンポーネントを優先使用する
+- カスタムスタイルよりも MUI の設計システムを活用する
+- テーマ対応やアクセシビリティの恩恵を受けるため
+
+```tsx
+// ❌ 避ける：HTMLの基本要素
+<input
+  style={{ padding: "8px", border: "1px solid #ccc" }}
+  placeholder="検索..."
+/>
+<button
+  style={{ backgroundColor: "#1976d2", color: "white" }}
+  onClick={handleClick}
+>
+  送信
+</button>
+
+// ✅ 推奨：MUIコンポーネント
+<TextField
+  placeholder="検索..."
+  size="small"
+/>
+<Button
+  variant="contained"
+  onClick={handleClick}
+>
+  送信
+</Button>
+```
+
+### 1.2 適切なバリアント選択
 
 - 各コンポーネントの用途に応じたバリアントを選択する
 - デフォルトバリアントの特性を理解する
 - カスタムバリアントが必要な場合はテーマで定義する
 
-### 1.2 一貫性の維持
+### 1.3 よく使用するコンポーネントの使い分け
+
+#### フォーム要素
+
+- **TextField**: 入力フィールド全般（text, email, password など）
+- **Button**: ボタン要素（variant: contained, outlined, text）
+- **Checkbox, Radio, Switch**: 選択要素
+
+#### レイアウト
+
+- **Box**: div の代替、flexbox やグリッドレイアウト
+- **Paper**: カード型のコンテナ
+- **Container**: ページ幅制限付きコンテナ
+
+#### 表示
+
+- **Typography**: テキスト表示（variant で見出しレベル指定）
+- **Alert**: 通知・警告メッセージ
+- **Divider**: 区切り線
+
+```tsx
+// ✅ 推奨：適切なコンポーネント選択
+<Box sx={{ display: 'flex', gap: 1 }}>
+  <TextField variant="outlined" size="small" />
+  <Button variant="contained" size="small">
+    実行
+  </Button>
+</Box>
+
+<Typography variant="h2">見出し</Typography>
+<Typography variant="body1">本文テキスト</Typography>
+```
+
+### 1.4 一貫性の維持
 
 - 同じ用途には同じスタイリング方法を使用する
 - プロジェクト全体でコンポーネントの使い方を統一する
@@ -21,6 +86,64 @@
 - 大量表示時のレンダリング最適化を考慮する
 - 不要な再レンダリングを避ける
 - メモ化（React.memo、useMemo、useCallback）の適切な使用
+
+### 1.4 レイアウトコンポーネントの使い分け
+
+#### 基本レイアウト
+
+- **Box**: 基本的なコンテナ（`<div>`の代替）
+- **Typography**: テキスト表示（`<p>`, `<h1>`, `<span>`の代替）
+- **Stack**: 要素の配置（flexbox を簡単に扱う）
+- **Grid**: 複雑なレイアウト（グリッドシステム）
+
+```tsx
+// ❌ 避ける：HTMLの基本要素
+<div className="container">
+  <p>タイトル</p>
+  <div className="content">
+    <p>内容</p>
+  </div>
+</div>
+
+// ✅ 推奨：MUIコンポーネント
+<Box sx={{ p: 2 }}>
+  <Typography variant="h6">タイトル</Typography>
+  <Box sx={{ mt: 2 }}>
+    <Typography>内容</Typography>
+  </Box>
+</Box>
+```
+
+#### 表示・フィードバック
+
+- **Paper**: 境界線のある背景（カード風の表示）
+- **Alert**: 通知・警告メッセージ
+- **Divider**: 区切り線（`<hr>`の代替）
+- **Chip**: ラベル・タグ表示
+
+```tsx
+// ❌ 避ける：カスタムスタイル
+<div style={{
+  backgroundColor: "#f5f5f5",
+  padding: "16px",
+  borderRadius: "4px"
+}}>
+  <p style={{ color: "#1976d2" }}>情報</p>
+</div>
+
+// ✅ 推奨：MUIコンポーネント
+<Alert severity="info">
+  情報
+</Alert>
+```
+
+### 1.5 適用優先度
+
+新しくコンポーネントを作成する場合や既存のコードを修正する場合は、以下の優先度でコンポーネントを選択する：
+
+1. **MUI コンポーネント**（第一優先）
+2. **カスタムコンポーネント**（MUI をベースにした拡張）
+3. **HTML の基本要素**（MUI で対応できない特殊な場合のみ）
 
 ## 2. スタイリング規約
 

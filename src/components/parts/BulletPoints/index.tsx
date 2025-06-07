@@ -77,16 +77,17 @@ const BulletPoints = ({ items, style = "disc", color = "primary" }: Props) => {
             <ListItemIcon sx={{ minWith: 28 }}>
               {renderIcon(style)}
             </ListItemIcon>
-          ) : null}
+          ) : null}{" "}
           <ListItemText
-            primary={item}
             slotProps={{
               primary: {
                 variant: "body2",
                 sx: { my: 0 },
               },
             }}
-          />
+          >
+            <span dangerouslySetInnerHTML={{ __html: item }} />
+          </ListItemText>
         </ListItem>
       ))}
     </List>

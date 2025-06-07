@@ -106,6 +106,11 @@ const SideMenu = () => {
           path: "/memoization",
           icon: <Memory fontSize="small" />,
         },
+        {
+          title: "state (useState, useRef)",
+          path: "/state",
+          icon: <CropFree fontSize="small" />,
+        },
       ],
     },
   ];
