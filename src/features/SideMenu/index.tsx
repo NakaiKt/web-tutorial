@@ -13,6 +13,7 @@ import {
   Texture,
   Palette,
   DarkMode,
+  Memory,
 } from "@mui/icons-material";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -93,6 +94,17 @@ const SideMenu = () => {
           title: "Typography",
           path: "/typography",
           icon: <Rtt fontSize="small" />,
+        },
+      ],
+    },
+    {
+      title: "React",
+      path: "/react",
+      children: [
+        {
+          title: "メモ化 (useCallback, useMemo)",
+          path: "/memoization",
+          icon: <Memory fontSize="small" />,
         },
       ],
     },
