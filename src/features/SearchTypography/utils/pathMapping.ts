@@ -50,25 +50,30 @@ export const pathToPageMapping: Record<string, PageInfo> = {
     url: "/base/layout",
     displayName: "基本 > レイアウト",
   },
-
-  // MUI系
-  "Mui/Button/index.tsx": {
+  // Components系
+  "Components/Button/index.tsx": {
     title: "Button",
-    section: "MUI",
-    url: "/mui/button",
-    displayName: "MUI > Button",
+    section: "Components",
+    url: "/components/button",
+    displayName: "Components > Button",
   },
-  "Mui/Typography/index.tsx": {
+  "Components/Typography/index.tsx": {
     title: "Typography",
-    section: "MUI",
-    url: "/mui/typography",
-    displayName: "MUI > Typography",
+    section: "Components",
+    url: "/components/typography",
+    displayName: "Components > Typography",
   },
-  "Mui/Skeleton/index.tsx": {
+  "Components/Skeleton/index.tsx": {
     title: "Skeleton",
-    section: "MUI",
-    url: "/mui/skeleton",
-    displayName: "MUI > Skeleton",
+    section: "Components",
+    url: "/components/skeleton",
+    displayName: "Components > Skeleton",
+  },
+  "Components/Theme/index.tsx": {
+    title: "Theme",
+    section: "Components",
+    url: "/components/theme",
+    displayName: "Components > Theme",
   },
 };
 

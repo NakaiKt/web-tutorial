@@ -71,8 +71,8 @@ const SideMenu = () => {
       ],
     },
     {
-      title: "MUI",
-      path: "/mui",
+      title: "Components",
+      path: "/components",
       children: [
         {
           title: "Button",
