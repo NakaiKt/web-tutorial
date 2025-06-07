@@ -14,6 +14,7 @@ import {
   Palette,
   DarkMode,
   Memory,
+  AccountTree,
 } from "@mui/icons-material";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -39,6 +40,11 @@ const SideMenu = () => {
       title: "基本",
       path: "/base",
       children: [
+        {
+          title: "DOM",
+          path: "/dom",
+          icon: <AccountTree fontSize="small" />,
+        },
         {
           title: "色",
           path: "/color",
