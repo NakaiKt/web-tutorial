@@ -46,11 +46,6 @@ const SideMenu = () => {
           icon: <AccountTree fontSize="small" />,
         },
         {
-          title: "色",
-          path: "/color",
-          icon: <Palette fontSize="small" />,
-        },
-        {
           title: "長さの単位",
           path: "/length",
           icon: <Straighten fontSize="small" />,
@@ -69,6 +64,11 @@ const SideMenu = () => {
           title: "ラッパーコンポーネント",
           path: "/wrapper",
           icon: <CropFree fontSize="small" />,
+        },
+        {
+          title: "色",
+          path: "/color",
+          icon: <Palette fontSize="small" />,
         },
         {
           title: "Gap（要素間の間隔調整）",

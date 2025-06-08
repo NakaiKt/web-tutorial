@@ -2,19 +2,9 @@ import { Typography, Alert, Box } from "@mui/material";
 import BulletPoints from "@/components/parts/BulletPoints";
 import Space from "@/components/parts/Space";
 import Link from "@/components/parts/Link";
-import CodePreview from "@/components/parts/CodePreview";
 import CodeBlock from "@/components/parts/CodeBlock";
-import Image from "next/image";
 
 const Dom = () => {
-  const domUseCases = [
-    "HTMLをJavaScriptで動的に変更したい（要素の追加・削除・修正）",
-    "ユーザーの操作（クリック、入力など）に応じてページを更新したい",
-    "フォームの値を取得して処理したい",
-    "CSSクラスの追加・削除でスタイルを変更したい",
-    "Web APIから取得したデータを画面に表示したい",
-  ];
-
   const domElements = [
     "Document: HTMLドキュメント全体を表すオブジェクト",
     "Element: HTMLタグ（div, p, buttonなど）を表すオブジェクト",
@@ -40,68 +30,223 @@ const Dom = () => {
   ];
   return (
     <div>
+      <Typography variant="h2" id="what-is-dom">
+        DOMとは何か？
+      </Typography>
       <Typography>
-        DOM（Document Object
-        Model）は、HTMLドキュメントをJavaScriptから操作するための
-        <strong>プログラミングインターフェース</strong>。
+        DOM（Document Object Model）は、
+        <strong>
+          HTMLドキュメントをJavaScriptから操作するためのプログラミングインターフェース
+        </strong>
+        。
         <br />
         <br />
-        <strong>📝 DOMの役割をわかりやすく説明すると：</strong>
-        <br />
-        HTMLは静的な文書構造ですが、DOMはそれを
-        <strong>プログラムで操作可能なオブジェクト</strong>
-        に変換する仕組みです。
-        <br />
-        例えて言うなら、HTMLが「設計図」だとすると、DOMは「実際に触って動かせる模型」のようなもの。
-        <br />
+        <strong>📝 わかりやすく例えると：</strong>
+        <br />• <strong>HTMLファイル</strong> = 建物の設計図（静的なテキスト）
+        <br />• <strong>DOM</strong> =
+        実際に建てられた建物（プログラムで操作可能なオブジェクト）
+        <br />• <strong>JavaScript</strong> = 建物を改装・改築する作業員
+      </Typography>{" "}
+      <Box
+        sx={{
+          bgcolor: (theme) =>
+            theme.palette.mode === "dark" ? "grey.800" : "grey.100",
+          p: 3,
+          my: 3,
+          borderRadius: 2,
+          textAlign: "center",
+        }}
+      >
+        <Typography variant="h5" sx={{ mb: 2 }}>
+          HTMLからDOMへの変換プロセス
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+            alignItems: "center",
+          }}
+        >
+          <Typography
+            variant="h6"
+            sx={{
+              bgcolor: (theme) =>
+                theme.palette.mode === "dark" ? "grey.700" : "grey.200",
+              p: 2,
+              borderRadius: 1,
+              width: "fit-content",
+            }}
+          >
+            📄 HTML (設計図)
+          </Typography>
+          <Typography variant="h6" color="primary">
+            ↓ ブラウザが解析 ↓
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              bgcolor: (theme) =>
+                theme.palette.mode === "dark" ? "grey.700" : "grey.200",
+              p: 2,
+              borderRadius: 1,
+              width: "fit-content",
+            }}
+          >
+            🏠 DOM (実際の建物)
+          </Typography>
+        </Box>
+        <Typography>
+          <strong>HTML:</strong> 静的なテキストファイル
+          <br />
+          ↓ ブラウザが読み込み・変換 ↓
+          <br />
+          <strong>DOM:</strong> JavaScriptで操作可能なオブジェクト群
+        </Typography>
+      </Box>
+      <Space />
+      <Typography variant="h3" id="devtools-inspector">
+        開発者ツールの「インスペクター」で見れる
       </Typography>
-      <Image
-        src="/assets/dom.png"
-        alt="DOMのイメージ"
-        width={600}
-        height={400}
-      />
+      <Alert severity="success" sx={{ my: 2 }}>
+        <Typography>
+          <strong>🎯 実は普段使っている機能：</strong>
+          <br />
+          ブラウザで「F12キー →
+          Elements(インスペクター)タブ」で見ているもの、それが
+          <strong>DOM</strong>です！
+          <br />
+          まずはこの身近な例から、DOMの正体を理解しましょう。
+        </Typography>
+      </Alert>{" "}
       <Typography>
+        ブラウザの開発者ツール（F12キー）で「Elements」または「インスペクター」タブを開くと、
         <br />
-        <strong>🔄 具体的な変換プロセス：</strong>
-        <br />
-        1. ブラウザがHTMLを読み込む
-        <br />
-        2. HTMLの各タグ（div, p, buttonなど）を「Elementオブジェクト」として作成
-        <br />
-        3. これらのオブジェクトを階層構造（ツリー）として組み立て
-        <br />
-        4. JavaScriptからこのツリー構造にアクセス・操作が可能になる
-        <br />
-        <br />
-        つまりDOMは、<strong>静的なHTMLと動的なJavaScriptを繋ぐ橋渡し役</strong>
-        として機能します。
-        <br />
-        ReactやVueなどのモダンフレームワークを理解するためにも、DOMの基本的な仕組みの理解が不可欠。
+        そこに表示されているのは
+        <strong>HTMLファイルではなく、DOM（Document Object Model）</strong>。
       </Typography>
       <Space />
-      <Link
-        text="MDN DOM公式ドキュメント"
-        url="https://developer.mozilla.org/ja/docs/Web/API/Document_Object_Model"
+      <Typography variant="h4" id="devtools-actions">
+        普段やっている操作 = DOM操作
+      </Typography>
+      <BulletPoints
+        items={[
+          "<strong>要素を右クリック → 「削除」</strong> = element.remove() と同じ",
+          "<strong>要素をダブルクリックしてテキスト編集</strong> = element.textContent = '新しいテキスト' と同じ",
+          "<strong>Stylesパネルでスタイル変更</strong> = element.style.color = 'red' と同じ",
+          "<strong>要素を展開して子要素を確認</strong> = element.children で子要素を取得するのと同じ",
+        ]}
       />
-      <Link text="W3C DOM仕様" url="https://www.w3.org/DOM/" />
       <Space />
-      <Typography variant="h2" id="use-cases">
-        DOMを使う場面
+      {/* 3. なぜDOMが必要なのか */}
+      <Typography variant="h2" id="why-dom-needed">
+        なぜDOMが必要なのか？
       </Typography>
-      <Typography>DOMは以下のような場面で重要な役割を果たす：</Typography>
-      <BulletPoints items={domUseCases} />
+      <Typography>
+        もしDOMが存在しなかったら、以下のような問題が発生します：
+      </Typography>
+      <BulletPoints
+        items={[
+          "HTMLは単なるテキスト → JavaScriptから要素を特定・操作できない",
+          "ブラウザごとに異なる実装 → 統一された操作方法がない",
+          "イベント処理の仕組みがない → ユーザー操作に応答できない",
+          "階層構造を理解できない → 要素の親子関係が分からない",
+        ]}
+      />{" "}
+      <Typography>
+        DOMは、これらの問題を解決する
+        <strong>標準化されたインターフェース</strong>を提供。
+      </Typography>
       <Space />
+      {/* 4. 重要な理解：ユーザーが見ているもの */}
+      <Typography variant="h2" id="what-user-sees">
+        重要：ユーザーが実際に見ているのはDOM
+      </Typography>
+      <Alert severity="warning" sx={{ my: 2 }}>
+        <Typography>
+          <strong>🔑 核心的な理解：</strong>
+          <br />
+          <strong>
+            ユーザーがブラウザで見ているのは、HTMLファイルそのものではなく、DOMです！
+          </strong>
+        </Typography>
+      </Alert>
+      <Typography variant="h3" id="html-vs-dom-process">
+        📋 ブラウザでWebページを表示する流れ
+      </Typography>
+      <BulletPoints
+        items={[
+          "<strong>1. HTMLファイルの読み込み</strong>：サーバーから静的なHTMLテキストをダウンロード",
+          "<strong>2. パース（解析）</strong>：ブラウザがHTMLテキストを解析してDOMツリーを構築",
+          "<strong>3. レンダリング</strong>：DOMツリーを基に、実際の画面表示を生成",
+          "<strong>4. ユーザー表示</strong>：ユーザーが見るのはこのレンダリング結果（＝DOM由来）",
+        ]}
+        style="number"
+      />
+      <Typography variant="h4" id="devtools-vs-html">
+        開発者ツールで見るもの vs 元のHTMLファイル
+      </Typography>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: 2,
+          my: 2,
+        }}
+      >
+        <Box
+          sx={{
+            bgcolor: (theme) =>
+              theme.palette.mode === "dark" ? "grey.800" : "grey.100",
+            p: 2,
+            borderRadius: 1,
+          }}
+        >
+          <Typography variant="h6" sx={{ mb: 1 }}>
+            📁 元のHTMLファイル
+          </Typography>
+          <Typography variant="body2">
+            • サーバーに保存されている
+            <br />
+            • 静的なテキスト
+            <br />
+            • 変更されない
+            <br />• ソースコード表示で見れる
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            bgcolor: (theme) =>
+              theme.palette.mode === "dark" ? "grey.800" : "grey.100",
+            p: 2,
+            borderRadius: 1,
+          }}
+        >
+          <Typography variant="h6" sx={{ mb: 1 }}>
+            🏗️ 開発者ツールのDOM
+          </Typography>
+          <Typography variant="body2">
+            • ブラウザのメモリ上
+            <br />
+            • 動的なオブジェクト
+            <br />
+            • リアルタイムで変化
+            <br />• インスペクターで見れる
+          </Typography>
+        </Box>
+      </Box>
+      <Space />
+      {/* 5. DOMの構造 */}
       <Typography variant="h2" id="dom-structure">
-        DOMの構造
+        DOMの構造：ツリー形式
       </Typography>{" "}
       <Typography>
-        DOMは、HTMLドキュメントを階層的なツリー構造として表現する。
+        DOMは、HTMLドキュメントを階層的なツリー構造として表現。
         <br />
-        各HTML要素がNodeオブジェクトとして表現され、親子関係を持つ。
+        各HTML要素がNodeオブジェクトとして表現され、親子関係を保持。
       </Typography>
       <CodeBlock
-        code={`<!-- HTML -->
+        code={`<!-- 元のHTML -->
 <html>
   <head>
     <title>ページタイトル</title>
@@ -109,15 +254,13 @@ const Dom = () => {
   <body>
     <div id="container">
       <p class="text">Hello World!</p>
-      <button onclick="handleClick()">クリック</button>
+      <button>クリック</button>
     </div>
   </body>
 </html>`}
         language="html"
       />{" "}
-      <Typography>
-        上記のHTMLは、以下のようなDOMツリーとして表現される：
-      </Typography>
+      <Typography>上記のHTMLは、以下のようなDOMツリーとして表現：</Typography>
       <Box
         sx={{
           bgcolor: (theme) =>
@@ -145,517 +288,345 @@ const Dom = () => {
         </Typography>
       </Box>
       <Space />
-      <Typography variant="h2" id="dom-objects">
+      <Typography variant="h3" id="dom-objects">
         主要なDOMオブジェクト
-      </Typography>
-      <Typography>DOMは以下のような主要なオブジェクトで構成される：</Typography>
+      </Typography>{" "}
+      <Typography>DOMは以下のような主要なオブジェクトで構成：</Typography>
       <BulletPoints items={domElements} />
-      <Space />
+      <Space /> {/* 6. DOM操作の基本概念 */}
       <Typography variant="h2" id="dom-operations">
-        基本的なDOM操作
+        DOM操作の基本概念
       </Typography>
-      <Typography>DOMを使った基本的な操作方法：</Typography>
+      <Alert severity="warning" sx={{ my: 2 }}>
+        {" "}
+        <Typography>
+          <strong>⚠️ 重要な前提：</strong>
+          <br />
+          現代のWeb開発（React、Next.js、Vue.jsなど）では、
+          <strong>直接的なDOM操作はほとんど行わない</strong>。
+          <br />
+          ここでは理解のために基本概念を説明するが、実際の開発では
+          <strong>フレームワークが自動的に処理</strong>。
+        </Typography>
+      </Alert>
+      <Typography>DOMを使った基本的な操作の概念：</Typography>
       <BulletPoints items={domMethods} />
-      <Space />
-      <Typography variant="h3" id="element-selection">
-        要素の取得
+      <Typography variant="h3" id="raw-dom-example">
+        参考：生のDOM操作の簡単な例
+      </Typography>{" "}
+      <Typography>
+        理解のため、生のJavaScriptでのDOM操作の基本例を提示（
+        <strong>実際の開発では使用しない</strong>）：
       </Typography>
-      <Typography>HTMLの要素をJavaScriptから取得する方法：</Typography>
       <CodeBlock
-        code={`
-// IDで要素を取得
-const element = document.getElementById('container');
+        code={`// 要素の取得と操作（参考例：実際は React で行う）
+const button = document.querySelector('button');
+button.textContent = '新しいテキスト';
+button.addEventListener('click', () => {
+  console.log('クリックされました');
+});
 
-// CSSセレクターで要素を取得（最初の1つ）
-const firstParagraph = document.querySelector('p.text');
-
-// CSSセレクターで要素を取得（全て）
-const allButtons = document.querySelectorAll('button');
-
-// タグ名で要素を取得
-const allDivs = document.getElementsByTagName('div');
-
-// クラス名で要素を取得
-const textElements = document.getElementsByClassName('text');
-        `}
+// 要素の作成と追加（参考例：実際は React で行う）
+const newDiv = document.createElement('div');
+newDiv.textContent = '動的な要素';
+document.body.appendChild(newDiv);`}
         language="javascript"
       />
+      <Space />
+      <Typography variant="h2" id="modern-approach">
+        モダンなアプローチ：React/Next.jsでのDOM操作
+      </Typography>
+      <Alert severity="success" sx={{ my: 2 }}>
+        <Typography>
+          <strong>✨ 現代の開発では：</strong>
+          <br />
+          React/Next.js、Vue.js、Angularなどのフレームワークが
+          <strong>DOM操作を自動化</strong>。
+          <br />
+          開発者は「どう表示したいか」を宣言するだけで、フレームワークが効率的にDOMを更新。
+        </Typography>
+      </Alert>{" "}
+      <Typography variant="h3" id="react-vs-vanilla">
+        比較：生のDOM操作 vs React
+      </Typography>
+      <Typography>同じ機能を実装する場合の違い：</Typography>
+      <Typography variant="h6" sx={{ mt: 3, mb: 2, color: "warning.main" }}>
+        ❌ 生のDOM操作（現在は使わない）
+      </Typography>
+      <CodeBlock
+        code={`// 複雑で保守性が低い
+const button = document.querySelector('#myButton');
+const counter = document.querySelector('#counter');
+let count = 0;
+
+button.addEventListener('click', () => {
+  count++;
+  counter.textContent = count; // 手動でDOM更新
+  
+  // 条件に応じてスタイル変更
+  if (count >= 10) {
+    counter.style.color = 'red';
+  } else {
+    counter.style.color = 'black';
+  }
+});`}
+        language="javascript"
+      />
+      <Typography variant="h6" sx={{ mt: 3, mb: 2, color: "success.main" }}>
+        ✅ Reactでの実装（モダンなアプローチ）
+      </Typography>
+      <CodeBlock
+        code={`// シンプルで宣言的
+function Counter() {
+  const [count, setCount] = useState(0);
+  
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>
+        クリック
+      </button>
+      <p style={{ color: count >= 10 ? 'red' : 'black' }}>
+        {count}
+      </p>
+    </div>
+  );
+} // React が自動的にDOM更新`}
+        language="tsx"
+      />
+      <Typography variant="h4" id="react-benefits">
+        Reactアプローチの利点
+      </Typography>
+      <BulletPoints
+        items={[
+          "<strong>宣言的</strong>：「どう表示したいか」を記述するだけ（DOM操作は自動）",
+          "<strong>状態管理</strong>：useState で状態変化を簡潔に管理",
+          "<strong>自動更新</strong>：状態が変わると自動的にUIが更新される",
+          "<strong>パフォーマンス</strong>：仮想DOMにより効率的な更新",
+          "<strong>保守性</strong>：コードが読みやすく、バグが少ない",
+        ]}
+      />
+      <Space /> {/* 実験してみよう（簡潔版） */}
+      <Typography variant="h2" id="devtools-demo">
+        💡 簡単な実験：DOMの変化をリアルタイムで確認
+      </Typography>
       <Alert severity="info" sx={{ my: 2 }}>
         <Typography>
-          <strong>推奨：</strong> 現代では<code>querySelector()</code>と
-          <code>querySelectorAll()</code>の使用が推奨される。
+          <strong>💡 具体的な手順：</strong>
           <br />
-          CSSセレクターが使えるため、より柔軟で直感的な要素選択が可能。
+          1. <strong>F12キー</strong>を押して開発者ツールを開く
+          <br />
+          2. <strong>「Elements」タブ</strong>（Chrome）または
+          <strong>「インスペクター」タブ</strong>（Firefox）を開く
+          <br />
+          3. <strong>「Console」タブ</strong>
+          をクリック（開発者ツール内の別タブ）
+          <br />
+          4. 下記のJavaScriptコードをコピペして<strong>Enterキー</strong>で実行
+          <br />
+          5. すぐに<strong>「Elements」タブに戻る</strong>→
+          DOMツリーに新しい要素が追加されているのを確認
+          <br />
+          6. 3秒後に要素が自動削除されるのも確認できる
+        </Typography>
+      </Alert>
+      <CodeBlock
+        code={`
+  // 開発者ツールのConsoleタブで実行（学習目的）
+  const newElement = document.createElement('div');
+  newElement.textContent = '🎉 実験成功！この要素がDOMに追加されました';
+  newElement.style.backgroundColor = 'lightgreen';
+  newElement.style.color = 'white';
+  newElement.style.padding = '20px';
+  newElement.style.margin = '10px';
+  newElement.style.borderRadius = '8px';
+  newElement.style.fontWeight = 'bold';
+  document.body.appendChild(newElement);
+
+  console.log('要素を追加しました！画面の一番下に表示されています');
+
+  // 20秒後に削除
+  setTimeout(() => {
+    newElement.remove();
+    console.log('要素を削除しました');
+  }, 20000);`}
+        language="javascript"
+      />
+      <Alert severity="success" sx={{ my: 2 }}>
+        <Typography>
+          <strong>✅ 成功すると：</strong>
+          <br />
+          • ページ上に緑色のボックスが表示される
+          <br />
+          • Elementsタブで新しい&lt;div&gt;要素が追加されているのが見える
+          <br />
+          • 20秒後に要素が消えて、DOMツリーからも削除される
+          <br />
+          • Consoleにメッセージが表示される
+          <br />
+          <br /> <strong>これがDOM操作の実際の動作！</strong>
+        </Typography>
+      </Alert>
+      <Alert severity="warning" sx={{ my: 2 }}>
+        <Typography>
+          <strong>⚠️ うまくいかない場合：</strong>
+          <br />• コードをコピペした後、必ず<strong>Enterキー</strong>を押す
+          <br />
+          • エラーが出た場合は、ページを再読み込み（F5）して再実行
+          <br />
+          • ChromeとFirefoxで「Console」タブの位置が異なることがある
+          <br />• それでも分からない場合は、「これは参考程度」として先に進んでOK
         </Typography>
       </Alert>
       <Space />
-      <Typography variant="h3" id="element-manipulation">
-        要素の操作
-      </Typography>
-      <Typography>取得した要素の内容やスタイルを変更する方法：</Typography>
-      <CodeBlock
-        code={`
-// テキスト内容の変更
-const paragraph = document.querySelector('p');
-paragraph.textContent = '新しいテキスト';
-paragraph.innerHTML = '<strong>太字のテキスト</strong>';
-
-// 属性の操作
-const button = document.querySelector('button');
-button.setAttribute('class', 'btn-primary');
-button.getAttribute('id'); // 属性値を取得
-button.removeAttribute('onclick');
-
-// スタイルの変更
-paragraph.style.color = 'blue';
-paragraph.style.fontSize = '20px';
-paragraph.style.backgroundColor = '#f0f0f0';
-
-// CSSクラスの操作
-paragraph.classList.add('highlight');
-paragraph.classList.remove('old-style');
-paragraph.classList.toggle('active');
-paragraph.classList.contains('highlight'); // true/false
-        `}
-        language="javascript"
-      />
-      <Space />
-      <Typography variant="h3" id="element-creation">
-        要素の作成・追加・削除
-      </Typography>
-      <Typography>
-        新しい要素を作成したり、既存の要素を削除する方法：
-      </Typography>
-      <CodeBlock
-        code={`
-// 新しい要素を作成
-const newDiv = document.createElement('div');
-newDiv.className = 'dynamic-content';
-newDiv.textContent = '動的に作成された要素';
-
-// 既存の要素に追加
-const container = document.querySelector('#container');
-container.appendChild(newDiv);
-
-// 特定の位置に挿入
-const firstChild = container.firstElementChild;
-container.insertBefore(newDiv, firstChild);
-
-// 要素を削除
-const elementToRemove = document.querySelector('.old-element');
-elementToRemove.remove(); // 現代的な方法
-// または
-elementToRemove.parentNode.removeChild(elementToRemove); // 古い方法
-
-// 要素を置換
-const oldElement = document.querySelector('.old');
-const newElement = document.createElement('p');
-newElement.textContent = '置換された要素';
-oldElement.parentNode.replaceChild(newElement, oldElement);
-        `}
-        language="javascript"
-      />
-      <Space />
-      <Typography variant="h3" id="event-handling">
-        イベント処理
-      </Typography>
-      <Typography>ユーザーの操作に応じて処理を実行する方法：</Typography>
-      <CodeBlock
-        code={`
-// クリックイベントの処理
-const button = document.querySelector('button');
-button.addEventListener('click', function(event) {
-  console.log('ボタンがクリックされました！');
-  event.preventDefault(); // デフォルトの動作を防ぐ
-});
-
-// フォーム送信の処理
-const form = document.querySelector('form');
-form.addEventListener('submit', function(event) {
-  event.preventDefault(); // ページの再読み込みを防ぐ
-  
-  const formData = new FormData(form);
-  const inputValue = formData.get('username');
-  console.log('入力値:', inputValue);
-});
-
-// 入力値の変更監視
-const input = document.querySelector('input');
-input.addEventListener('input', function(event) {
-  console.log('現在の値:', event.target.value);
-});
-
-// 複数のイベントリスナーを追加
-function handleMouseOver() {
-  console.log('マウスが乗った');
-}
-
-function handleMouseOut() {
-  console.log('マウスが離れた');
-}
-
-const element = document.querySelector('.hover-target');
-element.addEventListener('mouseover', handleMouseOver);
-element.addEventListener('mouseout', handleMouseOut);
-
-// イベントリスナーを削除
-element.removeEventListener('mouseover', handleMouseOver);
-        `}
-        language="javascript"
-      />
-      <Space />
       <Typography variant="h2" id="dom-problems">
+        生のDOM操作の課題とモダンなアプローチ
+      </Typography>
+      <Typography variant="h3" id="problems">
         生のDOM操作の課題
       </Typography>
-      <Typography>直接的なDOM操作には以下のような課題がある：</Typography>
       <BulletPoints
         items={[
-          "パフォーマンス: 頻繁なDOM操作はブラウザの描画処理に負荷をかける",
-          "保守性: 複雑なアプリケーションでは状態管理が困難になる",
-          "可読性: DOMの構造とJavaScriptのロジックが混在しがち",
-          "デバッグ: 動的に変更される要素の状態追跡が困難",
-          "再利用性: コードの再利用が難しく、重複しやすい",
+          "<strong>パフォーマンス</strong>: 頻繁なDOM操作はブラウザの描画処理に負荷をかける",
+          "<strong>保守性</strong>: 複雑なアプリケーションでは状態管理が困難になる",
+          "<strong>可読性</strong>: DOMの構造とJavaScriptのロジックが混在しがち",
+          "<strong>デバッグ</strong>: 動的に変更される要素の状態追跡が困難",
+          "<strong>再利用性</strong>: コードの再利用が難しく、重複しやすい",
         ]}
       />
-      <Space />
-      <Typography variant="h2" id="modern-alternatives">
-        モダンな代替手段
-      </Typography>
-      <Typography>
-        現代のWeb開発では、以下のようなフレームワークやライブラリが生のDOM操作の代替として使用される：
+      <Typography variant="h3" id="modern-solutions">
+        モダンなアプローチ：フレームワークの活用
       </Typography>
       <BulletPoints items={modernAlternatives} />
-      <Space />
-      <Typography variant="h3" id="virtual-dom">
-        仮想DOM（Virtual DOM）
-      </Typography>
+      <Typography variant="h4" id="virtual-dom">
+        仮想DOM（Virtual DOM）の仕組み
+      </Typography>{" "}
       <Typography>
         Reactなどで使用される仮想DOMは、生のDOM操作の課題を解決する技術：
       </Typography>
-      <BulletPoints
-        items={[
-          "メモリ上に軽量なDOM表現を保持",
-          "変更前後の仮想DOMの差分を計算（差分検出）",
-          "必要最小限のDOM操作のみを実行",
-          "パフォーマンスの大幅な向上を実現",
-        ]}
-      />
-      <Space />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 2,
+          my: 3,
+          p: 3,
+          bgcolor: (theme) =>
+            theme.palette.mode === "dark" ? "grey.800" : "grey.100",
+          borderRadius: 2,
+        }}
+      >
+        <Typography variant="h6">🔄 仮想DOMの処理フロー</Typography>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+          <Typography>
+            1️⃣ <strong>状態変更</strong> → useState などで状態が更新される
+          </Typography>
+          <Typography>
+            2️⃣ <strong>仮想DOM作成</strong> → メモリ上に軽量なDOM表現を構築
+          </Typography>
+          <Typography>
+            3️⃣ <strong>差分計算</strong> → 前回の仮想DOMと比較して変更点を検出
+          </Typography>
+          <Typography>
+            4️⃣ <strong>最適化された更新</strong> → 必要最小限のDOM操作のみを実行
+          </Typography>
+        </Box>
+      </Box>
       <Alert severity="info" sx={{ my: 2 }}>
         <Typography>
-          <strong>学習のポイント：</strong>
-          <br />
-          DOMの基本的な仕組みを理解することで、ReactやVueなどのモダンフレームワークがなぜ便利なのか、
-          どのような問題を解決しているのかがより深く理解できる。
-          <br />
-          特に、パフォーマンスや保守性の観点から、なぜ仮想DOMや宣言的UIが重要なのかを把握することが大切。
+          <strong>💡 パフォーマンス比較：</strong>
+          <br />• <strong>生のDOM操作</strong>：1000回の更新 =
+          1000回のDOM操作（重い）
+          <br />• <strong>仮想DOM</strong>：1000回の状態更新 =
+          1回の最適化されたDOM操作（軽い）
         </Typography>
       </Alert>
-      <Space />
-      <Typography variant="h2" id="practical-example">
-        実践的な例：動的なTo-Doリスト
+      <Space /> {/* 9. 現代でも直接DOM操作が必要な特殊ケース */}
+      <Typography variant="h2" id="when-use-dom">
+        現代でも直接DOM操作が必要な特殊ケース
       </Typography>
-      <Typography>
-        生のDOM操作を使ったシンプルなTo-Doリストの実装例：
+      <Alert severity="warning" sx={{ my: 2 }}>
+        <Typography>
+          <strong>📍 重要な理解：</strong>
+          <br />
+          現代のWeb開発では<strong>99%の場面でフレームワークが自動処理</strong>
+          しますが、
+          <br />
+          稀に直接DOM操作が必要な場合が存在。
+        </Typography>
+      </Alert>
+      <Typography variant="h3" id="rare-cases">
+        直接DOM操作が必要な稀なケース
       </Typography>
-      <CodePreview
-        code={`
-<div id="todo-app">
-  <h3>To-Doリスト</h3>
-  <div>
-    <input type="text" id="todo-input" placeholder="新しいタスクを入力">
-    <button id="add-button">追加</button>
-  </div>
-  <ul id="todo-list"></ul>
-</div>
+      <BulletPoints
+        items={[
+          "<strong>useRef でのDOM参照</strong>：input要素にフォーカスを当てる、スクロール位置を制御する",
+          "<strong>サードパーティライブラリとの統合</strong>：React以外のライブラリ（jQuery、Chart.js等）を組み込む",
+          "<strong>パフォーマンス最適化</strong>：アニメーションやCanvas操作など、極めて高頻度な更新",
+          "<strong>ブラウザAPI の直接利用</strong>：Intersection Observer、Resize Observer等の使用",
+        ]}
+      />
+      <Typography variant="h4" id="useref-example">
+        例：useRefを使った直接DOM操作
+      </Typography>
+      <CodeBlock
+        code={`import { useRef, useEffect } from 'react';
 
-<script>
-  // 要素の取得
-  const input = document.getElementById('todo-input');
-  const addButton = document.getElementById('add-button');
-  const todoList = document.getElementById('todo-list');
-
-  // タスク追加処理
-  function addTodo() {
-    const text = input.value.trim();
-    if (text === '') return;
-
-    // 新しいリストアイテムを作成
-    const li = document.createElement('li');
-    li.style.display = 'flex';
-    li.style.justifyContent = 'space-between';
-    li.style.alignItems = 'center';
-    li.style.padding = '8px';
-    li.style.marginBottom = '4px';
-    li.style.backgroundColor = '#f5f5f5';
-    li.style.borderRadius = '4px';
-
-    // テキストを表示するスパン
-    const textSpan = document.createElement('span');
-    textSpan.textContent = text;
-
-    // 削除ボタンを作成
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = '削除';
-    deleteButton.style.backgroundColor = '#ff4444';
-    deleteButton.style.color = 'white';
-    deleteButton.style.border = 'none';
-    deleteButton.style.padding = '4px 8px';
-    deleteButton.style.borderRadius = '4px';
-    deleteButton.style.cursor = 'pointer';
-
-    // 削除ボタンのクリック処理
-    deleteButton.addEventListener('click', function() {
-      li.remove();
-    });
-
-    // 要素を組み立て
-    li.appendChild(textSpan);
-    li.appendChild(deleteButton);
-    todoList.appendChild(li);
-
-    // 入力フィールドをクリア
-    input.value = '';
-  }
-
-  // イベントリスナーの設定
-  addButton.addEventListener('click', addTodo);
-  input.addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-      addTodo();
+function MyComponent() {
+  const inputRef = useRef<HTMLInputElement>(null);
+  
+  useEffect(() => {
+    // コンポーネントマウント時に入力欄にフォーカス
+    if (inputRef.current) {
+      inputRef.current.focus(); // ← 直接DOM操作
     }
-  });
-</script>
-        `}
+  }, []);
+  
+  const handleScrollToTop = () => {
+    // ページトップにスクロール
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // ← 直接DOM操作
+  };
+  
+  return (
+    <div>
+      <input ref={inputRef} placeholder="自動でフォーカスされます" />
+      <button onClick={handleScrollToTop}>トップに戻る</button>
+    </div>
+  );
+}`}
+        language="tsx"
       />
       <Space />
-      <Alert severity="warning" sx={{ my: 2 }}>
-        <Typography>
-          <strong>注意：</strong>
-          <br />
-          上記の例では、スタイリングをJavaScriptで直接指定している。
-          <br />
-          実際の開発では、CSSクラスを使用してスタイルとロジックを分離することが推奨される。
-          <br />
-          また、複雑なアプリケーションでは、状態管理やイベント管理が煩雑になりがち。
-        </Typography>
-      </Alert>
-      <Space />
-      <Typography variant="h2" id="what-is-dom">
-        DOMとは何か？より詳しく
+      {/* 10. 学習の要点とまとめ */}
+      <Typography variant="h2" id="learning-summary">
+        学習の要点とまとめ
       </Typography>
-      <Typography>
-        DOMの役割を理解するために、HTMLとJavaScriptがどのように連携するかを具体例で見てみましょう。
-      </Typography>
-      <Space />
-      <Typography variant="h3" id="without-dom">
-        DOMがない場合の問題
-      </Typography>
-      <Typography>
-        もしDOMが存在しなかったら、以下のような問題が発生します：
-      </Typography>
-      <BulletPoints
-        items={[
-          "HTMLは単なるテキストファイル → JavaScriptから要素を特定できない",
-          "要素の変更方法が標準化されていない → ブラウザごとに異なる実装",
-          "イベント処理の仕組みがない → ユーザー操作に応答できない",
-          "階層構造を理解できない → 親子関係の概念がない",
-        ]}
-      />
-      <Space />
-      <Typography variant="h3" id="dom-as-bridge">
-        DOMが提供する「橋渡し」機能
-      </Typography>
-      <Typography>
-        DOMは以下のような標準化された仕組みを提供することで、HTMLとJavaScriptを繋げます：
-      </Typography>
-      <Space />
-      <Typography variant="h4" id="dom-bridge-1">
-        1. 統一されたアクセス方法
-      </Typography>
-      <CodeBlock
-        code={`// DOMがあるから、このような統一された方法で要素にアクセスできる
-const button = document.getElementById('myButton');
-const paragraph = document.querySelector('p.important');
-
-// DOMがなければ、ブラウザごとに異なる方法が必要になってしまう`}
-        language="javascript"
-      />
-      <Space />
-      <Typography variant="h4" id="dom-bridge-2">
-        2. 標準化された操作方法
-      </Typography>
-      <CodeBlock
-        code={`// DOMがあるから、どのブラウザでも同じ方法で要素を操作できる
-button.textContent = '新しいテキスト';  // テキスト変更
-button.style.color = 'red';            // スタイル変更
-button.classList.add('active');        // クラス追加
-
-// 要素の追加・削除も標準化されている
-const newElement = document.createElement('div');
-document.body.appendChild(newElement);`}
-        language="javascript"
-      />
-      <Space />
-      <Typography variant="h4" id="dom-bridge-3">
-        3. イベントシステム
-      </Typography>
-      <CodeBlock
-        code={`// DOMがあるから、ユーザーの操作を統一された方法で処理できる
-button.addEventListener('click', function() {
-  console.log('ボタンがクリックされました！');
-});
-
-// マウス、キーボード、フォームなど、様々なイベントに対応
-input.addEventListener('input', handleInputChange);
-form.addEventListener('submit', handleFormSubmit);`}
-        language="javascript"
-      />
-      <Space />
-      <Alert severity="info" sx={{ my: 2 }}>
-        <Typography>
-          <strong>💡 重要なポイント：</strong>
-          <br />
-          DOMは「プロトコル」というよりも、
-          <strong>「API（Application Programming Interface）」</strong>
-          と表現する方が正確です。
-          <br />
-          HTMLドキュメントをプログラムから操作するための
-          <strong>標準化されたインターフェース</strong>を提供しています。
-          <br />
-          <br />
-          これにより、開発者はブラウザの種類に関係なく、統一された方法でWebページを動的に制御できるようになります。
-        </Typography>
-      </Alert>
-      <Space />
-      <Typography variant="h2" id="what-user-sees">
-        重要：ユーザーが実際に見ているのはDOM
-      </Typography>
-      <Alert severity="warning" sx={{ my: 2 }}>
-        <Typography>
-          <strong>🔑 核心的な理解：</strong>
-          <br />
-          <strong>
-            ユーザーがブラウザで見ているのは、HTMLファイルそのものではなく、DOMツリーです！
-          </strong>
-        </Typography>
-      </Alert>
-      <Typography variant="h3" id="html-vs-dom-user-view">
-        HTMLとDOMの違い：ユーザーの視点から
-      </Typography>
-      <Typography>
-        この違いを理解するために、具体的な流れを見てみましょう：
-      </Typography>
-      <Space />
-      <Typography variant="h4" id="step-by-step-process">
-        📋 ブラウザでWebページを表示する流れ
-      </Typography>
-      <BulletPoints
-        items={[
-          "<strong>1. HTMLファイルの読み込み</strong>：サーバーから静的なHTMLテキストをダウンロード",
-          "<strong>2. パース（解析）</strong>：ブラウザがHTMLテキストを解析してDOMツリーを構築",
-          "<strong>3. レンダリング</strong>：DOMツリーを基に、実際の画面表示を生成",
-          "<strong>4. ユーザー表示</strong>：ユーザーが見るのはこのレンダリング結果（＝DOM由来）",
-        ]}
-        style="number"
-      />
-      <Space />
-      <Typography variant="h4" id="practical-example">
-        🔍 具体例で理解する
-      </Typography>
-      <Typography>
-        以下の例で、HTMLファイルとユーザーが見る画面の関係を確認しましょう：
-      </Typography>
-      <Space />
-      <Typography variant="h5">元のHTMLファイル（静的なテキスト）</Typography>
-      <CodeBlock
-        code={`<!DOCTYPE html>
-<html>
-<head>
-    <title>サンプルページ</title>
-</head>
-<body>
-    <h1>元のタイトル</h1>
-    <p id="message">元のメッセージ</p>
-    <button onclick="changeContent()">変更</button>
-    
-    <script>
-        function changeContent() {
-            // DOMを操作（HTMLファイルは変更されない）
-            document.getElementById('message').textContent = '変更されたメッセージ';
-            document.querySelector('h1').style.color = 'red';
-        }
-    </script>
-</body>
-</html>`}
-        language="html"
-      />
-      <Space />
-      <Typography variant="h5">重要なポイント：</Typography>
-      <Alert severity="info" sx={{ my: 2 }}>
-        <Typography>
-          <strong>💡 ここが重要：</strong>
-          <br />
-          1. <strong>ボタンをクリックする前</strong>：ユーザーが見る画面 ＝
-          HTMLファイルから作成されたDOM
-          <br />
-          2. <strong>ボタンをクリックした後</strong>：ユーザーが見る画面 ＝
-          JavaScriptで変更されたDOM
-          <br />
-          <br />
-          <strong>📁 HTMLファイルは最初から最後まで変更されません！</strong>
-          <br />
-          変更されるのは、ブラウザのメモリ上にあるDOMツリーだけです。
-        </Typography>
-      </Alert>
-      <Space />
-      <Typography variant="h3" id="react-context">
-        Reactの文脈での「DOMを変更する」の意味
-      </Typography>
-      <Typography>
-        あなたが言及したReactでの「DOMを変更する」「DOMにアクセスする」という表現は、まさにこの概念を指しています：
-      </Typography>
-      <Space />
-      <BulletPoints
-        items={[
-          "<strong>「DOMを変更する」</strong> = ブラウザのメモリ上にあるDOMツリーのオブジェクトを変更する",
-          "<strong>「DOMにアクセスする」</strong> = document.querySelector()などでDOMツリーの要素オブジェクトを取得する",
-          "<strong>「DOM操作」</strong> = JavaScript経由でDOMツリーの要素を追加・削除・修正する",
-          "<strong>「生のDOM操作」</strong> = Reactなどのフレームワークを使わず、直接DOMツリーを操作する",
-        ]}
-      />
-      <Space />
-      <Typography variant="h4" id="react-virtual-dom">
-        Reactの仮想DOMが解決する問題
-      </Typography>
-      <Typography>
-        この理解を踏まえると、Reactの仮想DOMの意義がより明確になります：
-      </Typography>
-      <Space />
-      <BulletPoints
-        items={[
-          "<strong>問題</strong>：生のDOM操作は重い処理（画面の再描画が頻繁に発生）",
-          "<strong>Reactの解決策</strong>：軽量な仮想DOMで変更を管理し、実際のDOMへの操作を最小限に",
-          "<strong>結果</strong>：ユーザーは同じ画面を見るが、パフォーマンスが大幅に向上",
-        ]}
-      />
-      <Space />
       <Alert severity="success" sx={{ my: 2 }}>
         <Typography>
-          <strong>🎯 まとめ：</strong>
-          <br />✅ <strong>ユーザーが見ているのは「DOM」</strong>
-          （HTMLファイルではない）
-          <br />✅ <strong>HTMLファイルは「設計図」</strong>
-          、DOMは「実際の建物」
-          <br />✅ <strong>JavaScriptでの変更</strong>はすべてDOM上で行われる
-          <br />✅ <strong>Reactの「DOM操作」</strong>
-          も、このDOMツリーへの操作を指している
-          <br />
-          <br />
-          この理解があると、Reactの useRef や useEffect でのDOM操作、
-          さらにはSSR（サーバーサイドレンダリング）の概念も理解しやすくなります！
+          <strong>🎯 この章で理解すべきポイント：</strong>
         </Typography>
       </Alert>
+      <Typography variant="h3" id="key-understanding">
+        核心的な理解
+      </Typography>
+      <BulletPoints
+        items={[
+          "<strong>DOM = ブラウザが作る操作可能なオブジェクト</strong>：HTMLファイルからブラウザが構築",
+          "<strong>ユーザーが見ているのはDOM</strong>：HTMLファイルそのものではない",
+          "<strong>現代は直接操作しない</strong>：React等のフレームワークが自動処理",
+          "<strong>フレームワークの価値を理解</strong>：なぜ仮想DOMや宣言的UIが重要か",
+        ]}
+      />
+      <Space />
+      {/* 12. 参考リンク */}
+      <Typography variant="h2" id="references">
+        参考リンク
+      </Typography>
+      <Link
+        text="MDN DOM公式ドキュメント"
+        url="https://developer.mozilla.org/ja/docs/Web/API/Document_Object_Model"
+      />
+      <Link text="W3C DOM仕様" url="https://www.w3.org/DOM/" />
+      <Space />
     </div>
   );
 };
