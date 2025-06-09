@@ -11,15 +11,14 @@ export default function ComponentsPage() {
         </Typography>
 
         <Paper elevation={1} sx={{ p: 3, mb: 3 }}>
-          <Typography variant="body1" paragraph>
+          {" "}
+          <Typography variant="body1" component="p">
             このセクションでは、Webアプリケーション開発で使用される主要なUIコンポーネントについて学習します。
             各コンポーネントの基本概念から実装方法まで、実践的な内容を提供します。
           </Typography>
-
-          <Typography variant="body1" paragraph>
+          <Typography variant="body1" component="p">
             各コンポーネントページでは以下の構成で解説しています：
           </Typography>
-
           <Box component="ul" sx={{ pl: 3 }}>
             <Typography component="li" variant="body1">
               基本概念とUX/UI理論

@@ -122,8 +122,8 @@ export const StateContent: React.FC = () => {
         Reactにおけるstateの管理には主に<code>useState</code>と
         <code>useRef</code>の2つの方法があります。
         それぞれ異なる特徴と用途を持っており、適切な使い分けが重要です。
-      </Typography>
-      <Typography paragraph>
+      </Typography>{" "}
+      <Typography component="p">
         <strong>stateとは</strong>
         、コンポーネント内で管理される「状態」や「値」のことです。
         ユーザーの操作やデータの変更に応じて、コンポーネントの表示や動作を制御するために使用されます。
@@ -215,8 +215,8 @@ return (
       {/* 実際のデモ */}
       <Typography variant="h2" id="demo-comparison">
         実際の動作比較
-      </Typography>
-      <Typography paragraph>
+      </Typography>{" "}
+      <Typography component="p">
         以下のデモでuseStateとuseRefの動作の違いを確認できます。
         <strong>useState</strong>
         は値の変更で再レンダリングが発生し、画面に反映されます。
@@ -403,13 +403,13 @@ const StateDemo: React.FC = () => {
       </Alert>
       <Typography variant="h3" id="focus-management">
         1. フォーカス管理
-      </Typography>
-      <Typography paragraph>
+      </Typography>{" "}
+      <Typography component="p">
         <strong>何をしているか:</strong>{" "}
         検索フォームでuseStateとuseRefを組み合わせて、
         入力値の状態管理とDOM要素への直接アクセスを行っています。
       </Typography>{" "}
-      <Typography paragraph>
+      <Typography component="p">
         <strong>useState の使用:</strong> <code>searchQuery</code>{" "}
         状態で検索クエリを管理し、
         入力値の変更を画面に反映させています。実際に入力することで値が更新されます。
@@ -473,12 +473,12 @@ const StateDemo: React.FC = () => {
       </Paper>{" "}
       <Typography variant="h3" id="previous-value">
         2. 前回の値を保持
-      </Typography>
-      <Typography paragraph>
+      </Typography>{" "}
+      <Typography component="p">
         <strong>何をしているか:</strong>{" "}
         カウンターで現在の値と前回の値を同時に表示しています。
       </Typography>{" "}
-      <Typography paragraph>
+      <Typography component="p">
         <strong>useState の使用:</strong> <code>demoCount</code>{" "}
         状態で現在のカウント値を管理し、
         ボタンを押すと即座に画面が更新されます。
@@ -534,13 +534,13 @@ const StateDemo: React.FC = () => {
       </Paper>{" "}
       <Typography variant="h3" id="timer-management">
         3. タイマーの管理
-      </Typography>
-      <Typography paragraph>
+      </Typography>{" "}
+      <Typography component="p">
         <strong>何をしているか:</strong>{" "}
         タイマー機能で秒数の表示と開始/停止状態を管理し、
         バックグラウンドで動作するsetIntervalの参照を保持しています。
       </Typography>{" "}
-      <Typography paragraph>
+      <Typography component="p">
         <strong>useState の使用:</strong> <code>seconds</code> で経過時間、
         <code>isRunning</code> で
         タイマーの動作状態を管理し、画面表示を更新しています。実際にタイマーが動作します。
@@ -779,8 +779,8 @@ const changeInputValue = () => {
             "<strong>適切な使い分け</strong>: 用途に応じて最適なHookを選択することが重要",
           ]}
         />
-      </Alert>
-      <Typography paragraph>
+      </Alert>{" "}
+      <Typography component="p">
         useStateとuseRefの特徴を理解して、適切に使い分けることで、
         効率的で保守性の高いReactアプリケーションを構築できます。 特に
         <strong>パフォーマンス</strong>と<strong>ユーザビリティ</strong>

@@ -74,8 +74,8 @@ const ThemeComponent = () => {
     <Box sx={{ p: 3, bgcolor: "background.paper", borderRadius: 2 }}>
       <Typography variant="h4" color="primary" gutterBottom>
         デモコンポーネント
-      </Typography>
-      <Typography variant="body1" paragraph>
+      </Typography>{" "}
+      <Typography variant="body1" component="p">
         このコンポーネントはテーマモードに応じて外観が変化します
       </Typography>
       <Box sx={{ display: "flex", gap: 2, mt: 2 }}>

@@ -7,11 +7,10 @@ const ReactPage: NextPage = () => {
     <Box sx={{ maxWidth: "800px", mx: "auto", p: 3 }}>
       <Typography variant="h4" component="h1" gutterBottom>
         React
-      </Typography>
-      <Typography variant="body1" paragraph>
+      </Typography>{" "}
+      <Typography variant="body1" component="p">
         Reactの基本的な概念とHooksについて学習できます。
       </Typography>
-
       <Box sx={{ display: "grid", gap: 2, mt: 3 }}>
         <Card>
           <CardContent>

@@ -330,15 +330,15 @@ const theme = createTheme({
         </Typography>
         <Typography variant="subtitle1" color="textSecondary" gutterBottom>
           Material-UIライブラリを活用した効率的な開発手法
-        </Typography>
-        <Typography variant="body1" paragraph>
+        </Typography>{" "}
+        <Typography variant="body1" component="p">
           本文の内容がここに入ります。MUIのTypographyコンポーネントを使用することで、
           一貫性のあるテキスト表示を実現できます。
         </Typography>
         <Typography variant="h2" component="h2" gutterBottom>
           セクションタイトル
         </Typography>
-        <Typography variant="body1" paragraph>
+        <Typography variant="body1" component="p">
           セクションの内容です。適切な見出し階層とテキストスタイルにより、
           読みやすい文書構造を作成できます。
         </Typography>
