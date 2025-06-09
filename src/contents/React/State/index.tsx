@@ -79,6 +79,23 @@ export const StateContent: React.FC = () => {
     }
   };
 
+  // DOM操作のデモ用関数を追加
+  const changeInputStyle = () => {
+    if (inputRef.current) {
+      const currentBg = inputRef.current.style.backgroundColor;
+      inputRef.current.style.backgroundColor =
+        currentBg === "yellow" ? "" : "yellow";
+      inputRef.current.style.border =
+        currentBg === "yellow" ? "" : "2px solid red";
+    }
+  };
+
+  const addTextToInput = () => {
+    if (inputRef.current) {
+      inputRef.current.value = "DOM操作で追加されたテキスト";
+    }
+  };
+
   // 実践例1: フォーカス管理のハンドラー
   const handleSearchClear = () => {
     setSearchQuery("");
@@ -298,6 +315,12 @@ const StateDemo: React.FC = () => {
             </Button>
             <Button variant="outlined" size="small" onClick={clearInput}>
               クリア
+            </Button>
+            <Button variant="outlined" size="small" onClick={changeInputStyle}>
+              スタイル変更
+            </Button>
+            <Button variant="outlined" size="small" onClick={addTextToInput}>
+              テキスト追加
             </Button>
           </Box>
         </Box>
@@ -652,6 +675,94 @@ const GoodExample: React.FC = () => {
   );
 };`}
       />
+      {/* DOM操作の核心的な違い */}
+      <Typography variant="h2" id="dom-vs-react-rendering">
+        DOM直接操作 vs React再レンダリング
+      </Typography>
+      <Alert severity="info" sx={{ mb: 3 }}>
+        <Typography variant="subtitle2" gutterBottom>
+          核心的な違い
+        </Typography>
+        <Typography variant="body2">
+          「useRefでDOM操作した時」と「useStateで再レンダリングした時」の結果の違いは何か？
+        </Typography>
+      </Alert>
+      <Typography variant="h3" gutterBottom>
+        1. DOM直接操作（useRef使用）
+      </Typography>
+      <CodeBlock
+        language="tsx"
+        code={`// DOM直接操作の例
+const inputRef = useRef<HTMLInputElement>(null);
+
+const changeInputValue = () => {
+  if (inputRef.current) {
+    inputRef.current.value = "新しい値"; // ブラウザのDOM直接変更
+  }
+  // → 画面は即座に変わるが、Reactは知らない
+  // → 他のコンポーネントは再レンダリングされない
+  // → React の状態と実際のDOMが不整合になる可能性
+};`}
+      />
+      <Typography variant="h3" gutterBottom sx={{ mt: 3 }}>
+        2. React再レンダリング（useState使用）
+      </Typography>
+      <CodeBlock
+        language="tsx"
+        code={`// React再レンダリングの例
+const [inputValue, setInputValue] = useState("");
+
+const changeInputValue = () => {
+  setInputValue("新しい値"); // React の状態変更
+  // → React が再レンダリングを実行
+  // → 関連する全てのコンポーネントが更新される
+  // → React の状態とDOMが一致する
+};`}
+      />
+      <Typography variant="h3" gutterBottom sx={{ mt: 3 }}>
+        結果として何が違うのか？
+      </Typography>
+      <Table
+        columns={[
+          { header: "項目", key: "item" },
+          { header: "DOM直接操作", key: "domDirect" },
+          { header: "React再レンダリング", key: "reactRender" },
+        ]}
+        rows={[
+          {
+            item: "変更の範囲",
+            domDirect: "操作した要素のみ",
+            reactRender: "関連する全コンポーネント",
+          },
+          {
+            item: "React状態との整合性",
+            domDirect: "不整合になる可能性",
+            reactRender: "常に整合性が保たれる",
+          },
+          {
+            item: "パフォーマンス",
+            domDirect: "高速（最小限の変更）",
+            reactRender: "やや低速（広範囲の更新）",
+          },
+          {
+            item: "予測可能性",
+            domDirect: "副作用が起こりうる",
+            reactRender: "予測可能で安全",
+          },
+        ]}
+      />
+      <Alert severity="warning" sx={{ my: 3 }}>
+        <Typography variant="subtitle2" gutterBottom>
+          重要なポイント
+        </Typography>
+        <BulletPoints
+          items={[
+            "<strong>DOM直接操作</strong>: 高速だが、Reactの管理外になる",
+            "<strong>React再レンダリング</strong>: 安全で予測可能だが、やや重い",
+            "<strong>使い分け</strong>: フォーカスやスクロールはDOM直接、データ表示はReact",
+          ]}
+        />
+      </Alert>
       {/* まとめ */}
       <Typography variant="h2" id="summary">
         まとめ
