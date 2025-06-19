@@ -117,6 +117,11 @@ const SideMenu = () => {
           path: "/state",
           icon: <CropFree fontSize="small" />,
         },
+        {
+          title: "Context API",
+          path: "/context",
+          icon: <AccountTree fontSize="small" />,
+        },
       ],
     },
   ];
