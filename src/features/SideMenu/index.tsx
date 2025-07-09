@@ -15,6 +15,9 @@ import {
   DarkMode,
   Memory,
   AccountTree,
+  Api,
+  Storage,
+  Build,
 } from "@mui/icons-material";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -124,6 +127,32 @@ const SideMenu = () => {
         },
       ],
     },
+    {
+      title: "GraphQL",
+      path: "/graphql",
+      children: [
+        {
+          title: "基本概念",
+          path: "/basic",
+          icon: <Api fontSize="small" />,
+        },
+        {
+          title: "リゾルバの理解",
+          path: "/resolver",
+          icon: <AccountTree fontSize="small" />,
+        },
+        {
+          title: "サーバー実装",
+          path: "/server",
+          icon: <Storage fontSize="small" />,
+        },
+        {
+          title: "高度な機能",
+          path: "/advanced",
+          icon: <Build fontSize="small" />,
+        },
+      ],
+    },
   ];
 
   const handleOpen = () => {
@@ -217,8 +246,8 @@ const SideMenu = () => {
           </Box>
           {isOpen &&
             menuItems.map((menuItem) => (
-              <>
-                <Link key={menuItem.path} href={menuItem.path} passHref>
+              <Box key={menuItem.path}>
+                <Link href={menuItem.path} passHref>
                   <Typography
                     variant="body1"
                     sx={{
@@ -296,7 +325,7 @@ const SideMenu = () => {
                     ))}
                   </Box>
                 )}
-              </>
+              </Box>
             ))}
         </Box>
       </Drawer>
