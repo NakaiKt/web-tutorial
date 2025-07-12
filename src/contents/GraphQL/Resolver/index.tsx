@@ -475,7 +475,7 @@ const createPostLoader = (prisma) => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        最もシンプルなリゾルバから始めて、その仕組みを理解しましょう：
+        最もシンプルなリゾルバから始めて、その仕組みを理解します：
       </Typography>
 
       <CodeBlock code={basicResolverExample} language="javascript" />
@@ -510,7 +510,7 @@ const createPostLoader = (prisma) => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLクエリがどのようにリゾルバによって解決されるかを見てみましょう：
+        GraphQLクエリがどのようにリゾルバによって解決されるかを説明します：
       </Typography>
 
       <CodeBlock code={executionFlowExample} language="javascript" />
@@ -636,7 +636,7 @@ const createPostLoader = (prisma) => {
         </Typography>
         <Typography variant="body2">
           リゾルバの概念を理解したら、実際にApollo Serverを使って
-          リゾルバを実装してみましょう。サーバー実装のページで詳しく解説しています。
+          リゾルバを実装します。サーバー実装のページで詳しく解説しています。
         </Typography>
       </Paper>
 

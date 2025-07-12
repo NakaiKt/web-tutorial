@@ -465,8 +465,8 @@ describe('User Resolvers', () => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        Apollo Serverを使用したGraphQLサーバーの構築方法を学習します。
-        基本的なセットアップから、Prismaを使用したデータベース連携まで段階的に進めます。
+        Apollo Serverを使用したGraphQLサーバーの構築方法について説明します。
+        基本的なセットアップから、Prismaを使用したデータベース連携まで段階的に扱います。
       </Typography>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
@@ -604,7 +604,7 @@ describe('User Resolvers', () => {
 
       <Typography variant="body1" paragraph>
         サーバーの基本実装ができたら、認証・認可、パフォーマンス最適化、
-        そして最終目標である「カスタムリゾルバ」の実装に進みましょう。
+        そして最終目標である「カスタムリゾルバ」の実装に進みます。
       </Typography>
 
       <Box sx={{ mt: 3 }}>

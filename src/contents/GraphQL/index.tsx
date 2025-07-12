@@ -29,7 +29,7 @@ const GraphQLContent: React.FC = () => {
   return (
     <Box>
       <Typography variant="h4" component="h1" gutterBottom>
-        GraphQL学習ガイド
+        GraphQL概要
       </Typography>
 
       <Typography variant="body1" paragraph>
@@ -39,16 +39,16 @@ const GraphQLContent: React.FC = () => {
 
       <Paper sx={{ p: 3, mb: 3, bgcolor: "primary.50" }}>
         <Typography variant="h6" gutterBottom color="primary.main">
-          🎯 学習目標
+          🎯 目標
         </Typography>
         <Typography variant="body2">
-          業務で出てくる「カスタムリゾルバ」を理解し、実装できるようになることを目標とします。
-          基礎から段階的に学習し、実際のプロジェクトで活用できるスキルを身につけましょう。
+          業務で出てくる「カスタムリゾルバ」を理解し、実装できるようになることが目標です。
+          基礎から段階的に進め、実際のプロジェクトで活用できるスキルを身につけます。
         </Typography>
       </Paper>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
-        なぜGraphQLを学ぶのか？
+        GraphQLの特徴
       </Typography>
 
       <BulletPoints items={whyGraphQL} />
@@ -64,26 +64,26 @@ const GraphQLContent: React.FC = () => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        以下の5つのPhaseに分けて、段階的に学習を進めます：
+        以下の5つのPhaseに分けて、段階的に進めます：
       </Typography>
 
       <BulletPoints items={learningPhases} />
 
       <Paper sx={{ p: 3, mt: 3, bgcolor: "warning.50" }}>
         <Typography variant="h6" gutterBottom color="warning.main">
-          💡 学習のポイント
+          💡 重要な点
         </Typography>
         <Typography variant="body2" paragraph>
-          GraphQLは概念が多く、最初は複雑に感じるかもしれません。しかし、一つ一つの概念を理解し、
-          実際にコードを書きながら学習することで、確実にスキルが身につきます。
+          GraphQLは概念が多く、最初は複雑に感じる場合があります。
+          一つ一つの概念を理解し、実際にコードを書きながら進めることで、スキルが身につきます。
         </Typography>
         <Typography variant="body2">
-          特に「リゾルバ」の概念は重要です。これを理解することで、GraphQLの動作原理が見えてきます。
+          特に「リゾルバ」の概念は重要です。これを理解することで、GraphQLの動作原理が理解できます。
         </Typography>
       </Paper>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
-        学習に必要な前提知識
+        必要な前提知識
       </Typography>
 
       <BulletPoints
@@ -100,8 +100,8 @@ const GraphQLContent: React.FC = () => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        準備ができたら、Phase 1の「基本概念」から学習を開始しましょう。
-        各Phaseでは理論と実践をバランス良く組み合わせ、実際に動くコードを書きながら学習します。
+        Phase 1の「基本概念」から開始します。
+        各Phaseでは理論と実践をバランス良く組み合わせ、実際に動くコードを書きながら進めます。
       </Typography>
 
       <Box sx={{ mt: 3 }}>

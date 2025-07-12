@@ -161,8 +161,8 @@ const resolvers = {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLの基本概念を理解しましょう。RESTとの違いから始めて、
-        スキーマ、クエリ、リゾルバという核となる概念を学習します。
+        GraphQLの基本概念について説明します。RESTとの違いから始めて、
+        スキーマ、クエリ、リゾルバという核となる概念を扱います。
       </Typography>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
@@ -189,11 +189,11 @@ const resolvers = {
       </Alert>
 
       <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
-        なぜRESTが今でも広く使われているのか？
+        RESTが今でも広く使われている理由
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLの方が効率的に見えるのに、なぜRESTが残っているのでしょうか？
+        GraphQLの方が効率的に見えますが、RESTが残っている理由があります。
         これには技術的・組織的な理由があります：
       </Typography>
 
@@ -270,6 +270,82 @@ const resolvers = {
       </Alert>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
+        2. GraphQLの基本的な流れ
+      </Typography>
+
+      <Typography variant="body1" paragraph>
+        GraphQLがどのように動作するかを理解するために、RESTとの流れを比較してみましょう：
+      </Typography>
+
+      <Paper sx={{ p: 3, mt: 3, bgcolor: "info.50" }}>
+        <Typography variant="h6" gutterBottom color="info.main">
+          🔄 RESTの流れ
+        </Typography>
+        <Typography variant="body2" paragraph>
+          1. クライアントが特定のURL（エンドポイント）にHTTPリクエストを送信
+          <br />
+          2. サーバーがルーティング処理でエンドポイントを特定
+          <br />
+          3. 認証・認可の確認
+          <br />
+          4. コントローラー関数が実行され、DBアクセスや処理を行う
+          <br />
+          5. <strong>サーバーが決めた形式</strong>でレスポンスを返す
+          <br />
+          6. クライアントが受け取ったデータから必要な部分を抽出
+        </Typography>
+      </Paper>
+
+      <Paper sx={{ p: 3, mt: 3, bgcolor: "success.50" }}>
+        <Typography variant="h6" gutterBottom color="success.main">
+          🔄 GraphQLの流れ
+        </Typography>
+        <Typography variant="body2" paragraph>
+          1. クライアントが<strong>1つのエンドポイント</strong>
+          （通常/graphql）にクエリを送信
+          <br />
+          2. GraphQLサーバーが<strong>スキーマ</strong>
+          に基づいてクエリを解析・バリデーション
+          <br />
+          3. 認証・認可の確認
+          <br />
+          4. <strong>リゾルバ関数</strong>
+          が各フィールドごとに実行され、データを取得
+          <br />
+          5. <strong>クライアントが指定した形式</strong>でレスポンスを構築
+          <br />
+          6. クライアントが必要なデータだけを受け取る
+        </Typography>
+      </Paper>
+
+      <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
+        スキーマの役割
+      </Typography>
+
+      <Typography variant="body1" paragraph>
+        上記の流れで重要なのは、GraphQLでは<strong>スキーマ</strong>
+        が「設計図」の役割を果たすことです：
+      </Typography>
+
+      <BulletPoints
+        items={[
+          "<strong>API仕様の定義</strong>: 「どんなデータが取得可能か」を宣言",
+          "<strong>クエリのバリデーション</strong>: 送信されたクエリがスキーマに適合するかチェック",
+          "<strong>型安全性の保証</strong>: 実行時エラーを事前に防ぐ",
+          "<strong>リゾルバとの紐付け</strong>: 各フィールドに対応するリゾルバ関数を特定",
+          "<strong>ドキュメント自動生成</strong>: スキーマから自動的にAPIドキュメントを生成",
+        ]}
+      />
+
+      <Alert severity="info" sx={{ mt: 2, mb: 3 }}>
+        <AlertTitle>なぜスキーマが重要なのか？</AlertTitle>
+        RESTでは「何のデータが返ってくるか」はエンドポイントごとに異なり、
+        ドキュメントを見ないと分からないことが多いです。
+        GraphQLでは、スキーマがすべてのデータ構造を定義するため、
+        開発者は一箇所を見るだけで全体を把握できます。
+      </Alert>
+
+      <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
         2. スキーマとタイプシステム
       </Typography>
 
@@ -341,7 +417,7 @@ const resolvers = {
         リゾルバ関数を理解することで、GraphQLがどのようにデータを取得し、
         クライアントに返すかの仕組みが分かります。カスタムリゾルバの理解にも必須の概念です。
         <Box sx={{ mt: 2 }}>
-          <Link url="/graphql/resolver" text="🔍 リゾルバの詳細解説を読む" />
+          <Link url="/graphql/resolver" text="🔍 リゾルバの詳細解説" />
         </Box>
       </Alert>
 
@@ -350,7 +426,7 @@ const resolvers = {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLサーバーがクエリを処理する流れを理解しましょう：
+        GraphQLサーバーがクエリを処理する流れは以下の通りです：
       </Typography>
 
       <BulletPoints items={executionFlow} />
@@ -374,8 +450,8 @@ const resolvers = {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        基本概念を理解したら、まずリゾルバの仕組みを深く学習することをお勧めします。
-        その後、Apollo Serverを使って実際にGraphQLサーバーを構築しましょう。
+        基本概念を理解したら、まずリゾルバの仕組みを深く理解することが効果的です。
+        その後、Apollo Serverを使って実際にGraphQLサーバーを構築します。
       </Typography>
 
       <Box sx={{ mt: 3, display: "flex", gap: 2, flexWrap: "wrap" }}>

@@ -599,8 +599,8 @@ export function requireOwnership(user: any, resourceOwnerId: string) {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLの高度な機能を学習し、業務で重要な「カスタムリゾルバ」の実装方法を詳しく解説します。
-        実際のプロジェクトで使用される複雑なビジネスロジックの実装パターンを学びましょう。
+        GraphQLの高度な機能と、業務で重要な「カスタムリゾルバ」の実装方法について説明します。
+        実際のプロジェクトで使用される複雑なビジネスロジックの実装パターンを扱います。
       </Typography>
 
       <Paper sx={{ p: 3, mb: 3, bgcolor: "primary.50" }}>
@@ -634,7 +634,7 @@ export function requireOwnership(user: any, resourceOwnerId: string) {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        実際の業務で使用される複雑なカスタムリゾルバの実装例を見てみましょう：
+        実際の業務で使用される複雑なカスタムリゾルバの実装例です：
       </Typography>
 
       <CodeBlock code={customResolverExample} language="typescript" />
@@ -713,11 +713,11 @@ export function requireOwnership(user: any, resourceOwnerId: string) {
       </Paper>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
-        学習の成果と次のステップ
+        習得した知識と次のステップ
       </Typography>
 
       <Typography variant="body1" paragraph>
-        おめでとうございます！これで業務で必要な「カスタムリゾルバ」の実装方法を習得しました。
+        これで業務で必要な「カスタムリゾルバ」の実装方法を習得しました。
         以下の知識を身につけることができました：
       </Typography>
 
@@ -739,7 +739,7 @@ export function requireOwnership(user: any, resourceOwnerId: string) {
           🚀 実践への応用
         </Typography>
         <Typography variant="body2" paragraph>
-          学習した内容を実際の業務に活かすために：
+          習得した内容を実際の業務に活かすために：
         </Typography>
         <BulletPoints
           items={[
@@ -752,7 +752,7 @@ export function requireOwnership(user: any, resourceOwnerId: string) {
       </Paper>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
-        さらなる学習リソース
+        参考リソース
       </Typography>
 
       <BulletPoints
@@ -766,7 +766,7 @@ export function requireOwnership(user: any, resourceOwnerId: string) {
       />
 
       <Box sx={{ mt: 3 }}>
-        <Link url="/graphql" text="📖 GraphQL学習ガイドのトップに戻る" />
+        <Link url="/graphql" text="📖 GraphQL概要に戻る" />
       </Box>
     </Box>
   );
