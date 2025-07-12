@@ -1,7 +1,6 @@
 import React from "react";
 import { Typography, Box, Paper } from "@mui/material";
 import BulletPoints from "@/components/parts/BulletPoints";
-import Link from "@/components/parts/Link";
 
 const GraphQLContent: React.FC = () => {
   const learningPhases = [
@@ -33,8 +32,9 @@ const GraphQLContent: React.FC = () => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLは、APIのためのクエリ言語であり、既存のデータに対してクエリを実行するためのランタイムです。
-        Facebookによって開発され、現在では多くの企業で採用されている現代的なAPI設計パラダイムです。
+        GraphQLは、APIのためのクエリ言語であり、既存のデータに対してクエリを実行するためのランタイム
+        <br />
+        Facebookによって開発され、現在では多くの企業で採用されている現代的なAPI設計パラダイム
       </Typography>
 
       <Paper sx={{ p: 3, mb: 3, bgcolor: "primary.50" }}>
@@ -42,8 +42,9 @@ const GraphQLContent: React.FC = () => {
           🎯 目標
         </Typography>
         <Typography variant="body2">
-          業務で出てくる「カスタムリゾルバ」を理解し、実装できるようになることが目標です。
-          基礎から段階的に進め、実際のプロジェクトで活用できるスキルを身につけます。
+          業務で出てくる「カスタムリゾルバ」を理解し、実装できるようになることが目標
+          <br />
+          基礎から段階的に進め、実際のプロジェクトで活用できるスキルを身につける
         </Typography>
       </Paper>
 
@@ -64,23 +65,10 @@ const GraphQLContent: React.FC = () => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        以下の5つのPhaseに分けて、段階的に進めます：
+        以下の5つのPhaseに分けて、段階的に進める
       </Typography>
 
       <BulletPoints items={learningPhases} />
-
-      <Paper sx={{ p: 3, mt: 3, bgcolor: "warning.50" }}>
-        <Typography variant="h6" gutterBottom color="warning.main">
-          💡 重要な点
-        </Typography>
-        <Typography variant="body2" paragraph>
-          GraphQLは概念が多く、最初は複雑に感じる場合があります。
-          一つ一つの概念を理解し、実際にコードを書きながら進めることで、スキルが身につきます。
-        </Typography>
-        <Typography variant="body2">
-          特に「リゾルバ」の概念は重要です。これを理解することで、GraphQLの動作原理が理解できます。
-        </Typography>
-      </Paper>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
         必要な前提知識
@@ -98,18 +86,6 @@ const GraphQLContent: React.FC = () => {
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
         次のステップ
       </Typography>
-
-      <Typography variant="body1" paragraph>
-        Phase 1の「基本概念」から開始します。
-        各Phaseでは理論と実践をバランス良く組み合わせ、実際に動くコードを書きながら進めます。
-      </Typography>
-
-      <Box sx={{ mt: 3 }}>
-        <Link
-          url="/graphql/basic"
-          text="📚 Phase 1: 基本概念の理解を開始する"
-        />
-      </Box>
     </Box>
   );
 };

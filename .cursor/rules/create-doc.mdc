@@ -1,19 +1,21 @@
 ---
-description: 
-globs: 
+description:
+globs:
 alwaysApply: false
 ---
+
 ドキュメントを作成するためのプロンプトです
 
 ドキュメントは以下のファイルのような，すでに存在する説明ページを参考に書いてください
 [index.tsx](mdc:src/pages/tailwind/justify/index.tsx) [index.tsx](mdc:src/pages/tailwind/gap/index.tsx) [index.tsx](mdc:src/pages/tailwind/flex/index.tsx)
 
-口調は体現留めで，「〇〇です．」「〇〇である．」など，内容に関係のない，ただ文章を読ませるだけの余計なテキストは入れないで下さい．末尾の「。」も不要です
+口調は体現止めで，「〇〇です．」「〇〇である．」など，内容に関係のない，ただ文章を読ませるだけの余計なテキストは入れないで下さい．末尾の「。」も不要です
 
 また，以下の点に注意してください
+
 - 説明やビュー（実際の例），サンプルコードを含めること
 - 複数のスタイルを説明するときは，各スタイルで違いがはっきりするように書くこと
-- 実際の例では，以下のdiv要素の中に実装すること
+- 実際の例では，以下の div 要素の中に実装すること
 
 ```
 <div className="flex flex-row gap-4 bg-gray-300 p-4">

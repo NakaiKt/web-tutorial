@@ -162,7 +162,7 @@ const resolvers = {
 
       <Typography variant="body1" paragraph>
         GraphQLの基本概念について説明します。RESTとの違いから始めて、
-        スキーマ、クエリ、リゾルバという核となる概念を扱います。
+        スキーマ、クエリ、リゾルバという核となる概念を扱う
       </Typography>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
@@ -170,7 +170,7 @@ const resolvers = {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLは従来のRESTful APIとは根本的に異なるアプローチを取ります：
+        GraphQLはRESTful APIとは根本的に異なるアプローチを取る
       </Typography>
 
       <Table
@@ -184,8 +184,8 @@ const resolvers = {
 
       <Alert severity="info" sx={{ mt: 2, mb: 3 }}>
         <AlertTitle>重要なポイント</AlertTitle>
-        GraphQLは「RESTの置き換え」ではなく、「異なる設計思想」です。
-        クライアント主導でデータ取得を行うことで、効率的なAPIを実現します。
+        GraphQLはRESTの置き換えではなく異なる設計思想
+        クライアント主導でデータ取得を行うことで効率的なAPIを実現
       </Alert>
 
       <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
@@ -193,8 +193,8 @@ const resolvers = {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLの方が効率的に見えますが、RESTが残っている理由があります。
-        これには技術的・組織的な理由があります：
+        GraphQLの方が効率的に見えるがRESTが残る理由がある
+        技術的・組織的な理由がある
       </Typography>
 
       <Paper sx={{ p: 3, mt: 3, bgcolor: "warning.50" }}>
@@ -203,12 +203,12 @@ const resolvers = {
         </Typography>
         <BulletPoints
           items={[
-            "<strong>学習コストの低さ</strong>: RESTはHTTPの標準的な使い方で、理解しやすい",
-            "<strong>キャッシュの簡単さ</strong>: HTTPキャッシュ（CDN、ブラウザキャッシュ）がそのまま使える",
-            "<strong>デバッグの容易さ</strong>: curl、Postman等の標準ツールで簡単にテストできる",
-            "<strong>既存システムとの親和性</strong>: 既存のHTTPインフラがそのまま活用できる",
-            "<strong>チーム全体の習熟度</strong>: 多くの開発者がRESTに慣れ親しんでいる",
-            "<strong>セキュリティの理解しやすさ</strong>: HTTPベースのセキュリティ対策が適用できる",
+            "学習コストの低さ: RESTはHTTPの標準的な使い方で理解しやすい",
+            "キャッシュの簡単さ: HTTPキャッシュ（CDN、ブラウザキャッシュ）がそのまま使える",
+            "デバッグの容易さ: curl、Postman等の標準ツールで簡単にテストできる",
+            "既存システムとの親和性: 既存のHTTPインフラがそのまま活用できる",
+            "チーム全体の習熟度: 多くの開発者がRESTに慣れ親しんでいる",
+            "セキュリティの理解しやすさ: HTTPベースのセキュリティ対策が適用できる",
           ]}
         />
       </Paper>
@@ -219,12 +219,12 @@ const resolvers = {
 
       <BulletPoints
         items={[
-          "<strong>学習曲線</strong>: スキーマ設計、リゾルバ、型システムなど新しい概念が多い",
-          "<strong>キャッシュの複雑さ</strong>: クエリごとに異なるレスポンスのため、キャッシュ戦略が複雑",
-          "<strong>セキュリティの複雑さ</strong>: クエリの深度制限、レート制限、認可の実装が困難",
-          "<strong>既存システムの移行コスト</strong>: RESTから移行する際の開発・テスト・運用コスト",
-          "<strong>チーム教育コスト</strong>: 開発チーム全体のスキルアップが必要",
-          "<strong>ツールエコシステム</strong>: RESTと比べてツールやライブラリが少ない場合がある",
+          "学習曲線: スキーマ設計、リゾルバ、型システムなど新しい概念が多い",
+          "キャッシュの複雑さ: クエリごとに異なるレスポンスのためキャッシュ戦略が複雑",
+          "セキュリティの複雑さ: クエリの深度制限、レート制限、認可の実装が困難",
+          "既存システムの移行コスト: RESTから移行する際の開発・テスト・運用コスト",
+          "チーム教育コスト: 開発チーム全体のスキルアップが必要",
+          "ツールエコシステム: RESTと比べてツールやライブラリが少ない場合がある",
         ]}
       />
 
@@ -238,11 +238,11 @@ const resolvers = {
         </Typography>
         <BulletPoints
           items={[
-            "<strong>複雑なデータ関係</strong>: ユーザー、投稿、コメント等が複雑に関連するSNSアプリ",
-            "<strong>多様なクライアント</strong>: Web、モバイル、管理画面で異なるデータが必要",
-            "<strong>リアルタイム性</strong>: Subscriptionを活用したリアルタイム更新",
-            "<strong>開発者体験重視</strong>: 型安全性、自動補完、ドキュメント生成を重視",
-            "<strong>フロントエンド主導</strong>: クライアント側でデータ要件を柔軟に変更したい",
+            "複雑なデータ関係: ユーザー、投稿、コメント等が複雑に関連するSNSアプリ",
+            "多様なクライアント: Web、モバイル、管理画面で異なるデータが必要",
+            "リアルタイム性: Subscriptionを活用したリアルタイム更新",
+            "開発者体験重視: 型安全性、自動補完、ドキュメント生成を重視",
+            "フロントエンド主導: クライアント側でデータ要件を柔軟に変更したい",
           ]}
         />
       </Paper>
@@ -253,20 +253,20 @@ const resolvers = {
         </Typography>
         <BulletPoints
           items={[
-            "<strong>シンプルなCRUD</strong>: 基本的な作成・読み取り・更新・削除操作が中心",
-            "<strong>キャッシュ重視</strong>: CDNやHTTPキャッシュを最大限活用したい",
-            "<strong>既存システム</strong>: 既にRESTで構築されていて、移行コストが高い",
-            "<strong>チームスキル</strong>: GraphQLの学習コストを避けたい",
-            "<strong>外部API連携</strong>: サードパーティのREST APIとの連携が多い",
-            "<strong>ファイルアップロード</strong>: 単純なファイルアップロード機能",
+            "シンプルなCRUD: 基本的な作成・読み取り・更新・削除操作が中心",
+            "キャッシュ重視: CDNやHTTPキャッシュを最大限活用したい",
+            "既存システム: 既にRESTで構築されていて移行コストが高い",
+            "チームスキル: GraphQLの学習コストを避けたい",
+            "外部API連携: サードパーティのREST APIとの連携が多い",
+            "ファイルアップロード: 単純なファイルアップロード機能",
           ]}
         />
       </Paper>
 
       <Alert severity="success" sx={{ mt: 2, mb: 3 }}>
         <AlertTitle>現実的な選択</AlertTitle>
-        多くの企業では「新規機能はGraphQL、既存機能はREST」や「内部APIはGraphQL、外部APIはREST」
-        といったハイブリッドアプローチを取っています。完全に一つに統一する必要はありません。
+        多くの企業は新規機能はGraphQL、既存機能はRESTや内部APIはGraphQL、外部APIはRESTなどハイブリッドアプローチを取る
+        完全に一つに統一する必要はない
       </Alert>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
@@ -274,7 +274,8 @@ const resolvers = {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLの全体像をつかむために、クライアントからサーバーへのリクエスト〜レスポンスの流れを簡単にまとめます。
+        GraphQLの全体像
+        クライアントからサーバーへのリクエスト〜レスポンスの流れを簡単にまとめる
       </Typography>
 
       <Paper sx={{ p: 3, mt: 3, bgcolor: "info.50" }}>
@@ -282,20 +283,12 @@ const resolvers = {
           🔄 GraphQLの流れ
         </Typography>
         <Typography variant="body2" paragraph>
-          1. クライアントが<strong>1つのエンドポイント</strong>（通常
-          /graphql）にクエリを送信
-          <br />
-          2. GraphQLサーバーが<strong>スキーマ</strong>
-          に基づいてクエリを解析・バリデーション
-          <br />
-          3. 認証・認可の確認
-          <br />
-          4. <strong>リゾルバ関数</strong>
-          が各フィールドごとに実行され、データを取得
-          <br />
-          5. <strong>クライアントが指定した形式</strong>でレスポンスを構築
-          <br />
-          6. クライアントが必要なデータだけを受け取る
+          1. クライアントが1つのエンドポイント（通常 /graphql）にクエリを送信 2.
+          GraphQLサーバーがスキーマに基づいてクエリを解析・バリデーション 3.
+          認証・認可の確認 4.
+          リゾルバ関数が各フィールドごとに実行されデータを取得 5.
+          クライアントが指定した形式でレスポンスを構築 6.
+          クライアントが必要なデータだけを受け取る
         </Typography>
       </Paper>
 
@@ -304,7 +297,8 @@ const resolvers = {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLでは、どこまでがユーザー（開発者）が設計でき、どこからがGraphQL仕様として固定されているのかを明確に理解することが重要です。RESTと比較しながら、設計自由度の違いを整理します。
+        どこまでがユーザーが設計できるか，どこからがGraphQL仕様で固定されているかを明確に理解することが重要
+        RESTと比較しながら設計自由度の違いを整理する
       </Typography>
 
       <Paper sx={{ p: 3, mt: 3, bgcolor: "info.50" }}>
@@ -387,9 +381,8 @@ const resolvers = {
         図解：ユーザー設計領域とGraphQL仕様領域
       </Typography>
       <Box sx={{ my: 2 }}>
-        {/* Mermaid図のイメージをテキストで説明 */}
         <Typography variant="body2" color="text.secondary">
-          下図は、GraphQLの処理フローにおいて「どこがユーザーの設計領域か」「どこがGraphQL仕様で固定されているか」を示しています。
+          下図はGraphQLの処理フローにおいてどこがユーザーの設計領域か，どこがGraphQL仕様で固定されているかを示す
         </Typography>
         <Box sx={{ p: 2, bgcolor: "grey.100", borderRadius: 2, mt: 1 }}>
           <pre style={{ fontSize: "0.9em", lineHeight: 1.5 }}>
@@ -412,12 +405,12 @@ const resolvers = {
           </pre>
         </Box>
         <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-          ※「スキーマ設計」「リゾルバ実装」がユーザーの設計領域、「GraphQLエンジン」が仕様で固定されている部分です。
+          スキーマ設計・リゾルバ実装がユーザーの設計領域，GraphQLエンジンが仕様で固定されている部分
         </Typography>
       </Box>
 
       <Typography variant="body1" paragraph>
-        このように、GraphQLでは「スキーマ」と「リゾルバ」がユーザーの設計・実装領域であり、クエリの解析や実行フローなどはGraphQL仕様で固定されています。
+        GraphQLではスキーマとリゾルバがユーザーの設計・実装領域，クエリの解析や実行フローなどはGraphQL仕様で固定されている
       </Typography>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
@@ -425,8 +418,9 @@ const resolvers = {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLスキーマは、APIで利用可能なデータとオペレーションを定義します。
-        強力な型システムにより、実行時エラーを大幅に削減できます。
+        GraphQLスキーマは、APIで利用可能なデータとオペレーションを定義する
+        <br />
+        強力な型システムにより、実行時エラーを大幅に削減できる
       </Typography>
 
       <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
@@ -460,8 +454,9 @@ const resolvers = {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLクエリは、必要なデータを宣言的に指定します。
-        クエリの形がそのままレスポンスの形になるのが特徴です。
+        GraphQLクエリは、必要なデータを宣言的に指定する
+        <br />
+        クエリの形がそのままレスポンスの形になるのが特徴
       </Typography>
 
       <CodeBlock code={queryExample} language="graphql" />
@@ -471,7 +466,7 @@ const resolvers = {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        データの作成、更新、削除はミューテーションを使用します：
+        データの作成、更新、削除はミューテーションを使用する
       </Typography>
 
       <CodeBlock code={mutationExample} language="graphql" />
@@ -481,16 +476,18 @@ const resolvers = {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        リゾルバ関数は、スキーマの各フィールドに対してデータを取得・処理する関数です。
-        GraphQLの「心臓部」とも言える重要な概念です。
+        リゾルバ関数は、スキーマの各フィールドに対してデータを取得・処理する関数
+        <br />
+        GraphQLの「心臓部」とも言える重要な概念
       </Typography>
 
       <CodeBlock code={resolverConcept} language="javascript" />
 
       <Alert severity="warning" sx={{ mt: 2, mb: 3 }}>
         <AlertTitle>リゾルバの重要性</AlertTitle>
-        リゾルバ関数を理解することで、GraphQLがどのようにデータを取得し、
-        クライアントに返すかの仕組みが分かります。カスタムリゾルバの理解にも必須の概念です。
+        リゾルバ関数を理解することで、GraphQLがどのようにデータを取得し、クライアントに返すかの仕組みが分かる
+        <br />
+        カスタムリゾルバの理解にも必須の概念
         <Box sx={{ mt: 2 }}>
           <Link url="/graphql/resolver" text="🔍 リゾルバの詳細解説" />
         </Box>
@@ -501,7 +498,7 @@ const resolvers = {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLサーバーがクエリを処理する流れは以下の通りです：
+        GraphQLサーバーがクエリを処理する流れは以下の通り
       </Typography>
 
       <BulletPoints items={executionFlow} />
@@ -511,28 +508,14 @@ const resolvers = {
           🔄 実行フローの詳細
         </Typography>
         <Typography variant="body2" paragraph>
-          GraphQLは各フィールドを並行して解決します。つまり、同じ階層の複数フィールドは
-          同時に処理され、効率的にデータを取得できます。
+          GraphQLは各フィールドを並行して解決する
+          <br />
+          つまり、同じ階層の複数フィールドは同時に処理され、効率的にデータを取得できる
         </Typography>
         <Typography variant="body2">
-          これにより、RESTのようにウォーターフォール的なリクエストではなく、
-          最適化されたデータ取得が可能になります。
+          これにより、RESTのようにウォーターフォール的なリクエストではなく、最適化されたデータ取得が可能になる
         </Typography>
       </Paper>
-
-      <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
-        次のステップ
-      </Typography>
-
-      <Typography variant="body1" paragraph>
-        基本概念を理解したら、まずリゾルバの仕組みを深く理解することが効果的です。
-        その後、Apollo Serverを使って実際にGraphQLサーバーを構築します。
-      </Typography>
-
-      <Box sx={{ mt: 3, display: "flex", gap: 2, flexWrap: "wrap" }}>
-        <Link url="/graphql/resolver" text="🔍 リゾルバの完全理解" />
-        <Link url="/graphql/server" text="🚀 サーバーサイドの実装" />
-      </Box>
     </Box>
   );
 };

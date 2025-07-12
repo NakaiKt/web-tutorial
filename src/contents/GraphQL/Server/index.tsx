@@ -2,7 +2,6 @@ import React from "react";
 import { Typography, Box, Paper, Alert, AlertTitle } from "@mui/material";
 import BulletPoints from "@/components/parts/BulletPoints";
 import CodeBlock from "@/components/parts/CodeBlock";
-import Link from "@/components/parts/Link";
 
 const GraphQLServerContent: React.FC = () => {
   const apolloServerSetup = `// package.json の依存関係
@@ -465,8 +464,9 @@ describe('User Resolvers', () => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        Apollo Serverを使用したGraphQLサーバーの構築方法について説明します。
-        基本的なセットアップから、Prismaを使用したデータベース連携まで段階的に扱います。
+        Apollo Serverを使用したGraphQLサーバーの構築方法について説明する
+        <br />
+        基本的なセットアップから、Prismaを使用したデータベース連携まで段階的に扱う
       </Typography>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
@@ -474,7 +474,7 @@ describe('User Resolvers', () => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        まず、必要なパッケージをインストールします：
+        まず、必要なパッケージをインストールする
       </Typography>
 
       <CodeBlock code={apolloServerSetup} language="json" />
@@ -487,9 +487,11 @@ describe('User Resolvers', () => {
 
       <Alert severity="info" sx={{ mt: 2, mb: 3 }}>
         <AlertTitle>Apollo Serverの特徴</AlertTitle>
-        Apollo Serverは、GraphQLスキーマとリゾルバを組み合わせて、
-        自動的にGraphQL
-        APIを生成します。開発者はビジネスロジックに集中できます。
+        Apollo
+        Serverは、GraphQLスキーマとリゾルバを組み合わせて、自動的にGraphQL
+        APIを生成する
+        <br />
+        開発者はビジネスロジックに集中できる
       </Alert>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
@@ -497,7 +499,7 @@ describe('User Resolvers', () => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLスキーマ定義言語（SDL）を使用してAPIの構造を定義します：
+        GraphQLスキーマ定義言語（SDL）を使用してAPIの構造を定義する
       </Typography>
 
       <CodeBlock code={schemaDefinition} language="typescript" />
@@ -521,7 +523,7 @@ describe('User Resolvers', () => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        スキーマの各フィールドに対応するリゾルバ関数を実装します：
+        スキーマの各フィールドに対応するリゾルバ関数を実装する
       </Typography>
 
       <CodeBlock code={resolverImplementation} language="typescript" />
@@ -543,7 +545,7 @@ describe('User Resolvers', () => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        Prismaを使用してデータベースと連携し、型安全なデータアクセスを実現します：
+        Prismaを使用してデータベースと連携し、型安全なデータアクセスを実現する
       </Typography>
 
       <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
@@ -577,7 +579,7 @@ describe('User Resolvers', () => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        適切なエラーハンドリングにより、クライアントに有用な情報を提供します：
+        適切なエラーハンドリングにより、クライアントに有用な情報を提供する
       </Typography>
 
       <CodeBlock code={errorHandling} language="typescript" />
@@ -587,7 +589,7 @@ describe('User Resolvers', () => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        リゾルバ関数のユニットテストを実装して品質を保証します：
+        リゾルバ関数のユニットテストを実装して品質を保証する
       </Typography>
 
       <CodeBlock code={testingExample} language="typescript" />
@@ -603,16 +605,8 @@ describe('User Resolvers', () => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        サーバーの基本実装ができたら、認証・認可、パフォーマンス最適化、
-        そして最終目標である「カスタムリゾルバ」の実装に進みます。
+        サーバーの基本実装ができたら、認証・認可、パフォーマンス最適化、そして最終目標である「カスタムリゾルバ」の実装に進む
       </Typography>
-
-      <Box sx={{ mt: 3 }}>
-        <Link
-          url="/graphql/advanced"
-          text="⚡ Phase 4-5: 高度な機能とカスタムリゾルバへ進む"
-        />
-      </Box>
     </Box>
   );
 };

@@ -2,7 +2,6 @@ import React from "react";
 import { Typography, Box, Paper, Alert, AlertTitle } from "@mui/material";
 import BulletPoints from "@/components/parts/BulletPoints";
 import CodeBlock from "@/components/parts/CodeBlock";
-import Link from "@/components/parts/Link";
 
 const GraphQLResolverContent: React.FC = () => {
   const basicResolverExample = `// 最もシンプルなリゾルバの例
@@ -454,9 +453,9 @@ const createPostLoader = (prisma) => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        リゾルバは「GraphQLの心臓部」と呼ばれる重要な概念です。
-        スキーマで定義されたフィールドに対して、実際にデータを取得・処理する関数がリゾルバです。
-        この仕組みを理解することで、GraphQLの動作原理が完全に理解できます。
+        リゾルバは「GraphQLの心臓部」と呼ばれる重要な概念
+        <br />
+        スキーマで定義されたフィールドに対して、実際にデータを取得・処理する関数がリゾルバ
       </Typography>
 
       <Paper sx={{ p: 3, mb: 3, bgcolor: "primary.50" }}>
@@ -464,9 +463,9 @@ const createPostLoader = (prisma) => {
           🎯 リゾルバとは何か？
         </Typography>
         <Typography variant="body2">
-          リゾルバは「GraphQLスキーマの各フィールドに対して、実際のデータを返す関数」です。
+          リゾルバは「GraphQLスキーマの各フィールドに対して、実際のデータを返す関数」
           クライアントがクエリを送信すると、GraphQLサーバーは対応するリゾルバ関数を実行して、
-          データを取得・加工してレスポンスを構築します。
+          データを取得・加工してレスポンスを構築する
         </Typography>
       </Paper>
 
@@ -475,15 +474,16 @@ const createPostLoader = (prisma) => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        最もシンプルなリゾルバから始めて、その仕組みを理解します：
+        最もシンプルなリゾルバから始めて、その仕組みを理解する
       </Typography>
 
       <CodeBlock code={basicResolverExample} language="javascript" />
 
       <Alert severity="info" sx={{ mt: 2, mb: 3 }}>
         <AlertTitle>重要な理解</AlertTitle>
-        リゾルバは「クエリの形」と「レスポンスの形」を結びつける橋渡し役です。
-        クライアントが要求したフィールドに対して、リゾルバが実際のデータを提供します。
+        リゾルバは「クエリの形」と「レスポンスの形」を結びつける橋渡し役
+        <br />
+        クライアントが要求したフィールドに対して、リゾルバが実際のデータを提供する
       </Alert>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
@@ -491,7 +491,7 @@ const createPostLoader = (prisma) => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        すべてのリゾルバ関数は4つの引数を受け取ります：
+        すべてのリゾルバ関数は4つの引数を受け取る
       </Typography>
 
       <BulletPoints
@@ -510,7 +510,7 @@ const createPostLoader = (prisma) => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLクエリがどのようにリゾルバによって解決されるかを説明します：
+        GraphQLクエリがどのようにリゾルバによって解決されるかを説明する
       </Typography>
 
       <CodeBlock code={executionFlowExample} language="javascript" />
@@ -534,8 +534,7 @@ const createPostLoader = (prisma) => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        contextは認証情報、データベース接続、外部API接続など、
-        リクエスト全体で共有される情報を格納する重要なオブジェクトです：
+        contextは認証情報、データベース接続、外部API接続など、リクエスト全体で共有される情報を格納する重要なオブジェクト
       </Typography>
 
       <CodeBlock code={contextExample} language="javascript" />
@@ -545,8 +544,7 @@ const createPostLoader = (prisma) => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        オブジェクトの各フィールドに対してリゾルバを定義することで、
-        複雑なデータ構造や計算フィールドを実現できます：
+        オブジェクトの各フィールドに対してリゾルバを定義することで、複雑なデータ構造や計算フィールドを実現できる
       </Typography>
 
       <CodeBlock code={fieldResolverExample} language="javascript" />
@@ -556,7 +554,7 @@ const createPostLoader = (prisma) => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        複雑なクエリでは、複数のリゾルバが連鎖的に実行されます：
+        複雑なクエリでは、複数のリゾルバが連鎖的に実行される
       </Typography>
 
       <CodeBlock code={resolverChainExample} language="javascript" />
@@ -566,7 +564,7 @@ const createPostLoader = (prisma) => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        適切なエラーハンドリングにより、クライアントに有用な情報を提供できます：
+        適切なエラーハンドリングにより、クライアントに有用な情報を提供できる
       </Typography>
 
       <CodeBlock code={errorHandlingExample} language="javascript" />
@@ -576,7 +574,7 @@ const createPostLoader = (prisma) => {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        リゾルバのパフォーマンスを最適化する重要な技術：
+        リゾルバのパフォーマンスを最適化する重要な技術
       </Typography>
 
       <CodeBlock code={performanceExample} language="javascript" />
@@ -629,21 +627,6 @@ const createPostLoader = (prisma) => {
           "カスタムリゾルバの実装が可能になる",
         ]}
       />
-
-      <Paper sx={{ p: 3, mt: 3, bgcolor: "info.50" }}>
-        <Typography variant="h6" gutterBottom color="info.main">
-          🚀 次のステップ
-        </Typography>
-        <Typography variant="body2">
-          リゾルバの概念を理解したら、実際にApollo Serverを使って
-          リゾルバを実装します。サーバー実装のページで詳しく解説しています。
-        </Typography>
-      </Paper>
-
-      <Box sx={{ mt: 3, display: "flex", gap: 2 }}>
-        <Link url="/graphql/basic" text="📚 基本概念に戻る" />
-        <Link url="/graphql/server" text="🚀 サーバー実装へ進む" />
-      </Box>
     </Box>
   );
 };

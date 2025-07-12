@@ -2,7 +2,6 @@ import React from "react";
 import { Typography, Box, Paper, Alert, AlertTitle } from "@mui/material";
 import BulletPoints from "@/components/parts/BulletPoints";
 import CodeBlock from "@/components/parts/CodeBlock";
-import Link from "@/components/parts/Link";
 
 const GraphQLAdvancedContent: React.FC = () => {
   const customScalarExample = `// custom-scalars.ts - カスタムスカラータイプの定義
@@ -599,8 +598,9 @@ export function requireOwnership(user: any, resourceOwnerId: string) {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLの高度な機能と、業務で重要な「カスタムリゾルバ」の実装方法について説明します。
-        実際のプロジェクトで使用される複雑なビジネスロジックの実装パターンを扱います。
+        GraphQLの高度な機能と、業務で重要な「カスタムリゾルバ」の実装方法について説明する
+        <br />
+        実際のプロジェクトで使用される複雑なビジネスロジックの実装パターンを扱う
       </Typography>
 
       <Paper sx={{ p: 3, mb: 3, bgcolor: "primary.50" }}>
@@ -608,8 +608,9 @@ export function requireOwnership(user: any, resourceOwnerId: string) {
           🎯 カスタムリゾルバとは？
         </Typography>
         <Typography variant="body2">
-          カスタムリゾルバは、標準的なCRUD操作を超えた複雑なビジネスロジックを実装するリゾルバ関数です。
-          データの計算、外部API連携、複雑な検索機能など、アプリケーション固有の要件を満たすために作成されます。
+          カスタムリゾルバは、標準的なCRUD操作を超えた複雑なビジネスロジックを実装するリゾルバ関数
+          <br />
+          データの計算、外部API連携、複雑な検索機能など、アプリケーション固有の要件を満たすために作成される
         </Typography>
       </Paper>
 
@@ -618,7 +619,7 @@ export function requireOwnership(user: any, resourceOwnerId: string) {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        独自のデータ型を定義して、型安全性とバリデーションを強化します：
+        独自のデータ型を定義して、型安全性とバリデーションを強化する
       </Typography>
 
       <CodeBlock code={customScalarExample} language="typescript" />
@@ -626,7 +627,7 @@ export function requireOwnership(user: any, resourceOwnerId: string) {
       <Alert severity="info" sx={{ mt: 2, mb: 3 }}>
         <AlertTitle>カスタムスカラーの重要性</AlertTitle>
         カスタムスカラーを使用することで、型レベルでのバリデーションが可能になり、
-        実行時エラーを大幅に削減できます。また、クライアント側でも型安全性が保たれます。
+        実行時エラーを大幅に削減できる。また、クライアント側でも型安全性が保たれる
       </Alert>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
@@ -634,7 +635,7 @@ export function requireOwnership(user: any, resourceOwnerId: string) {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        実際の業務で使用される複雑なカスタムリゾルバの実装例です：
+        実際の業務で使用される複雑なカスタムリゾルバの実装例
       </Typography>
 
       <CodeBlock code={customResolverExample} language="typescript" />
@@ -659,16 +660,18 @@ export function requireOwnership(user: any, resourceOwnerId: string) {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        N+1問題を解決し、効率的なデータ取得を実現するDataLoaderパターンを実装します：
+        N+1問題を解決し、効率的なデータ取得を実現するDataLoaderパターンを実装する
       </Typography>
 
       <CodeBlock code={dataLoaderExample} language="typescript" />
 
       <Alert severity="warning" sx={{ mt: 2, mb: 3 }}>
         <AlertTitle>N+1問題とは？</AlertTitle>
-        GraphQLでは関連データを取得する際に、各アイテムに対して個別にクエリが実行され、
-        パフォーマンスが悪化する問題です。DataLoaderを使用することで、
-        複数のクエリを1つのバッチクエリにまとめて実行できます。
+        GraphQLで関連データを取得する際に、各アイテムに対して個別にクエリが実行され、
+        パフォーマンスが悪化する問題
+        <br />
+        DataLoaderを使用することで、
+        複数のクエリを1つのバッチクエリにまとめて実行できる
       </Alert>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
@@ -676,7 +679,7 @@ export function requireOwnership(user: any, resourceOwnerId: string) {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        セキュアなGraphQL APIを構築するための認証・認可機能を実装します：
+        セキュアなGraphQL APIを構築するための認証・認可機能を実装する
       </Typography>
 
       <CodeBlock code={authenticationExample} language="typescript" />
@@ -686,7 +689,7 @@ export function requireOwnership(user: any, resourceOwnerId: string) {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        実際の業務でカスタムリゾルバが使用される典型的な場面：
+        実際の業務でカスタムリゾルバが使用される典型的な場面
       </Typography>
 
       <BulletPoints items={customResolverUseCases} />
@@ -711,63 +714,6 @@ export function requireOwnership(user: any, resourceOwnerId: string) {
           ]}
         />
       </Paper>
-
-      <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
-        習得した知識と次のステップ
-      </Typography>
-
-      <Typography variant="body1" paragraph>
-        これで業務で必要な「カスタムリゾルバ」の実装方法を習得しました。
-        以下の知識を身につけることができました：
-      </Typography>
-
-      <BulletPoints
-        items={[
-          "GraphQLの基本概念から高度な実装まで",
-          "Apollo Serverを使用したサーバー構築",
-          "Prismaとの連携によるデータベース操作",
-          "カスタムスカラータイプの定義と活用",
-          "複雑なビジネスロジックを含むカスタムリゾルバの実装",
-          "パフォーマンス最適化手法（DataLoader等）",
-          "認証・認可の実装",
-          "エラーハンドリングとテスト手法",
-        ]}
-      />
-
-      <Paper sx={{ p: 3, mt: 3, bgcolor: "info.50" }}>
-        <Typography variant="h6" gutterBottom color="info.main">
-          🚀 実践への応用
-        </Typography>
-        <Typography variant="body2" paragraph>
-          習得した内容を実際の業務に活かすために：
-        </Typography>
-        <BulletPoints
-          items={[
-            "既存のREST APIをGraphQLに段階的に移行する",
-            "小さなプロジェクトから始めて、徐々に複雑な機能を追加する",
-            "チームメンバーと知識を共有し、ベストプラクティスを確立する",
-            "継続的にパフォーマンスを監視し、最適化を行う",
-          ]}
-        />
-      </Paper>
-
-      <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
-        参考リソース
-      </Typography>
-
-      <BulletPoints
-        items={[
-          "GraphQL公式ドキュメント - 最新の仕様と機能",
-          "Apollo Server公式ガイド - 詳細な実装例",
-          "Prisma公式ドキュメント - データベース操作のベストプラクティス",
-          "GraphQL Summit - 年次カンファレンスの動画",
-          "Community discussions - GitHub、Discord、Stack Overflow",
-        ]}
-      />
-
-      <Box sx={{ mt: 3 }}>
-        <Link url="/graphql" text="📖 GraphQL概要に戻る" />
-      </Box>
     </Box>
   );
 };
