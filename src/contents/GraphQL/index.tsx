@@ -3,14 +3,6 @@ import { Typography, Box, Paper } from "@mui/material";
 import BulletPoints from "@/components/parts/BulletPoints";
 
 const GraphQLContent: React.FC = () => {
-  const learningPhases = [
-    "Phase 1: 基礎概念の理解 - GraphQLとは何か、スキーマとタイプシステム",
-    "Phase 2: サーバーサイドの基本 - リゾルバ関数、Apollo Server基本",
-    "Phase 3: データベース連携 - Prismaとの連携、CRUD操作",
-    "Phase 4: 実践的な機能 - 認証・認可、エラーハンドリング",
-    "Phase 5: 高度な機能 - カスタムリゾルバ、パフォーマンス最適化",
-  ];
-
   const whyGraphQL = [
     "RESTよりも効率的なデータ取得 - 必要なデータのみを1回のリクエストで取得",
     "強力な型システム - スキーマによる明確なAPI仕様",
@@ -63,12 +55,6 @@ const GraphQLContent: React.FC = () => {
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
         学習フロー
       </Typography>
-
-      <Typography variant="body1" paragraph>
-        以下の5つのPhaseに分けて、段階的に進める
-      </Typography>
-
-      <BulletPoints items={learningPhases} />
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
         必要な前提知識
