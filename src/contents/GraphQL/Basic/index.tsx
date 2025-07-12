@@ -301,14 +301,17 @@ const resolvers = {
         <Typography variant="h6" gutterBottom color="info.main">
           🔄 GraphQLの流れ
         </Typography>
-        <Typography variant="body2" paragraph>
-          1. クライアントが1つのエンドポイント（通常 /graphql）にクエリを送信 2.
-          GraphQLサーバーがスキーマに基づいてクエリを解析・バリデーション 3.
-          認証・認可の確認 4.
-          リゾルバ関数が各フィールドごとに実行されデータを取得 5.
-          クライアントが指定した形式でレスポンスを構築 6.
-          クライアントが必要なデータだけを受け取る
-        </Typography>
+        <BulletPoints
+          style="number"
+          items={[
+            "1. クライアントが1つのエンドポイント（通常 /graphql）にクエリを送信",
+            "2. GraphQLサーバーがスキーマに基づいてクエリを解析・バリデーション",
+            "3. 認証・認可の確認",
+            "4. リゾルバ関数が各フィールドごとに実行されデータを取得",
+            "5. クライアントが指定した形式でレスポンスを構築",
+            "6. クライアントが必要なデータだけを受け取る",
+          ]}
+        />
       </Paper>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
