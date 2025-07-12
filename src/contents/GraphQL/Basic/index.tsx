@@ -403,9 +403,7 @@ const resolvers = {
         <Typography variant="body2" color="text.secondary">
           下図はGraphQLの処理フローにおいてどこがユーザーの設計領域か，どこがGraphQL仕様で固定されているかを示す
         </Typography>
-        <Box sx={{ p: 2, bgcolor: "grey.100", borderRadius: 2, mt: 1 }}>
-          <Mermaid code={diagram} />
-        </Box>
+        <Mermaid code={diagram} />
         <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
           スキーマ設計・リゾルバ実装がユーザーの設計領域，GraphQLエンジンが仕様で固定されている部分
         </Typography>
