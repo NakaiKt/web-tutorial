@@ -274,35 +274,16 @@ const resolvers = {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        GraphQLがどのように動作するかを理解するために、RESTとの流れを比較してみましょう：
+        GraphQLの全体像をつかむために、クライアントからサーバーへのリクエスト〜レスポンスの流れを簡単にまとめます。
       </Typography>
 
       <Paper sx={{ p: 3, mt: 3, bgcolor: "info.50" }}>
         <Typography variant="h6" gutterBottom color="info.main">
-          🔄 RESTの流れ
-        </Typography>
-        <Typography variant="body2" paragraph>
-          1. クライアントが特定のURL（エンドポイント）にHTTPリクエストを送信
-          <br />
-          2. サーバーがルーティング処理でエンドポイントを特定
-          <br />
-          3. 認証・認可の確認
-          <br />
-          4. コントローラー関数が実行され、DBアクセスや処理を行う
-          <br />
-          5. <strong>サーバーが決めた形式</strong>でレスポンスを返す
-          <br />
-          6. クライアントが受け取ったデータから必要な部分を抽出
-        </Typography>
-      </Paper>
-
-      <Paper sx={{ p: 3, mt: 3, bgcolor: "success.50" }}>
-        <Typography variant="h6" gutterBottom color="success.main">
           🔄 GraphQLの流れ
         </Typography>
         <Typography variant="body2" paragraph>
-          1. クライアントが<strong>1つのエンドポイント</strong>
-          （通常/graphql）にクエリを送信
+          1. クライアントが<strong>1つのエンドポイント</strong>（通常
+          /graphql）にクエリを送信
           <br />
           2. GraphQLサーバーが<strong>スキーマ</strong>
           に基づいてクエリを解析・バリデーション
@@ -318,35 +299,129 @@ const resolvers = {
         </Typography>
       </Paper>
 
-      <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
-        スキーマの役割
+      <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
+        3. GraphQLの設計自由度と仕様の違い
       </Typography>
 
       <Typography variant="body1" paragraph>
-        上記の流れで重要なのは、GraphQLでは<strong>スキーマ</strong>
-        が「設計図」の役割を果たすことです：
+        GraphQLでは、どこまでがユーザー（開発者）が設計でき、どこからがGraphQL仕様として固定されているのかを明確に理解することが重要です。RESTと比較しながら、設計自由度の違いを整理します。
       </Typography>
 
+      <Paper sx={{ p: 3, mt: 3, bgcolor: "info.50" }}>
+        <Typography variant="h6" gutterBottom color="info.main">
+          RESTとGraphQLの設計自由度比較
+        </Typography>
+        <Table
+          columns={[
+            { header: "項目", key: "item" },
+            { header: "REST", key: "rest" },
+            { header: "GraphQL", key: "graphql" },
+          ]}
+          rows={[
+            {
+              item: "エンドポイント",
+              rest: "複数（/users, /posts など）",
+              graphql: "通常1つ（/graphql）",
+            },
+            {
+              item: "メソッド",
+              rest: "GET/POST/PUT/DELETE/PATCH",
+              graphql: "POST/GET（ほぼPOST）",
+            },
+            {
+              item: "リクエスト構造",
+              rest: "ヘッダー/ボディ/クエリパラメータ",
+              graphql: "query/variables/operationName",
+            },
+            {
+              item: "レスポンス構造",
+              rest: "任意（JSON, XML, etc.）",
+              graphql: "{ data, errors }",
+            },
+            {
+              item: "型の定義",
+              rest: "サーバー/ドキュメントで任意",
+              graphql: "スキーマで厳密に定義",
+            },
+            {
+              item: "ユーザーの自由度",
+              rest: "エンドポイント設計・型設計",
+              graphql: "スキーマ設計・リゾルバ実装",
+            },
+            {
+              item: "仕様で固定の部分",
+              rest: "メソッド・HTTP構造",
+              graphql: "クエリ構文・スキーマ言語・レスポンス形式",
+            },
+          ]}
+        />
+      </Paper>
+
+      <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
+        GraphQLでユーザーが設計できる部分
+      </Typography>
       <BulletPoints
         items={[
-          "<strong>API仕様の定義</strong>: 「どんなデータが取得可能か」を宣言",
-          "<strong>クエリのバリデーション</strong>: 送信されたクエリがスキーマに適合するかチェック",
-          "<strong>型安全性の保証</strong>: 実行時エラーを事前に防ぐ",
-          "<strong>リゾルバとの紐付け</strong>: 各フィールドに対応するリゾルバ関数を特定",
-          "<strong>ドキュメント自動生成</strong>: スキーマから自動的にAPIドキュメントを生成",
+          "スキーマ設計（型・クエリ・ミューテーション・サブスクリプションの定義）",
+          "各リゾルバの実装（データ取得・計算・認証など）",
+          "認証・認可の仕組み（contextやリゾルバ内で設計）",
+          "カスタムスカラーやディレクティブの追加",
+          "エラー処理やレスポンスのカスタマイズ",
         ]}
       />
 
-      <Alert severity="info" sx={{ mt: 2, mb: 3 }}>
-        <AlertTitle>なぜスキーマが重要なのか？</AlertTitle>
-        RESTでは「何のデータが返ってくるか」はエンドポイントごとに異なり、
-        ドキュメントを見ないと分からないことが多いです。
-        GraphQLでは、スキーマがすべてのデータ構造を定義するため、
-        開発者は一箇所を見るだけで全体を把握できます。
-      </Alert>
+      <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
+        GraphQL仕様で固定されている部分
+      </Typography>
+      <BulletPoints
+        items={[
+          "スキーマ言語（SDL）の構文やキーワード（type, query, mutation, input, scalar等）",
+          "クエリの構文（フィールドのネスト、引数の指定方法など）",
+          "リクエスト方法（/graphqlエンドポイント、query/variables/operationNameのJSON構造）",
+          "レスポンス形式（{ data, errors } で返す）",
+          "クエリのパース・バリデーション・実行フロー（GraphQLエンジンが自動で処理）",
+        ]}
+      />
+
+      <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
+        図解：ユーザー設計領域とGraphQL仕様領域
+      </Typography>
+      <Box sx={{ my: 2 }}>
+        {/* Mermaid図のイメージをテキストで説明 */}
+        <Typography variant="body2" color="text.secondary">
+          下図は、GraphQLの処理フローにおいて「どこがユーザーの設計領域か」「どこがGraphQL仕様で固定されているか」を示しています。
+        </Typography>
+        <Box sx={{ p: 2, bgcolor: "grey.100", borderRadius: 2, mt: 1 }}>
+          <pre style={{ fontSize: "0.9em", lineHeight: 1.5 }}>
+            {`flowchart TD
+  subgraph クライアント
+    Q[GraphQLクエリ]
+  end
+  subgraph サーバー
+    direction TB
+    S[GraphQLスキーマ\n(ユーザーが設計)]
+    R[リゾルバ実装\n(ユーザーが実装)]
+    E[GraphQLエンジン\n(仕様で固定)]
+  end
+  Q-->|HTTPリクエスト|E
+  E-->|スキーマ参照|S
+  E-->|リゾルバ呼び出し|R
+  R-->|データ取得/計算|E
+  E-->|HTTPレスポンス|Q
+`}
+          </pre>
+        </Box>
+        <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+          ※「スキーマ設計」「リゾルバ実装」がユーザーの設計領域、「GraphQLエンジン」が仕様で固定されている部分です。
+        </Typography>
+      </Box>
+
+      <Typography variant="body1" paragraph>
+        このように、GraphQLでは「スキーマ」と「リゾルバ」がユーザーの設計・実装領域であり、クエリの解析や実行フローなどはGraphQL仕様で固定されています。
+      </Typography>
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
-        2. スキーマとタイプシステム
+        4. スキーマとタイプシステム
       </Typography>
 
       <Typography variant="body1" paragraph>
