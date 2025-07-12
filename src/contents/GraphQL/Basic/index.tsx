@@ -4,6 +4,7 @@ import BulletPoints from "@/components/parts/BulletPoints";
 import CodeBlock from "@/components/parts/CodeBlock";
 import Link from "@/components/parts/Link";
 import Table from "@/components/parts/Table";
+import Mermaid from "@/components/parts/Mermaid";
 
 const GraphQLBasicContent: React.FC = () => {
   const restVsGraphQLData = [
@@ -153,6 +154,24 @@ const resolvers = {
     "3. 実行（Execute）- リゾルバ関数を順次実行してデータを取得",
     "4. レスポンス構築 - 取得したデータをクエリの形に合わせて整形",
   ];
+
+  const diagram = `
+  flowchart TD
+  subgraph クライアント
+    Q[GraphQLクエリ]
+  end
+  subgraph サーバー
+    direction TB
+    S[GraphQLスキーマ（ユーザーが設計）]
+    R[リゾルバ実装（ユーザーが実装）]
+    E[GraphQLエンジン（仕様で固定）]
+  end
+  Q-->|HTTPリクエスト|E
+  E-->|スキーマ参照|S
+  E-->|リゾルバ呼び出し|R
+  R-->|データ取得/計算|E
+  E-->|HTTPレスポンス|Q
+  `;
 
   return (
     <Box>
@@ -385,24 +404,7 @@ const resolvers = {
           下図はGraphQLの処理フローにおいてどこがユーザーの設計領域か，どこがGraphQL仕様で固定されているかを示す
         </Typography>
         <Box sx={{ p: 2, bgcolor: "grey.100", borderRadius: 2, mt: 1 }}>
-          <pre style={{ fontSize: "0.9em", lineHeight: 1.5 }}>
-            {`flowchart TD
-  subgraph クライアント
-    Q[GraphQLクエリ]
-  end
-  subgraph サーバー
-    direction TB
-    S[GraphQLスキーマ\n(ユーザーが設計)]
-    R[リゾルバ実装\n(ユーザーが実装)]
-    E[GraphQLエンジン\n(仕様で固定)]
-  end
-  Q-->|HTTPリクエスト|E
-  E-->|スキーマ参照|S
-  E-->|リゾルバ呼び出し|R
-  R-->|データ取得/計算|E
-  E-->|HTTPレスポンス|Q
-`}
-          </pre>
+          <Mermaid code={diagram} />
         </Box>
         <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
           スキーマ設計・リゾルバ実装がユーザーの設計領域，GraphQLエンジンが仕様で固定されている部分
