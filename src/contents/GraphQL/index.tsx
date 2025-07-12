@@ -53,10 +53,6 @@ const GraphQLContent: React.FC = () => {
       <BulletPoints items={businessBenefits} />
 
       <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
-        学習フロー
-      </Typography>
-
-      <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4 }}>
         必要な前提知識
       </Typography>
 
