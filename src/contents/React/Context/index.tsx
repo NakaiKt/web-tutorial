@@ -264,6 +264,46 @@ export const ContextContent: React.FC = () => {
     );
   };`;
 
+  const hooksSampleCode = `
+  // カスタムフックの例
+  const useUserData = () => {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(false);
+    
+    const fetchUser = async (id: string) => {
+      setLoading(true);
+      // API呼び出し処理
+      setLoading(false);
+    };
+    
+    const updateUser = (userData: UserData) => {
+      setUser(userData);
+    };
+    
+    return { user, loading, fetchUser, updateUser };
+  };
+
+  // これをContextに移行
+  interface UserContextType {
+    user: User | null;
+    loading: boolean;
+    fetchUser: (id: string) => Promise<void>;
+    updateUser: (userData: UserData) => void;
+  }
+
+  const UserContext = createContext<UserContextType | undefined>(undefined);
+
+  export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const userHookData = useUserData(); // 既存のhooksをそのまま使用
+    
+    return (
+      <UserContext.Provider value={userHookData}>
+        {children}
+      </UserContext.Provider>
+    );
+  };
+  `;
+
   const useReducerContextCode = `
   // useReducer + Context パターン
   import { createContext, useContext, useReducer } from 'react';
@@ -520,6 +560,13 @@ export const ContextContent: React.FC = () => {
         ]}
       />{" "}
       <CodeBlock code={basicContextCode} language="typescript" />
+      <Typography variant="h3" id="hooks-sample">
+        Contextに移行するカスタムフックの例
+      </Typography>
+      <Typography>
+        カスタムフックと組み合わせて，そのhooksを使いまわしたい場合
+      </Typography>
+      <CodeBlock code={hooksSampleCode} language="typescript" />
       <Typography variant="h3" id="context-data-flow">
         Contextのデータフローと責任分離
       </Typography>
