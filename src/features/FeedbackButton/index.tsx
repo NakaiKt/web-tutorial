@@ -6,6 +6,7 @@ type FeedbackButtonProps = {
   tooltipText?: string;
 };
 
+// TODO: claudeをつなぐボタンにする
 const FeedbackButton = ({
   url = "https://waiting-school-0b9.notion.site/1ffc77a989988099bfe7fe400ccd2997?pvs=105",
   tooltipText = "要望を送信",

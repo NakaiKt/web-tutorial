@@ -216,177 +216,181 @@ export const ContextContent: React.FC = () => {
   ];
 
   // コード例の定義
-  const basicContextCode = `// 1. Context の作成
-import { createContext, useContext, useState } from 'react';
+  const basicContextCode = `
+  // 1. Context の作成
+  import { createContext, useContext, useState } from 'react';
 
-interface ThemeContextType {
-  theme: 'light' | 'dark';
-  toggleTheme: () => void;
-}
-
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-
-// 2. Custom Hook の作成
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within ThemeProvider');
+  interface ThemeContextType {
+    theme: 'light' | 'dark';
+    toggleTheme: () => void;
   }
-  return context;
-};
 
-// 3. Provider コンポーネント
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+
+  // 2. Custom Hook の作成
+  export const useTheme = () => {
+    const context = useContext(ThemeContext);
+    if (!context) {
+      throw new Error('useTheme must be used within ThemeProvider');
+    }
+    return context;
   };
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
-};
+  // 3. Provider コンポーネント
+  export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const [theme, setTheme] = useState<'light' | 'dark'>('light');
+    
+    const toggleTheme = () => {
+      setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    };
 
-// 4. 使用例
-const Header: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
-  
-  return (
-    <header style={{ background: theme === 'light' ? '#fff' : '#333' }}>
-      <button onClick={toggleTheme}>
-        {theme === 'light' ? 'ダーク' : 'ライト'}モードに切り替え
-      </button>
-    </header>
-  );
-};`;
+    return (
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        {children}
+      </ThemeContext.Provider>
+    );
+  };
 
-  const useReducerContextCode = `// useReducer + Context パターン
-import { createContext, useContext, useReducer } from 'react';
+  // 4. 使用例
+  const Header: React.FC = () => {
+    const { theme, toggleTheme } = useTheme();
+    
+    return (
+      <header style={{ background: theme === 'light' ? '#fff' : '#333' }}>
+        <button onClick={toggleTheme}>
+          {theme === 'light' ? 'ダーク' : 'ライト'}モードに切り替え
+        </button>
+      </header>
+    );
+  };`;
 
-// State と Action の型定義
-interface TodoState {
-  todos: Todo[];
-  filter: 'all' | 'active' | 'completed';
-}
+  const useReducerContextCode = `
+  // useReducer + Context パターン
+  import { createContext, useContext, useReducer } from 'react';
 
-type TodoAction = 
-  | { type: 'ADD_TODO'; payload: string }
-  | { type: 'TOGGLE_TODO'; payload: number }
-  | { type: 'DELETE_TODO'; payload: number }
-  | { type: 'SET_FILTER'; payload: 'all' | 'active' | 'completed' };
-
-// Reducer 関数
-const todoReducer = (state: TodoState, action: TodoAction): TodoState => {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return {
-        ...state,
-        todos: [...state.todos, { id: Date.now(), text: action.payload, completed: false }]
-      };
-    case 'TOGGLE_TODO':
-      return {
-        ...state,
-        todos: state.todos.map(todo =>
-          todo.id === action.payload ? { ...todo, completed: !todo.completed } : todo
-        )
-      };
-    case 'DELETE_TODO':
-      return {
-        ...state,
-        todos: state.todos.filter(todo => todo.id !== action.payload)
-      };
-    case 'SET_FILTER':
-      return { ...state, filter: action.payload };
-    default:
-      return state;
+  // State と Action の型定義
+  interface TodoState {
+    todos: Todo[];
+    filter: 'all' | 'active' | 'completed';
   }
-};
 
-// Context の作成
-interface TodoContextType {
-  state: TodoState;
-  dispatch: React.Dispatch<TodoAction>;
-}
+  type TodoAction = 
+    | { type: 'ADD_TODO'; payload: string }
+    | { type: 'TOGGLE_TODO'; payload: number }
+    | { type: 'DELETE_TODO'; payload: number }
+    | { type: 'SET_FILTER'; payload: 'all' | 'active' | 'completed' };
 
-const TodoContext = createContext<TodoContextType | undefined>(undefined);
+  // Reducer 関数
+  const todoReducer = (state: TodoState, action: TodoAction): TodoState => {
+    switch (action.type) {
+      case 'ADD_TODO':
+        return {
+          ...state,
+          todos: [...state.todos, { id: Date.now(), text: action.payload, completed: false }]
+        };
+      case 'TOGGLE_TODO':
+        return {
+          ...state,
+          todos: state.todos.map(todo =>
+            todo.id === action.payload ? { ...todo, completed: !todo.completed } : todo
+          )
+        };
+      case 'DELETE_TODO':
+        return {
+          ...state,
+          todos: state.todos.filter(todo => todo.id !== action.payload)
+        };
+      case 'SET_FILTER':
+        return { ...state, filter: action.payload };
+      default:
+        return state;
+    }
+  };
 
-// Custom Hook
-export const useTodo = () => {
-  const context = useContext(TodoContext);
-  if (!context) {
-    throw new Error('useTodo must be used within TodoProvider');
+  // Context の作成
+  interface TodoContextType {
+    state: TodoState;
+    dispatch: React.Dispatch<TodoAction>;
   }
-  return context;
-};
 
-// Provider
-export const TodoProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [state, dispatch] = useReducer(todoReducer, {
-    todos: [],
-    filter: 'all'
-  });
+  const TodoContext = createContext<TodoContextType | undefined>(undefined);
 
-  return (
-    <TodoContext.Provider value={{ state, dispatch }}>
-      {children}
-    </TodoContext.Provider>
-  );
-};`;
+  // Custom Hook
+  export const useTodo = () => {
+    const context = useContext(TodoContext);
+    if (!context) {
+      throw new Error('useTodo must be used within TodoProvider');
+    }
+    return context;
+  };
 
-  const performanceOptimizationCode = `// パフォーマンス最適化の例
-import { createContext, useContext, useState, useMemo, useCallback } from 'react';
+  // Provider
+  export const TodoProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const [state, dispatch] = useReducer(todoReducer, {
+      todos: [],
+      filter: 'all'
+    });
 
-interface OptimizedContextType {
-  data: string[];
-  addData: (item: string) => void;
-  removeData: (index: number) => void;
-}
+    return (
+      <TodoContext.Provider value={{ state, dispatch }}>
+        {children}
+      </TodoContext.Provider>
+    );
+  };`;
 
-const OptimizedContext = createContext<OptimizedContextType | undefined>(undefined);
+  const performanceOptimizationCode = `
+  // パフォーマンス最適化の例
+  import { createContext, useContext, useState, useMemo, useCallback } from 'react';
 
-export const OptimizedProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [data, setData] = useState<string[]>([]);
+  interface OptimizedContextType {
+    data: string[];
+    addData: (item: string) => void;
+    removeData: (index: number) => void;
+  }
 
-  // useCallback で関数をメモ化
-  const addData = useCallback((item: string) => {
-    setData(prev => [...prev, item]);
-  }, []);
+  const OptimizedContext = createContext<OptimizedContextType | undefined>(undefined);
 
-  const removeData = useCallback((index: number) => {
-    setData(prev => prev.filter((_, i) => i !== index));
-  }, []);
+  export const OptimizedProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const [data, setData] = useState<string[]>([]);
 
-  // useMemo で Context の値をメモ化
-  const contextValue = useMemo(() => ({
-    data,
-    addData,
-    removeData
-  }), [data, addData, removeData]);
+    // useCallback で関数をメモ化
+    const addData = useCallback((item: string) => {
+      setData(prev => [...prev, item]);
+    }, []);
 
-  return (
-    <OptimizedContext.Provider value={contextValue}>
-      {children}
-    </OptimizedContext.Provider>
-  );
-};
+    const removeData = useCallback((index: number) => {
+      setData(prev => prev.filter((_, i) => i !== index));
+    }, []);
 
-// Context を分割する例
-// ❌ 悪い例：すべてを1つのContextに
-interface BadContextType {
-  user: User;
-  theme: Theme;
-  notifications: Notification[];
-  settings: Settings;
-  // これらすべてが変更されると全コンポーネントが再レンダリング
-}
+    // useMemo で Context の値をメモ化
+    const contextValue = useMemo(() => ({
+      data,
+      addData,
+      removeData
+    }), [data, addData, removeData]);
 
-// ✅ 良い例：責任ごとに分割
-interface UserContextType { user: User; updateUser: (user: User) => void; }
-interface ThemeContextType { theme: Theme; toggleTheme: () => void; }
-interface NotificationContextType { notifications: Notification[]; addNotification: (n: Notification) => void; }`;
+    return (
+      <OptimizedContext.Provider value={contextValue}>
+        {children}
+      </OptimizedContext.Provider>
+    );
+  };
+
+  // Context を分割する例
+  // ❌ 悪い例：すべてを1つのContextに
+  interface BadContextType {
+    user: User;
+    theme: Theme;
+    notifications: Notification[];
+    settings: Settings;
+    // これらすべてが変更されると全コンポーネントが再レンダリング
+  }
+
+  // ✅ 良い例：責任ごとに分割
+  interface UserContextType { user: User; updateUser: (user: User) => void; }
+  interface ThemeContextType { theme: Theme; toggleTheme: () => void; }
+  interface NotificationContextType { notifications: Notification[]; addNotification: (n: Notification) => void; }`;
+
   const contextComparisonData = {
     columns: [
       { header: "特徴", key: "feature" },
@@ -442,59 +446,59 @@ interface NotificationContextType { notifications: Notification[]; addNotificati
 
   return (
     <div>
-      <Typography variant="h1" gutterBottom>
-        React Context API
-      </Typography>
       <Typography>
         React Context
-        APIは、コンポーネントツリー全体で状態を共有するためのReactの仕組みです。
+        APIは、コンポーネントツリー全体で状態を共有するためのReactの仕組み
+        <br />
         Props
-        Drilling（プロパティのバケツリレー）を解決し、グローバル状態管理を簡潔に実装できます。
+        Drilling（プロパティのバケツリレー）を解決し、グローバル状態管理を簡潔に実装できる
       </Typography>
       <Alert severity="info" sx={{ mt: 2 }}>
         <AlertTitle>Context APIの位置づけ</AlertTitle>
-        Context
-        APIは「React標準の状態共有機能」です。外部ライブラリ（Redux、Zustand等）の代替として、
-        中小規模のアプリケーションでは十分な機能を提供します。
-        ただし、大規模なアプリケーションや複雑な状態管理が必要な場合は、専用ライブラリの検討も重要です。
+        Context APIは「React標準の状態共有機能」
+        <br />
+        外部ライブラリ（Redux、Zustand等）の代替として、中小規模のアプリケーションでは十分な機能を提供する
+        <br />
+        ただし、大規模なアプリケーションや複雑な状態管理が必要な場合は、専用ライブラリの検討も重要
       </Alert>
       <Typography variant="h2" id="props-drilling-problem">
         Props Drillingの問題
       </Typography>
       <Typography>
-        Context APIが解決する主要な問題は「Props Drilling」です。
-        これは、深い階層の子コンポーネントに値を渡すために、
-        中間の複数のコンポーネントを経由してpropsを渡し続ける現象です。
+        Context APIが解決する主要な問題は「Props Drilling」
+        <br />
+        これは、深い階層の子コンポーネントに値を渡すために、中間の複数のコンポーネントを経由してpropsを渡し続ける現象
       </Typography>
       <BulletPoints items={propsDrillingProblems} />
       <CodeBlock
-        code={`// ❌ Props Drilling の例
-const App = () => {
-  const [user, setUser] = useState(null);
-  return <Layout user={user} setUser={setUser} />;
-};
+        code={`
+  // ❌ Props Drilling の例
+  const App = () => {
+    const [user, setUser] = useState(null);
+    return <Layout user={user} setUser={setUser} />;
+  };
 
-const Layout = ({ user, setUser }) => (
-  <div>
-    <Header user={user} setUser={setUser} />
-    <Main user={user} />
-  </div>
-);
+  const Layout = ({ user, setUser }) => (
+    <div>
+      <Header user={user} setUser={setUser} />
+      <Main user={user} />
+    </div>
+  );
 
-const Header = ({ user, setUser }) => (
-  <header>
-    <UserMenu user={user} setUser={setUser} />
-  </header>
-);
+  const Header = ({ user, setUser }) => (
+    <header>
+      <UserMenu user={user} setUser={setUser} />
+    </header>
+  );
 
-const UserMenu = ({ user, setUser }) => (
-  <div>
-    {user ? \`こんにちは、\${user.name}さん\` : 'ログインしてください'}
-    <button onClick={() => setUser(null)}>ログアウト</button>
-  </div>
-);
+  const UserMenu = ({ user, setUser }) => (
+    <div>
+      {user ? \`こんにちは、\${user.name}さん\` : 'ログインしてください'}
+      <button onClick={() => setUser(null)}>ログアウト</button>
+    </div>
+  );
 
-// Layout、Header は user を使わないが、propsとして受け取る必要がある`}
+  // Layout、Header は user を使わないが、propsとして受け取る必要がある`}
         language="typescript"
       />
       <Typography variant="h2" id="context-benefits">
@@ -505,7 +509,7 @@ const UserMenu = ({ user, setUser }) => (
         基本的な実装
       </Typography>
       <Typography>
-        Context APIの基本的な使い方は、以下の4つのステップで構成されます：
+        Context APIの基本的な使い方は、以下の4つのステップで構成される：
       </Typography>
       <BulletPoints
         items={[
@@ -521,72 +525,78 @@ const UserMenu = ({ user, setUser }) => (
       </Typography>
       <Typography>
         Context APIを理解する上で重要なのは、
-        <strong>どこで何を定義するか</strong>という責任の分離です。
-        上記のコード例で注目すべきポイントを詳しく見てみましょう。
+        <strong>どこで何を定義するか</strong>という責任の分離
+        <br />
+        上記のコード例で注目すべきポイントを詳しく
       </Typography>
       <Typography sx={{ mt: 2 }}>
         <code>toggleTheme</code>のような状態変更関数は、
-        <strong>必ずProviderコンポーネント内で定義</strong>する必要があります。
-        これは、関数が状態（<code>theme</code>）にアクセスして変更するためです。
+        <strong>必ずProviderコンポーネント内で定義</strong>する必要がある
+        <br />
+        これは、関数が状態（<code>theme</code>）にアクセスして変更するため
+        <br />
         Custom Hook（<code>useTheme</code>
-        ）の役割は、Contextから値を取り出すことと型安全性の提供に限定されます。
+        ）の役割は、Contextから値を取り出すことと型安全性の提供に限定される
       </Typography>
       <Alert severity="info" sx={{ mt: 2, mb: 2 }}>
         <AlertTitle>重要なポイント</AlertTitle>
         <code>useContext</code>で取得できるのは、Provider の <code>value</code>{" "}
-        プロパティで渡したオブジェクトの中身<strong>だけ</strong>です。
+        プロパティで渡したオブジェクトの中身<strong>だけ</strong>
+        <br />
         <code>value</code>
-        で渡していない値や関数は、子コンポーネントから直接アクセスできません。
+        で渡していない値や関数は、子コンポーネントから直接アクセスできない
+        <br />
         これがContext
-        APIの基本的な制約であり、データフローを明確にする重要な仕組みです。
+        APIの基本的な制約であり、データフローを明確にする重要な仕組み
       </Alert>
       <Typography>
-        以下のコード例で、Contextのデータフローと各コンポーネントの責任を確認してみましょう：
+        以下のコード例で、Contextのデータフローと各コンポーネントの責任を確認
       </Typography>
       <CodeBlock
-        code={`// 1. Provider で状態と関数を定義
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  
-  // ✅ 状態変更関数はProviderで定義（状態と同じスコープにある必要がある）
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+        code={`
+  // 1. Provider で状態と関数を定義
+  export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const [theme, setTheme] = useState<'light' | 'dark'>('light');
+    
+    // ✅ 状態変更関数はProviderで定義（状態と同じスコープにある必要がある）
+    const toggleTheme = () => {
+      setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    };
+
+    // ✅ valueで渡したもののみが子コンポーネントで利用可能
+    return (
+      <ThemeContext.Provider value={{ 
+        theme,           // 状態値
+        toggleTheme      // 状態変更関数
+      }}>
+        {children}
+      </ThemeContext.Provider>
+    );
   };
 
-  // ✅ valueで渡したもののみが子コンポーネントで利用可能
-  return (
-    <ThemeContext.Provider value={{ 
-      theme,           // 状態値
-      toggleTheme      // 状態変更関数
-    }}>
-      {children}
-    </ThemeContext.Provider>
-  );
-};
+  // 2. Custom Hook：値の取り出しと型安全性を提供
+  export const useTheme = () => {
+    const context = useContext(ThemeContext);
+    if (!context) {
+      throw new Error('useTheme must be used within ThemeProvider');
+    }
+    // ✅ Providerのvalueで渡されたオブジェクトをそのまま返す
+    return context; // { theme, toggleTheme }
+  };
 
-// 2. Custom Hook：値の取り出しと型安全性を提供
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within ThemeProvider');
-  }
-  // ✅ Providerのvalueで渡されたオブジェクトをそのまま返す
-  return context; // { theme, toggleTheme }
-};
-
-// 3. 子コンポーネント：Contextの値を消費
-const Header: React.FC = () => {
-  // ✅ Providerのvalueで渡された値を分割代入で取得
-  const { theme, toggleTheme } = useTheme();
-  
-  return (
-    <header>
-      <button onClick={toggleTheme}>  {/* Providerで定義された関数を実行 */}
-        {theme === 'light' ? 'ダーク' : 'ライト'}モードに切り替え
-      </button>
-    </header>
-  );
-};`}
+  // 3. 子コンポーネント：Contextの値を消費
+  const Header: React.FC = () => {
+    // ✅ Providerのvalueで渡された値を分割代入で取得
+    const { theme, toggleTheme } = useTheme();
+    
+    return (
+      <header>
+        <button onClick={toggleTheme}>  {/* Providerで定義された関数を実行 */}
+          {theme === 'light' ? 'ダーク' : 'ライト'}モードに切り替え
+        </button>
+      </header>
+    );
+  };`}
         language="typescript"
       />
       <Typography variant="h3" id="context-scope">
@@ -594,8 +604,7 @@ const Header: React.FC = () => {
       </Typography>
       <Typography>
         Context
-        APIには明確なスコープと制限があります。これらの制限を理解することで、
-        より適切な設計ができるようになります：
+        APIには明確なスコープと制限がある。これらの制限を理解することで、より適切な設計ができるようになる：
       </Typography>
       <BulletPoints
         items={[
@@ -606,36 +615,37 @@ const Header: React.FC = () => {
         ]}
       />
       <Typography sx={{ mt: 2 }}>
-        以下は、よくある間違いと正しい実装の対比です：
+        以下は、よくある間違いと正しい実装の対比：
       </Typography>
       <CodeBlock
-        code={`// ❌ 間違った実装例
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within ThemeProvider');
-  }
-  
-  // ❌ Custom Hook内で新しい関数を定義するのは不適切
-  // この関数はProviderの状態にアクセスできないため機能しない
-  const toggleTheme = () => {
-    console.log('これは動作しません');
+        code={`
+  // ❌ 間違った実装例
+  export const useTheme = () => {
+    const context = useContext(ThemeContext);
+    if (!context) {
+      throw new Error('useTheme must be used within ThemeProvider');
+    }
+    
+    // ❌ Custom Hook内で新しい関数を定義するのは不適切
+    // この関数はProviderの状態にアクセスできないため機能しない
+    const toggleTheme = () => {
+      console.log('これは動作しません');
+    };
+    
+    return { ...context, toggleTheme }; // ❌ 意味のない関数を追加
   };
-  
-  return { ...context, toggleTheme }; // ❌ 意味のない関数を追加
-};
 
-// ✅ 正しい実装例
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within ThemeProvider');
-  }
-  
-  // ✅ Providerから受け取った値をそのまま返す
-  // 余計な処理や値の追加は行わない
-  return context;
-};`}
+  // ✅ 正しい実装例
+  export const useTheme = () => {
+    const context = useContext(ThemeContext);
+    if (!context) {
+      throw new Error('useTheme must be used within ThemeProvider');
+    }
+    
+    // ✅ Providerから受け取った値をそのまま返す
+    // 余計な処理や値の追加は行わない
+    return context;
+  };`}
         language="typescript"
       />
       <Typography variant="h3" id="demo-basic">
@@ -651,8 +661,9 @@ export const useTheme = () => {
         useReducer + Context パターン
       </Typography>
       <Typography>
-        複雑な状態管理には、useReducerとContextを組み合わせたパターンが効果的です。
-        このパターンはReduxライクな状態管理をReact標準機能だけで実現できます。
+        複雑な状態管理には、useReducerとContextを組み合わせたパターンが効果的
+        <br />
+        このパターンはReduxライクな状態管理をReact標準機能だけで実現できる
       </Typography>
       <CodeBlock code={useReducerContextCode} language="typescript" />
       <CountContextProvider>
@@ -663,8 +674,9 @@ export const useTheme = () => {
       </Typography>
       <Alert severity="warning" sx={{ mb: 2 }}>
         <AlertTitle>Context使用時の注意点</AlertTitle>
-        Contextの値が変更されると、useContextを使用しているすべてのコンポーネントが再レンダリングされます。
-        適切な最適化を行わないと、パフォーマンスの問題が発生する可能性があります。
+        Contextの値が変更されると、useContextを使用しているすべてのコンポーネントが再レンダリングされる
+        <br />
+        適切な最適化を行わないと、パフォーマンスの問題が発生する可能性がある
       </Alert>
       <BulletPoints items={performanceConsiderations} />
       <CodeBlock code={performanceOptimizationCode} language="typescript" />
@@ -695,21 +707,22 @@ export const useTheme = () => {
       </Typography>
       <Typography>
         このサイトでも実際に使用している<code>ThemeContext</code>を例に、
-        実際のアプリケーションでのContext活用方法を見てみましょう。
+        実際のアプリケーションでのContext活用方法を見てみる
       </Typography>{" "}
       <Link
         text="ThemeContext.tsx のソースコード"
         url="https://github.com/your-repo/src/contexts/ThemeContext.tsx"
       />
       <Typography sx={{ mt: 2 }}>
-        右上のテーマ切り替えボタンがContext APIを使用して実装されています。
-        アプリケーション全体でテーマ状態を共有し、任意のコンポーネントからテーマの変更が可能です。
+        右上のテーマ切り替えボタンがContext APIを使用して実装されている
+        <br />
+        アプリケーション全体でテーマ状態を共有し、任意のコンポーネントからテーマの変更が可能
       </Typography>
       <Typography variant="h2" id="conclusion">
         まとめ
       </Typography>
       <Typography>
-        React Context APIは、適切に使用することで以下のメリットを提供します：
+        React Context APIは、適切に使用することで以下のメリットを提供する：
       </Typography>
       <BulletPoints
         items={[
@@ -720,12 +733,6 @@ export const useTheme = () => {
           "Custom Hookと組み合わせた使いやすいAPI設計",
         ]}
       />
-      <Alert severity="success" sx={{ mt: 2 }}>
-        <AlertTitle>学習のポイント</AlertTitle>
-        Context
-        APIは段階的に学習することをお勧めします。まずは基本的なuseStateの代替として使い始め、
-        慣れてきたらuseReducerとの組み合わせやパフォーマンス最適化に取り組んでください。
-      </Alert>
     </div>
   );
 };
